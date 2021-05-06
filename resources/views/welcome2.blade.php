@@ -34,7 +34,7 @@
                         <img src="{{asset('/img/logo-bontang.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
                     </div>
                     <div class="col-8">
-                        <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM </h1>
+                        <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM KOTA BONTANG</h1>
                         <p class="lead">Whistleblowing System adalah Aplikasi penyampaian / pengaduan dugaan
                              tindak pidana yang telah terjadi, sedang terjadi, atau akan terjadi
                               yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan
@@ -52,16 +52,17 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kriteria <strong class="biru">Pengaduan</strong></h5><br>
                                 <p class="card-text">Pangaduan Anda akan mudah ditindaklanjuti apabila memenuhi unsur sebagai<a href="#" class="card-link" data-toggle="modal" data-target="#kriteria"> berikut :</a></p>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
+                                <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#kriteria"><i class="fas fa-arrow-right"></i></a>
+                                </div>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="card bayang2" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">Kirim <strong class="hijau">Pengaduan</strong></h5><br>
-                                <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik maupun non-elektronik. </p>
-                                <a href="{{url('/register')}}" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                                <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik maupun non-elektronik.</p>
+                                 <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
+                                
                             </div>
                         </div>
                     </div>
@@ -70,7 +71,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kerahasiaan <strong class="kuning">Pelapor</strong></h5><br>
                                 <p class="card-text">Inspektorat merahasiakan identitas pribadi Anda sebagai pelapor(Whistleblower).</p>
-                                <a href="#" class="card-link"><i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +84,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="kriteriaLabel">Modal title</h5>
+                    <h5 class="modal-title" id="kriteriaLabel">Kriteria <strong class="biru">Pengaduan</strong></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -112,8 +113,7 @@
                     </ol>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
                 </div>
                 </div>
             </div>
