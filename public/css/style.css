@@ -9,3 +9,30 @@
     color: #dc3545;
     display: block;
 }
+strong.biru{
+    color: rgb(81, 131, 238);
+}
+strong.biru:hover{
+    color: blue;
+}
+strong.hijau{
+    color: #78d013;
+}
+strong.hijau:hover{
+    color: #1eff00;
+}
+strong.kuning{
+    color: #f7f01d;
+}
+strong.kuning:hover{
+    color: #fcff6a;
+}
+.bayang1:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 47, 255, 0.356), 0 6px 20px 0 rgba(22, 13, 155, 0.534);
+}
+.bayang2:hover{
+    box-shadow: 0 4px 8px 0 #09ff005b, 0 6px 20px 0 #199b0d88;
+}
+.bayang3:hover{
+    box-shadow: 0 4px 8px 0 rgba(255, 251, 0, 0.356), 0 6px 20px 0 rgba(146, 155, 13, 0.534);
+}
