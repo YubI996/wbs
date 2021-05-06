@@ -24,3 +24,16 @@ Auth::routes();
 Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
+
+
+Route::resource('users', App\Http\Controllers\userController::class);
+
+Route::resource('jenisAduans', App\Http\Controllers\JenisAduanController::class);
+
+Route::resource('jenisAduans', App\Http\Controllers\JenisAduanController::class);
+
+Route::resource('jenisAduans', App\Http\Controllers\JenisAduanController::class);
+
+Route::resource('aduans', App\Http\Controllers\AduanController::class);
+
+Route::resource('roles', App\Http\Controllers\roleController::class);

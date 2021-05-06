@@ -17,3 +17,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::resource('users', App\Http\Controllers\API\userAPIController::class);
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('jenis_aduans', App\Http\Controllers\API\JenisAduanAPIController::class);
+
+Route::resource('aduans', App\Http\Controllers\API\AduanAPIController::class);
+
+Route::resource('roles', App\Http\Controllers\API\roleAPIController::class);
