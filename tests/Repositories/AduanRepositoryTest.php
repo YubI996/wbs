@@ -1,24 +1,24 @@
 <?php namespace Tests\Repositories;
 
-use App\Models\Aduan;
-use App\Repositories\AduanRepository;
+use App\Models\aduan;
+use App\Repositories\aduanRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Tests\ApiTestTrait;
 
-class AduanRepositoryTest extends TestCase
+class aduanRepositoryTest extends TestCase
 {
     use ApiTestTrait, DatabaseTransactions;
 
     /**
-     * @var AduanRepository
+     * @var aduanRepository
      */
     protected $aduanRepo;
 
     public function setUp() : void
     {
         parent::setUp();
-        $this->aduanRepo = \App::make(AduanRepository::class);
+        $this->aduanRepo = \App::make(aduanRepository::class);
     }
 
     /**
@@ -26,15 +26,15 @@ class AduanRepositoryTest extends TestCase
      */
     public function test_create_aduan()
     {
-        $aduan = Aduan::factory()->make()->toArray();
+        $aduan = aduan::factory()->make()->toArray();
 
-        $createdAduan = $this->aduanRepo->create($aduan);
+        $createdaduan = $this->aduanRepo->create($aduan);
 
-        $createdAduan = $createdAduan->toArray();
-        $this->assertArrayHasKey('id', $createdAduan);
-        $this->assertNotNull($createdAduan['id'], 'Created Aduan must have id specified');
-        $this->assertNotNull(Aduan::find($createdAduan['id']), 'Aduan with given id must be in DB');
-        $this->assertModelData($aduan, $createdAduan);
+        $createdaduan = $createdaduan->toArray();
+        $this->assertArrayHasKey('id', $createdaduan);
+        $this->assertNotNull($createdaduan['id'], 'Created aduan must have id specified');
+        $this->assertNotNull(aduan::find($createdaduan['id']), 'aduan with given id must be in DB');
+        $this->assertModelData($aduan, $createdaduan);
     }
 
     /**
@@ -42,12 +42,12 @@ class AduanRepositoryTest extends TestCase
      */
     public function test_read_aduan()
     {
-        $aduan = Aduan::factory()->create();
+        $aduan = aduan::factory()->create();
 
-        $dbAduan = $this->aduanRepo->find($aduan->id);
+        $dbaduan = $this->aduanRepo->find($aduan->id);
 
-        $dbAduan = $dbAduan->toArray();
-        $this->assertModelData($aduan->toArray(), $dbAduan);
+        $dbaduan = $dbaduan->toArray();
+        $this->assertModelData($aduan->toArray(), $dbaduan);
     }
 
     /**
@@ -55,14 +55,14 @@ class AduanRepositoryTest extends TestCase
      */
     public function test_update_aduan()
     {
-        $aduan = Aduan::factory()->create();
-        $fakeAduan = Aduan::factory()->make()->toArray();
+        $aduan = aduan::factory()->create();
+        $fakeaduan = aduan::factory()->make()->toArray();
 
-        $updatedAduan = $this->aduanRepo->update($fakeAduan, $aduan->id);
+        $updatedaduan = $this->aduanRepo->update($fakeaduan, $aduan->id);
 
-        $this->assertModelData($fakeAduan, $updatedAduan->toArray());
-        $dbAduan = $this->aduanRepo->find($aduan->id);
-        $this->assertModelData($fakeAduan, $dbAduan->toArray());
+        $this->assertModelData($fakeaduan, $updatedaduan->toArray());
+        $dbaduan = $this->aduanRepo->find($aduan->id);
+        $this->assertModelData($fakeaduan, $dbaduan->toArray());
     }
 
     /**
@@ -70,11 +70,11 @@ class AduanRepositoryTest extends TestCase
      */
     public function test_delete_aduan()
     {
-        $aduan = Aduan::factory()->create();
+        $aduan = aduan::factory()->create();
 
         $resp = $this->aduanRepo->delete($aduan->id);
 
         $this->assertTrue($resp);
-        $this->assertNull(Aduan::find($aduan->id), 'Aduan should not exist in DB');
+        $this->assertNull(aduan::find($aduan->id), 'aduan should not exist in DB');
     }
 }

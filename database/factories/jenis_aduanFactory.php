@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\role;
+use App\Models\jenis_aduan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class roleFactory extends Factory
+class jenis_aduanFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = role::class;
+    protected $model = jenis_aduan::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class roleFactory extends Factory
     {
         return [
             'slug' => $this->faker->randomDigitNotNull,
-        'nama' => $this->faker->word,
+        'name' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];

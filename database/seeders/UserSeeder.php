@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'email' => 'sayidyubi28@gmail.com',
             'password' => Hash::make('password'),
             'nip' => '1234567890123456',
+            'role' => 3,
         ]);
     }
 }

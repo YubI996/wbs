@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace App\Http\Requests;
 
-use App\Models\aduan;
-use InfyOm\Generator\Request\APIRequest;
+use Illuminate\Foundation\Http\FormRequest;
+use App\Models\jenis_aduan;
 
-class CreateaduanAPIRequest extends APIRequest
+class Createjenis_aduanRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,6 +25,6 @@ class CreateaduanAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return aduan::$rules;
+        return jenis_aduan::$rules;
     }
 }

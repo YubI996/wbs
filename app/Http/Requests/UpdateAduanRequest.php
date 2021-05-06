@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Aduan;
+use App\Models\aduan;
 
-class UpdateAduanRequest extends FormRequest
+class UpdateaduanRequest extends FormRequest
 {
 
     /**
@@ -25,7 +25,7 @@ class UpdateAduanRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Aduan::$rules;
+        $rules = aduan::$rules;
         
         return $rules;
     }

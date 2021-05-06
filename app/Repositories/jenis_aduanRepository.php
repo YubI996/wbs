@@ -2,23 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\role;
+use App\Models\jenis_aduan;
 use App\Repositories\BaseRepository;
 
 /**
- * Class roleRepository
+ * Class jenis_aduanRepository
  * @package App\Repositories
- * @version May 6, 2021, 3:03 am UTC
+ * @version May 6, 2021, 3:02 am UTC
 */
 
-class roleRepository extends BaseRepository
+class jenis_aduanRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
         'slug',
-        'nama'
+        'name'
     ];
 
     /**
@@ -36,6 +36,6 @@ class roleRepository extends BaseRepository
      **/
     public function model()
     {
-        return role::class;
+        return jenis_aduan::class;
     }
 }

@@ -4,10 +4,58 @@
     <p>{{ $aduan->user_id }}</p>
 </div>
 
-<!-- Jenis Aduan Id Field -->
+<!-- Jenis Aduan Field -->
 <div class="col-sm-12">
-    {!! Form::label('jenis_aduan_id', 'Jenis Aduan Id:') !!}
-    <p>{{ $aduan->jenis_aduan_id }}</p>
+    {!! Form::label('jenis_aduan', 'Jenis Aduan:') !!}
+    <p>{{ $aduan->jenis_aduan }}</p>
+</div>
+
+<!-- File Bukti Field -->
+<div class="col-sm-12">
+    {!! Form::label('file_bukti', 'File Bukti:') !!}
+    <p>{{ $aduan->file_bukti }}</p>
+</div>
+
+<!-- Status Verifikasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
+    <p>{{ $aduan->status_verifikasi }}</p>
+</div>
+
+<!-- Catatan Verifikasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('catatan_verifikasi', 'Catatan Verifikasi:') !!}
+    <p>{{ $aduan->catatan_verifikasi }}</p>
+</div>
+
+<!-- File Verifikator Field -->
+<div class="col-sm-12">
+    {!! Form::label('file_verifikator', 'File Verifikator:') !!}
+    <p>{{ $aduan->file_verifikator }}</p>
+</div>
+
+<!-- Status Validasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('status_validasi', 'Status Validasi:') !!}
+    <p>{{ $aduan->status_validasi }}</p>
+</div>
+
+<!-- Catatan Validasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('catatan_validasi', 'Catatan Validasi:') !!}
+    <p>{{ $aduan->catatan_validasi }}</p>
+</div>
+
+<!-- File Inspektur Field -->
+<div class="col-sm-12">
+    {!! Form::label('file_inspektur', 'File Inspektur:') !!}
+    <p>{{ $aduan->file_inspektur }}</p>
+</div>
+
+<!-- Hasil Penyidikan Field -->
+<div class="col-sm-12">
+    {!! Form::label('hasil_penyidikan', 'Hasil Penyidikan:') !!}
+    <p>{{ $aduan->hasil_penyidikan }}</p>
 </div>
 
 <!-- Nama Terlapor Field -->

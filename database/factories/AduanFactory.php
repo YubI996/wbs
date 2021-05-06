@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Aduan;
+use App\Models\aduan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AduanFactory extends Factory
+class aduanFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Aduan::class;
+    protected $model = aduan::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,15 @@ class AduanFactory extends Factory
     {
         return [
             'user_id' => $this->faker->word,
-        'jenis_aduan_id' => $this->faker->word,
+        'jenis_aduan' => $this->faker->randomDigitNotNull,
+        'file_bukti' => $this->faker->word,
+        'status_verifikasi' => $this->faker->word,
+        'catatan_verifikasi' => $this->faker->word,
+        'file_verifikator' => $this->faker->word,
+        'status_validasi' => $this->faker->word,
+        'catatan_validasi' => $this->faker->word,
+        'file_inspektur' => $this->faker->word,
+        'hasil_penyidikan' => $this->faker->word,
         'nama_terlapor' => $this->faker->word,
         'jabatan_terlapor' => $this->faker->word,
         'pangkat_terlapor' => $this->faker->word,

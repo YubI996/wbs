@@ -3,22 +3,22 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
 /**
  * Class user
  * @package App\Models
- * @version May 4, 2021, 11:53 pm UTC
+ * @version May 6, 2021, 3:03 am UTC
  *
+ * @property string $nip
  * @property string $name
  * @property string $email
- * @property string|\Carbon\Carbon $email_verified_at
  * @property string $password
- * @property string $nip
+ * @property integer $role
+ * @property string $avatar
  * @property string $tempat
  * @property string $tanggal
  * @property string $jabatan
@@ -29,11 +29,11 @@ use Illuminate\Notifications\Notifiable;
  * @property string $nohp
  * @property string $alamat
  * @property string $nolain
+ * @property string|\Carbon\Carbon $email_verified_at
  * @property string $remember_token
  */
-class user  extends Authenticatable
+class user extends Authenticatable
 {
-    
 
     use HasFactory;
 
@@ -43,16 +43,15 @@ class user  extends Authenticatable
     const UPDATED_AT = 'updated_at';
 
 
-    protected $dates = ['deleted_at'];
-
 
 
     public $fillable = [
+        'nip',
         'name',
         'email',
-        'email_verified_at',
         'password',
-        'nip',
+        'role',
+        'avatar',
         'tempat',
         'tanggal',
         'jabatan',
@@ -63,6 +62,7 @@ class user  extends Authenticatable
         'nohp',
         'alamat',
         'nolain',
+        'email_verified_at',
         'remember_token'
     ];
 
@@ -73,11 +73,12 @@ class user  extends Authenticatable
      */
     protected $casts = [
         'id' => 'integer',
+        'nip' => 'string',
         'name' => 'string',
         'email' => 'string',
-        'email_verified_at' => 'datetime',
         'password' => 'string',
-        'nip' => 'string',
+        'role' => 'integer',
+        'avatar' => 'string',
         'tempat' => 'string',
         'tanggal' => 'date',
         'jabatan' => 'string',
@@ -88,6 +89,7 @@ class user  extends Authenticatable
         'nohp' => 'string',
         'alamat' => 'string',
         'nolain' => 'string',
+        'email_verified_at' => 'datetime',
         'remember_token' => 'string'
     ];
 
@@ -97,13 +99,14 @@ class user  extends Authenticatable
      * @var array
      */
     public static $rules = [
+        'nip' => 'required|string|max:255',
         'name' => 'required|string|max:255',
         'email' => 'required|string|max:255',
-        'email_verified_at' => 'nullable',
         'password' => 'required|string|max:255',
-        'nip' => 'required|string|max:255',
-        'tempat' => 'required|string|max:255',
-        'tanggal' => 'required',
+        'role' => 'required|integer',
+        'avatar' => 'nullable|string|max:255',
+        'tempat' => 'nullable|string|max:255',
+        'tanggal' => 'nullable',
         'jabatan' => 'nullable|string|max:255',
         'pangkat' => 'nullable|string|max:255',
         'instansi' => 'nullable|string|max:255',
@@ -112,39 +115,11 @@ class user  extends Authenticatable
         'nohp' => 'nullable|string|max:255',
         'alamat' => 'nullable|string|max:255',
         'nolain' => 'nullable|string|max:255',
+        'email_verified_at' => 'nullable',
         'remember_token' => 'nullable|string|max:100',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
     
-    public static $messages = [
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|max:255',
-        'email_verified_at' => 'nullable',
-        'password' => 'required|string|max:255',
-        'nip' => 'required|string|max:255',
-        'tempat' => 'required|string|max:255',
-        'tanggal' => 'required',
-        'jabatan' => 'nullable|string|max:255',
-        'pangkat' => 'nullable|string|max:255',
-        'instansi' => 'nullable|string|max:255',
-        'unit' => 'nullable|string|max:255',
-        'kota' => 'nullable|string|max:255',
-        'nohp' => 'nullable|string|max:255',
-        'alamat' => 'nullable|string|max:255',
-        'nolain' => 'nullable|string|max:255',
-        'remember_token' => 'nullable|string|max:100',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
-    ];
 }

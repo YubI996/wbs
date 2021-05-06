@@ -18,6 +18,7 @@ class JenisAduan extends Model
     use HasFactory;
 
     public $table = 'jenis_aduans';
+    protected $primaryKey = 'slug';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

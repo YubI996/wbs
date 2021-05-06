@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\aduan;
+use App\Models\jenis_aduan;
 use InfyOm\Generator\Request\APIRequest;
 
-class CreateaduanAPIRequest extends APIRequest
+class Createjenis_aduanAPIRequest extends APIRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,6 @@ class CreateaduanAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return aduan::$rules;
+        return jenis_aduan::$rules;
     }
 }

@@ -2,14 +2,16 @@
     <table class="table" id="roles-table">
         <thead>
             <tr>
-                <th>Nama</th>
+                <th>Slug</th>
+        <th>Nama</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
         <tbody>
         @foreach($roles as $role)
             <tr>
-                <td>{{ $role->nama }}</td>
+                <td>{{ $role->slug }}</td>
+            <td>{{ $role->nama }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['roles.destroy', $role->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

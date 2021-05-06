@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateAduanRequest;
-use App\Http\Requests\UpdateAduanRequest;
-use App\Repositories\AduanRepository;
+use App\Http\Requests\CreateaduanRequest;
+use App\Http\Requests\UpdateaduanRequest;
+use App\Repositories\aduanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class AduanController extends AppBaseController
+class aduanController extends AppBaseController
 {
-    /** @var  AduanRepository */
+    /** @var  aduanRepository */
     private $aduanRepository;
 
-    public function __construct(AduanRepository $aduanRepo)
+    public function __construct(aduanRepository $aduanRepo)
     {
         $this->aduanRepository = $aduanRepo;
     }
 
     /**
-     * Display a listing of the Aduan.
+     * Display a listing of the aduan.
      *
      * @param Request $request
      *
@@ -36,7 +36,7 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Aduan.
+     * Show the form for creating a new aduan.
      *
      * @return Response
      */
@@ -46,13 +46,13 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Store a newly created Aduan in storage.
+     * Store a newly created aduan in storage.
      *
-     * @param CreateAduanRequest $request
+     * @param CreateaduanRequest $request
      *
      * @return Response
      */
-    public function store(CreateAduanRequest $request)
+    public function store(CreateaduanRequest $request)
     {
         $input = $request->all();
 
@@ -64,7 +64,7 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Display the specified Aduan.
+     * Display the specified aduan.
      *
      * @param int $id
      *
@@ -84,7 +84,7 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified Aduan.
+     * Show the form for editing the specified aduan.
      *
      * @param int $id
      *
@@ -104,14 +104,14 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Update the specified Aduan in storage.
+     * Update the specified aduan in storage.
      *
      * @param int $id
-     * @param UpdateAduanRequest $request
+     * @param UpdateaduanRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateAduanRequest $request)
+    public function update($id, UpdateaduanRequest $request)
     {
         $aduan = $this->aduanRepository->find($id);
 
@@ -129,7 +129,7 @@ class AduanController extends AppBaseController
     }
 
     /**
-     * Remove the specified Aduan from storage.
+     * Remove the specified aduan from storage.
      *
      * @param int $id
      *

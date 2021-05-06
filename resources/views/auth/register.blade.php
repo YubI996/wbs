@@ -44,171 +44,178 @@
                 @csrf
                 <div class="row">
                     <div class="col-6">
-                <div class="input-group mb-3">
-                    <input type="number"
-                           name="nip"
-                           class="form-control @error('nip') is-invalid @enderror"
-                           value="{{ old('nip') }}"
-                           placeholder="NIP / NIK">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-fingerprint"></span></div>
-                    </div>
-                    @error('nip')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
 
                 <div class="input-group mb-3">
-                    <input type="text"
-                           name="name"
-                           class="form-control @error('name') is-invalid @enderror"
-                           value="{{ old('name') }}"
-                           placeholder="Nama">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-user"></span></div>
-                    </div>
-                    @error('name')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
+                    <input type="hidden"
+                           name="role"
+                           value={{4}}>
                 </div>
                 
-                <div class="input-group mb-3">
-                    <input type="text"
-                           name="tempat"
-                           class="form-control @error('tempat') is-invalid @enderror"
-                           value="{{ old('tempat') }}"
-                           placeholder="Tempat lahir">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-city"></span></div>
-                    </div>
-                    @error('tempat')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div> 
+                        <div class="input-group mb-3">
+                            <input type="number"
+                                name="nip"
+                                class="form-control @error('nip') is-invalid @enderror"
+                                value="{{ old('nip') }}"
+                                placeholder="NIP / NIK">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-fingerprint"></span></div>
+                            </div>
+                            @error('nip')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="date"
-                           name="tanggal"
-                           class="form-control @error('tanggal') is-invalid @enderror"
-                           value="{{ old('tanggal') }}"
-                           placeholder="Tanggal lahir">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-baby-carriage"></span></div>
-                    </div>
-                    @error('tanggal')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="text"
+                                name="name"
+                                class="form-control @error('name') is-invalid @enderror"
+                                value="{{ old('name') }}"
+                                placeholder="Nama">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
+                            </div>
+                            @error('name')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <input type="text"
+                                name="tempat"
+                                class="form-control @error('tempat') is-invalid @enderror"
+                                value="{{ old('tempat') }}"
+                                placeholder="Tempat lahir">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-city"></span></div>
+                            </div>
+                            @error('tempat')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div> 
 
-                <div class="input-group mb-3">
-                    <input type="email"
-                           name="email"
-                           value="{{ old('email') }}"
-                           class="form-control @error('email') is-invalid @enderror"
-                           placeholder="Email">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-envelope"></span></div>
-                    </div>
-                    @error('email')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="date"
+                                name="tanggal"
+                                class="form-control @error('tanggal') is-invalid @enderror"
+                                value="{{ old('tanggal') }}"
+                                placeholder="Tanggal lahir">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-baby-carriage"></span></div>
+                            </div>
+                            @error('tanggal')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="password"
-                           name="password"
-                           class="form-control @error('password') is-invalid @enderror"
-                           placeholder="Password">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('password')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="email"
+                                name="email"
+                                value="{{ old('email') }}"
+                                class="form-control @error('email') is-invalid @enderror"
+                                placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                            </div>
+                            @error('email')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="password"
-                           name="password_confirmation"
-                           class="form-control"
-                           placeholder="Ulangi password">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="password"
+                                name="password"
+                                class="form-control @error('password') is-invalid @enderror"
+                                placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('password')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="password"
+                                name="password_confirmation"
+                                class="form-control"
+                                placeholder="Ulangi password">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-6">
 
-                {{-- jabatan --}}
-                <div class="input-group mb-3">
-                    <input type="string"
-                           name="jabatan"
-                           class="form-control @error('jabatan') is-invalid @enderror"
-                           value="{{ old('jabatan') }}"
-                           placeholder="Jabatan">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('jabatan')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        {{-- jabatan --}}
+                        <div class="input-group mb-3">
+                            <input type="string"
+                                name="jabatan"
+                                class="form-control @error('jabatan') is-invalid @enderror"
+                                value="{{ old('jabatan') }}"
+                                placeholder="Jabatan">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('jabatan')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="string"
-                           name="pangkat"
-                           class="form-control @error('pangkat') is-invalid @enderror"
-                           value="{{ old('pangkat') }}"
-                           placeholder="Pangkat">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('pangkat')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="string"
+                                name="pangkat"
+                                class="form-control @error('pangkat') is-invalid @enderror"
+                                value="{{ old('pangkat') }}"
+                                placeholder="Pangkat">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('pangkat')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="string"
-                           name="instansi"
-                           class="form-control @error('instansi') is-invalid @enderror"
-                           value="{{ old('instansi') }}"
-                           placeholder="Instansi">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('instansi')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="string"
+                                name="instansi"
+                                class="form-control @error('instansi') is-invalid @enderror"
+                                value="{{ old('instansi') }}"
+                                placeholder="Instansi">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('instansi')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="string"
-                           name="unit"
-                           class="form-control @error('unit') is-invalid @enderror"
-                           value="{{ old('unit') }}"
-                           placeholder="Unit kerja">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('unit')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="string"
+                                name="unit"
+                                class="form-control @error('unit') is-invalid @enderror"
+                                value="{{ old('unit') }}"
+                                placeholder="Unit kerja">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('unit')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                <div class="input-group mb-3">
-                    <input type="string"
-                           name="kota"
-                           class="form-control @error('kota') is-invalid @enderror"
-                           value="{{ old('kota') }}"
-                           placeholder="Kota">
-                    <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
-                    </div>
-                    @error('kota')
-                    <span class="error invalid-feedback">{{ $message }}</span>
-                    @enderror
-                </div>
+                        <div class="input-group mb-3">
+                            <input type="string"
+                                name="kota"
+                                class="form-control @error('kota') is-invalid @enderror"
+                                value="{{ old('kota') }}"
+                                placeholder="Kota">
+                            <div class="input-group-append">
+                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                            </div>
+                            @error('kota')
+                            <span class="error invalid-feedback">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                 <div class="input-group mb-3">
                     <input type="string"

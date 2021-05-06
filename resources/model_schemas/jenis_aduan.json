@@ -24,7 +24,7 @@
         "inView": true
     },
     {
-        "name": "nama",
+        "name": "name",
         "dbType": "string,255",
         "htmlType": "text",
         "validations": "required|string|max:255|string|max:255|string|max:255",

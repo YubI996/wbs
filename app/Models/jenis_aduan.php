@@ -7,19 +7,19 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class role
+ * Class jenis_aduan
  * @package App\Models
- * @version May 6, 2021, 3:03 am UTC
+ * @version May 6, 2021, 3:02 am UTC
  *
  * @property integer $slug
- * @property string $nama
+ * @property string $name
  */
-class role extends Model
+class jenis_aduan extends Model
 {
 
     use HasFactory;
 
-    public $table = 'roles';
+    public $table = 'jenis_aduans';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -29,7 +29,7 @@ class role extends Model
 
     public $fillable = [
         'slug',
-        'nama'
+        'name'
     ];
 
     /**
@@ -40,7 +40,7 @@ class role extends Model
     protected $casts = [
         'id' => 'integer',
         'slug' => 'integer',
-        'nama' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -50,7 +50,7 @@ class role extends Model
      */
     public static $rules = [
         'slug' => 'required|integer',
-        'nama' => 'required|string|max:255',
+        'name' => 'required|string|max:255',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

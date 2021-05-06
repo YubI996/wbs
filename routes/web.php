@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome2');
 });
 
 Auth::routes();
@@ -37,3 +37,5 @@ Route::resource('jenisAduans', App\Http\Controllers\JenisAduanController::class)
 Route::resource('aduans', App\Http\Controllers\AduanController::class);
 
 Route::resource('roles', App\Http\Controllers\roleController::class);
+
+Route::resource('jenisAduans', App\Http\Controllers\jenis_aduanController::class);

@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Aduan;
+use App\Models\aduan;
 
-class CreateAduanRequest extends FormRequest
+class CreateaduanRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateAduanRequest extends FormRequest
      */
     public function rules()
     {
-        return Aduan::$rules;
+        return aduan::$rules;
     }
 }

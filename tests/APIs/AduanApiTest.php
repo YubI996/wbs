@@ -4,9 +4,9 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Tests\ApiTestTrait;
-use App\Models\Aduan;
+use App\Models\aduan;
 
-class AduanApiTest extends TestCase
+class aduanApiTest extends TestCase
 {
     use ApiTestTrait, WithoutMiddleware, DatabaseTransactions;
 
@@ -15,7 +15,7 @@ class AduanApiTest extends TestCase
      */
     public function test_create_aduan()
     {
-        $aduan = Aduan::factory()->make()->toArray();
+        $aduan = aduan::factory()->make()->toArray();
 
         $this->response = $this->json(
             'POST',
@@ -30,7 +30,7 @@ class AduanApiTest extends TestCase
      */
     public function test_read_aduan()
     {
-        $aduan = Aduan::factory()->create();
+        $aduan = aduan::factory()->create();
 
         $this->response = $this->json(
             'GET',
@@ -45,16 +45,16 @@ class AduanApiTest extends TestCase
      */
     public function test_update_aduan()
     {
-        $aduan = Aduan::factory()->create();
-        $editedAduan = Aduan::factory()->make()->toArray();
+        $aduan = aduan::factory()->create();
+        $editedaduan = aduan::factory()->make()->toArray();
 
         $this->response = $this->json(
             'PUT',
             '/api/aduans/'.$aduan->id,
-            $editedAduan
+            $editedaduan
         );
 
-        $this->assertApiResponse($editedAduan);
+        $this->assertApiResponse($editedaduan);
     }
 
     /**
@@ -62,7 +62,7 @@ class AduanApiTest extends TestCase
      */
     public function test_delete_aduan()
     {
-        $aduan = Aduan::factory()->create();
+        $aduan = aduan::factory()->create();
 
         $this->response = $this->json(
             'DELETE',

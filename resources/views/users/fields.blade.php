@@ -1,75 +1,49 @@
+<!-- Nip Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('nip', 'Nip:') !!}
+    {!! Form::text('nip', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
+</div>
+
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}
-    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('name')
-        <span class="error1">{{ $message }}</span>
-    @enderror
-
+    {!! Form::text('name', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Email Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('email')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::email('email', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
-
-<!-- Email Verified At Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('email_verified_at', 'Email Verified At:') !!}
-    {!! Form::text('email_verified_at', null, ['class' => 'form-control','id'=>'email_verified_at']) !!}
-    @error('email_verified_at')
-        <span class="error1">{{ $message }}</span>
-    @enderror
-</div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#email_verified_at').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
 
 <!-- Password Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('password', 'Password:') !!}
-    {!! Form::password('password', ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('password')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::password('password', ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
-<!-- Nip Field -->
+<!-- Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nip', 'Nip:') !!}
-    {!! Form::text('nip', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('nip')
-        <span class="error1">{{ $message }}</span>
-    @enderror    
+    {!! Form::label('role', 'Role:') !!}
+    {!! Form::number('role', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Avatar Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('avatar', 'Avatar:') !!}
+    {!! Form::text('avatar', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Tempat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tempat', 'Tempat:') !!}
-    {!! Form::text('tempat', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('tempat')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('tempat', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Tanggal Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tanggal', 'Tanggal:') !!}
     {!! Form::text('tanggal', null, ['class' => 'form-control','id'=>'tanggal']) !!}
-    @error('tanggal')
-        <span class="error1">{{ $message }}</span>
-    @enderror
 </div>
 
 @push('page_scripts')
@@ -85,80 +59,69 @@
 <!-- Jabatan Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('jabatan', 'Jabatan:') !!}
-    {!! Form::text('jabatan', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('jabatan')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('jabatan', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Pangkat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('pangkat', 'Pangkat:') !!}
-    {!! Form::text('pangkat', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('pangkat')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('pangkat', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Instansi Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('instansi', 'Instansi:') !!}
-    {!! Form::text('instansi', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('instansi')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('instansi', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Unit Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('unit', 'Unit:') !!}
-    {!! Form::text('unit', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('unit')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('unit', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Kota Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('kota', 'Kota:') !!}
-    {!! Form::text('kota', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('kota')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('kota', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Nohp Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nohp', 'Nohp:') !!}
-    {!! Form::text('nohp', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('nohp')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('nohp', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Alamat Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('alamat', 'Alamat:') !!}
-    {!! Form::text('alamat', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('alamat')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('alamat', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Nolain Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nolain', 'Nolain:') !!}
-    {!! Form::text('nolain', null, ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('nolain')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('nolain', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
+
+<!-- Email Verified At Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('email_verified_at', 'Email Verified At:') !!}
+    {!! Form::text('email_verified_at', null, ['class' => 'form-control','id'=>'email_verified_at']) !!}
+</div>
+
+@push('page_scripts')
+    <script type="text/javascript">
+        $('#email_verified_at').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            useCurrent: true,
+            sideBySide: true
+        })
+    </script>
+@endpush
 
 <!-- Remember Token Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('remember_token', 'Remember Token:') !!}
-    {!! Form::text('remember_token', null, ['class' => 'form-control','maxlength' => 100]) !!}
-    @error('remember_token')
-        <span class="error1">{{ $message }}</span>
-    @enderror
+    {!! Form::text('remember_token', null, ['class' => 'form-control','maxlength' => 100,'maxlength' => 100,'maxlength' => 100]) !!}
 </div>

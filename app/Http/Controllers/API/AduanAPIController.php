@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateAduanAPIRequest;
-use App\Http\Requests\API\UpdateAduanAPIRequest;
-use App\Models\Aduan;
-use App\Repositories\AduanRepository;
+use App\Http\Requests\API\CreateaduanAPIRequest;
+use App\Http\Requests\API\UpdateaduanAPIRequest;
+use App\Models\aduan;
+use App\Repositories\aduanRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
 
 /**
- * Class AduanController
+ * Class aduanController
  * @package App\Http\Controllers\API
  */
 
-class AduanAPIController extends AppBaseController
+class aduanAPIController extends AppBaseController
 {
-    /** @var  AduanRepository */
+    /** @var  aduanRepository */
     private $aduanRepository;
 
-    public function __construct(AduanRepository $aduanRepo)
+    public function __construct(aduanRepository $aduanRepo)
     {
         $this->aduanRepository = $aduanRepo;
     }
 
     /**
-     * Display a listing of the Aduan.
+     * Display a listing of the aduan.
      * GET|HEAD /aduans
      *
      * @param Request $request
@@ -44,14 +44,14 @@ class AduanAPIController extends AppBaseController
     }
 
     /**
-     * Store a newly created Aduan in storage.
+     * Store a newly created aduan in storage.
      * POST /aduans
      *
-     * @param CreateAduanAPIRequest $request
+     * @param CreateaduanAPIRequest $request
      *
      * @return Response
      */
-    public function store(CreateAduanAPIRequest $request)
+    public function store(CreateaduanAPIRequest $request)
     {
         $input = $request->all();
 
@@ -61,7 +61,7 @@ class AduanAPIController extends AppBaseController
     }
 
     /**
-     * Display the specified Aduan.
+     * Display the specified aduan.
      * GET|HEAD /aduans/{id}
      *
      * @param int $id
@@ -70,7 +70,7 @@ class AduanAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var Aduan $aduan */
+        /** @var aduan $aduan */
         $aduan = $this->aduanRepository->find($id);
 
         if (empty($aduan)) {
@@ -81,19 +81,19 @@ class AduanAPIController extends AppBaseController
     }
 
     /**
-     * Update the specified Aduan in storage.
+     * Update the specified aduan in storage.
      * PUT/PATCH /aduans/{id}
      *
      * @param int $id
-     * @param UpdateAduanAPIRequest $request
+     * @param UpdateaduanAPIRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateAduanAPIRequest $request)
+    public function update($id, UpdateaduanAPIRequest $request)
     {
         $input = $request->all();
 
-        /** @var Aduan $aduan */
+        /** @var aduan $aduan */
         $aduan = $this->aduanRepository->find($id);
 
         if (empty($aduan)) {
@@ -102,11 +102,11 @@ class AduanAPIController extends AppBaseController
 
         $aduan = $this->aduanRepository->update($input, $id);
 
-        return $this->sendResponse($aduan->toArray(), 'Aduan updated successfully');
+        return $this->sendResponse($aduan->toArray(), 'aduan updated successfully');
     }
 
     /**
-     * Remove the specified Aduan from storage.
+     * Remove the specified aduan from storage.
      * DELETE /aduans/{id}
      *
      * @param int $id
@@ -117,7 +117,7 @@ class AduanAPIController extends AppBaseController
      */
     public function destroy($id)
     {
-        /** @var Aduan $aduan */
+        /** @var aduan $aduan */
         $aduan = $this->aduanRepository->find($id);
 
         if (empty($aduan)) {

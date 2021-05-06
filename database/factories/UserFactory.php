@@ -22,11 +22,12 @@ class userFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
+            'nip' => $this->faker->word,
+        'name' => $this->faker->word,
         'email' => $this->faker->word,
-        'email_verified_at' => $this->faker->date('Y-m-d H:i:s'),
         'password' => $this->faker->word,
-        'nip' => $this->faker->word,
+        'role' => $this->faker->randomDigitNotNull,
+        'avatar' => $this->faker->word,
         'tempat' => $this->faker->word,
         'tanggal' => $this->faker->word,
         'jabatan' => $this->faker->word,
@@ -37,6 +38,7 @@ class userFactory extends Factory
         'nohp' => $this->faker->word,
         'alamat' => $this->faker->word,
         'nolain' => $this->faker->word,
+        'email_verified_at' => $this->faker->date('Y-m-d H:i:s'),
         'remember_token' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s')

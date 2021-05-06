@@ -15,6 +15,7 @@ class CreateJenisAduansTable extends Migration
     {
         Schema::create('jenis_aduans', function (Blueprint $table) {
             $table->id();
+            $table->integer('slug')->unsigned()->unique();
             $table->string('name');
             $table->timestamps();
         });

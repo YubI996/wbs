@@ -1,3 +1,9 @@
+<!-- Nip Field -->
+<div class="col-sm-12">
+    {!! Form::label('nip', 'Nip:') !!}
+    <p>{{ $user->nip }}</p>
+</div>
+
 <!-- Name Field -->
 <div class="col-sm-12">
     {!! Form::label('name', 'Name:') !!}
@@ -10,22 +16,22 @@
     <p>{{ $user->email }}</p>
 </div>
 
-<!-- Email Verified At Field -->
-<div class="col-sm-12">
-    {!! Form::label('email_verified_at', 'Email Verified At:') !!}
-    <p>{{ $user->email_verified_at }}</p>
-</div>
-
 <!-- Password Field -->
 <div class="col-sm-12">
     {!! Form::label('password', 'Password:') !!}
     <p>{{ $user->password }}</p>
 </div>
 
-<!-- Nip Field -->
+<!-- Role Field -->
 <div class="col-sm-12">
-    {!! Form::label('nip', 'Nip:') !!}
-    <p>{{ $user->nip }}</p>
+    {!! Form::label('role', 'Role:') !!}
+    <p>{{ $user->role }}</p>
+</div>
+
+<!-- Avatar Field -->
+<div class="col-sm-12">
+    {!! Form::label('avatar', 'Avatar:') !!}
+    <p>{{ $user->avatar }}</p>
 </div>
 
 <!-- Tempat Field -->
@@ -86,6 +92,12 @@
 <div class="col-sm-12">
     {!! Form::label('nolain', 'Nolain:') !!}
     <p>{{ $user->nolain }}</p>
+</div>
+
+<!-- Email Verified At Field -->
+<div class="col-sm-12">
+    {!! Form::label('email_verified_at', 'Email Verified At:') !!}
+    <p>{{ $user->email_verified_at }}</p>
 </div>
 
 <!-- Remember Token Field -->
