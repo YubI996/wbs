@@ -25,6 +25,7 @@ Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
 
+route::post( '/files',[App\Http\Controllers\FileController::class, 'store']);
 
 Route::resource('users', App\Http\Controllers\userController::class);
 

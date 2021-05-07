@@ -55,7 +55,7 @@ class aduanController extends AppBaseController
     public function store(CreateaduanRequest $request)
     {
         $input = $request->all();
-
+        dd($input['user_id']+9999);
         $aduan = $this->aduanRepository->create($input);
 
         Flash::success('Aduan saved successfully.');
