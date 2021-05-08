@@ -29,10 +29,15 @@ strong.kuning:hover{
 }
 .bayang1:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 47, 255, 0.356), 0 6px 20px 0 rgba(22, 13, 155, 0.534);
+    background-color: #0054ff24 ;
+    
 }
 .bayang2:hover{
     box-shadow: 0 4px 8px 0 #09ff005b, 0 6px 20px 0 #199b0d88;
+    background-color: #1eff0024 ;
 }
 .bayang3:hover{
     box-shadow: 0 4px 8px 0 rgba(255, 251, 0, 0.356), 0 6px 20px 0 rgba(146, 155, 13, 0.534);
+    background-color: #fbff0024 ;
+
 }

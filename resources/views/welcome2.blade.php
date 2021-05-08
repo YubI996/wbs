@@ -71,7 +71,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kerahasiaan <strong class="kuning">Pelapor</strong></h5><br>
                                 <p class="card-text">Inspektorat merahasiakan identitas pribadi Anda sebagai pelapor(Whistleblower).</p>
-                                <a href="#" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#rahasia"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -111,6 +111,27 @@
                             How     : Bagaimana modus penyimpangan.
                         </li>
                     </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="rahasia" tabindex="-1" role="dialog" aria-labelledby="rahasiaLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rahasiaLabel">Kerahasiaan <strong class="kuning">Pelapor</strong></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <h4> <p>Pemerintah Kota Bontang akan merahasiaskan identitas pribadi anda sebagai Whistleblower karena hanya fokus pada informasi yang Anda laporkan.</p></h4> 
+                    <h4> <p> Whistleblower dalam menyampaikan pengaduan berhak mendapakan perlindungan dan penghargaan.</p></h4> 
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
