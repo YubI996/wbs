@@ -24,6 +24,9 @@ Auth::routes();
 Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
+route::get('/test', function () {
+    return view('statistik');
+});
 
 route::post( '/files',[App\Http\Controllers\FileController::class, 'store']);
 
