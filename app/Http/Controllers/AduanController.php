@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use App\Exports\LaporanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class aduanController extends AppBaseController
 {
@@ -152,5 +154,9 @@ class aduanController extends AppBaseController
         Flash::success('Aduan deleted successfully.');
 
         return redirect(route('aduans.index'));
+    }
+    public function export() 
+    {
+        return Excel::download(new LaporanExport, 'validated.xlsx');
     }
 }

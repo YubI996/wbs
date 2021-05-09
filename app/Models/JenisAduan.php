@@ -53,5 +53,8 @@ class JenisAduan extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function aduans()
+    {
+        return $this->hasMany(Aduan::class, 'jenis_aduan', 'slug' );
+    }
 }

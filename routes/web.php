@@ -43,3 +43,5 @@ Route::resource('aduans', App\Http\Controllers\AduanController::class);
 Route::resource('roles', App\Http\Controllers\roleController::class);
 
 Route::resource('jenisAduans', App\Http\Controllers\jenis_aduanController::class);
+
+Route::get('ekspor', [App\Http\Controllers\AduanController::class,'export']);

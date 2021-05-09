@@ -115,5 +115,12 @@ class aduan extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function jenisAduan()
+    {
+        return $this->belongsTo(JenisAduan::class, 'jenis_aduan', 'slug');
+    }
 }

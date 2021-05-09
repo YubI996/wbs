@@ -121,5 +121,8 @@ class user extends Authenticatable
         'updated_at' => 'nullable'
     ];
 
-    
+    public function aduans()
+    {
+        return $this->hasMany(Aduan::class);
+    }
 }
