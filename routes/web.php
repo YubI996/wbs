@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
-route::get('/test', function () {
+route::get('/statistik', function () {
     return view('statistik');
 });
 

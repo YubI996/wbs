@@ -14,12 +14,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $slug
  * @property string $nama
  */
-class role extends Model
+class Role extends Model
 {
 
     use HasFactory;
 
     public $table = 'roles';
+    protected $primaryKey = 'slug';
+    public $incrementing = false;
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -55,5 +57,9 @@ class role extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function users()
+    {
+        return $this->hasMany(User::class, 'role_id', 'slug' );
+    }
 }
+

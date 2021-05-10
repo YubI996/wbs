@@ -6,8 +6,15 @@ use Eloquent as Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+use Illuminate\Auth\Authenticatable;
+// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 /**
  * Class user
  * @package App\Models
@@ -32,11 +39,14 @@ use Illuminate\Notifications\Notifiable;
  * @property string|\Carbon\Carbon $email_verified_at
  * @property string $remember_token
  */
-class user extends Authenticatable
+class User extends Model implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract
 {
 
     use HasFactory;
-
+     use Authenticatable, Authorizable, CanResetPassword;
     public $table = 'users';
     
     const CREATED_AT = 'created_at';
@@ -103,7 +113,7 @@ class user extends Authenticatable
         'name' => 'required|string|max:255',
         'email' => 'required|string|max:255',
         'password' => 'required|string|max:255',
-        'role' => 'required|integer',
+        'role_id' => 'required|integer',
         'avatar' => 'nullable|string|max:255',
         'tempat' => 'nullable|string|max:255',
         'tanggal' => 'nullable',
@@ -124,5 +134,10 @@ class user extends Authenticatable
     public function aduans()
     {
         return $this->hasMany(Aduan::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(role::class, 'role_id', 'slug');
     }
 }

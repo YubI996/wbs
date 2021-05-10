@@ -52,7 +52,7 @@
                 </div>
                 
                         <div class="input-group mb-3">
-                            <input type="number"
+                            <input required type="number"
                                 name="nip"
                                 class="form-control @error('nip') is-invalid @enderror"
                                 value="{{ old('nip') }}"
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text"
+                            <input required type="text"
                                 name="name"
                                 class="form-control @error('name') is-invalid @enderror"
                                 value="{{ old('name') }}"
@@ -80,7 +80,7 @@
                         </div>
                         
                         <div class="input-group mb-3">
-                            <input type="text"
+                            <input required type="text"
                                 name="tempat"
                                 class="form-control @error('tempat') is-invalid @enderror"
                                 value="{{ old('tempat') }}"
@@ -94,7 +94,7 @@
                         </div> 
 
                         <div class="input-group mb-3">
-                            <input type="date"
+                            <input required type="date"
                                 name="tanggal"
                                 class="form-control @error('tanggal') is-invalid @enderror"
                                 value="{{ old('tanggal') }}"
@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="email"
+                            <input required type="email"
                                 name="email"
                                 value="{{ old('email') }}"
                                 class="form-control @error('email') is-invalid @enderror"
@@ -122,7 +122,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="password"
+                            <input required type="password"
                                 name="password"
                                 class="form-control @error('password') is-invalid @enderror"
                                 placeholder="Password">
@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="password"
+                            <input required type="password"
                                 name="password_confirmation"
                                 class="form-control"
                                 placeholder="Ulangi password">
@@ -148,7 +148,7 @@
 
                         {{-- jabatan --}}
                         <div class="input-group mb-3">
-                            <input type="string"
+                            <input required type="string"
                                 name="jabatan"
                                 class="form-control @error('jabatan') is-invalid @enderror"
                                 value="{{ old('jabatan') }}"
@@ -162,7 +162,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="string"
+                            <input required type="string"
                                 name="pangkat"
                                 class="form-control @error('pangkat') is-invalid @enderror"
                                 value="{{ old('pangkat') }}"
@@ -176,7 +176,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="string"
+                            <input required type="string"
                                 name="instansi"
                                 class="form-control @error('instansi') is-invalid @enderror"
                                 value="{{ old('instansi') }}"
@@ -190,7 +190,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="string"
+                            <input required type="string"
                                 name="unit"
                                 class="form-control @error('unit') is-invalid @enderror"
                                 value="{{ old('unit') }}"
@@ -204,7 +204,7 @@
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="string"
+                            <input required type="string"
                                 name="kota"
                                 class="form-control @error('kota') is-invalid @enderror"
                                 value="{{ old('kota') }}"
