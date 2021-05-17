@@ -51,7 +51,7 @@ class user extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
+        'role_id',
         'avatar',
         'tempat',
         'tanggal',
@@ -102,9 +102,9 @@ class user extends Authenticatable
      */
     public static $rules = [
         'nip' => 'required|string|max:255',
-        'username' => 'required|string|max:255|unique:users',
+        'username' => 'required|string|max:255|unique:users,username',
         'name' => 'required|string|max:255',
-        'email' => 'required|string|max:255',
+        'email' => 'required|string|max:255|unique:users,email',
         'password' => 'required|string|max:255',
         'role_id' => 'required|integer',
         'avatar' => 'nullable|string|max:255',

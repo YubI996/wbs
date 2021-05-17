@@ -124,11 +124,7 @@ class userController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        $rules = User::$rules;
-        $rules['username'] = $rules['username'] . ',id,' . $id;
-        $rules['email'] = $rules['email'] . ',id,' . $id;
-        $validationCertificate  = Validator::make($request->all(), $rules); 
-
+        // dd($request->all());
         $user = $this->userRepository->update($request->all(), $id);
 
         Flash::success('User updated successfully.');
