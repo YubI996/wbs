@@ -12,12 +12,6 @@
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('username', 'Username:') !!}
-    {!! Form::text('username', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
-</div>
-
-<!-- Name Field -->
-<div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', old('name'), ['class' => 'form-control','maxlength' => 255]) !!}
 </div>
