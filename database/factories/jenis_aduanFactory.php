@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class jenis_aduanFactory extends Factory

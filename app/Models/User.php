@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
  * @version May 6, 2021, 3:03 am UTC
  *
  * @property string $nip
+ * @property string $username
  * @property string $name
  * @property string $email
  * @property string $password
@@ -47,6 +46,7 @@ class user extends Authenticatable
 
     public $fillable = [
         'nip',
+        'username',
         'name',
         'email',
         'password',
@@ -74,6 +74,7 @@ class user extends Authenticatable
     protected $casts = [
         'id' => 'integer',
         'nip' => 'string',
+        'username' => 'string',
         'name' => 'string',
         'email' => 'string',
         'password' => 'string',
@@ -100,6 +101,7 @@ class user extends Authenticatable
      */
     public static $rules = [
         'nip' => 'required|string|max:255',
+        'username' => 'required|string|max:255|unique:users',
         'name' => 'required|string|max:255',
         'email' => 'required|string|max:255',
         'password' => 'required|string|max:255',
@@ -124,5 +126,9 @@ class user extends Authenticatable
     public function aduans()
     {
         return $this->hasMany(Aduan::class);
+    }
+    public function level()
+    {
+        return $this->belongsTo(Role::class,'role_id' , 'slug');
     }
 }

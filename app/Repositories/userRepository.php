@@ -21,7 +21,7 @@ class userRepository extends BaseRepository
         'name',
         'email',
         'password',
-        'role',
+        'role_id',
         'avatar',
         'tempat',
         'tanggal',

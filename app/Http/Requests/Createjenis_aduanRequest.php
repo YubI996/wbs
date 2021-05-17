@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 
 class Createjenis_aduanRequest extends FormRequest
 {

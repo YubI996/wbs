@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateuserRequest;
 use App\Repositories\userRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Flash;
 use Response;
 
@@ -30,6 +32,7 @@ class userController extends AppBaseController
     public function index(Request $request)
     {
         $users = $this->userRepository->all();
+        
 
         return view('users.index')
             ->with('users', $users);
@@ -120,6 +123,11 @@ class userController extends AppBaseController
 
             return redirect(route('users.index'));
         }
+
+        $rules = User::$rules;
+        $rules['username'] = $rules['username'] . ',id,' . $id;
+        $rules['email'] = $rules['email'] . ',id,' . $id;
+        $validationCertificate  = Validator::make($request->all(), $rules); 
 
         $user = $this->userRepository->update($request->all(), $id);
 

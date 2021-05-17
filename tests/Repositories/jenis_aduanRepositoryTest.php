@@ -1,6 +1,6 @@
 <?php namespace Tests\Repositories;
 
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 use App\Repositories\jenis_aduanRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;

@@ -3,23 +3,23 @@
         <thead>
             <tr>
                 <th>Nip</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Role</th>
-        <th>Avatar</th>
-        <th>Tempat</th>
-        <th>Tanggal</th>
-        <th>Jabatan</th>
-        <th>Pangkat</th>
-        <th>Instansi</th>
-        <th>Unit</th>
-        <th>Kota</th>
-        <th>Nohp</th>
-        <th>Alamat</th>
-        <th>Nolain</th>
-        <th>Email Verified At</th>
-        <th>Remember Token</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Avatar</th>
+                <th>Tempat</th>
+                <th>Tanggal</th>
+                <th>Jabatan</th>
+                <th>Pangkat</th>
+                <th>Instansi</th>
+                <th>Unit</th>
+                <th>Kota</th>
+                <th>Nohp</th>
+                <th>Alamat</th>
+                <th>Nolain</th>
+                <th>Email Verified At</th>
+                <th>Remember Token</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -27,10 +27,10 @@
         @foreach($users as $user)
             <tr>
                 <td>{{ $user->nip }}</td>
+            <td>{{ $user->username }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->password }}</td>
-            <td>{{ $user->role }}</td>
+            <td>{{ $user->level->nama }}</td>
             <td>{{ $user->avatar }}</td>
             <td>{{ $user->tempat }}</td>
             <td>{{ $user->tanggal }}</td>
