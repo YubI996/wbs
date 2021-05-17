@@ -10,7 +10,7 @@ class FileController extends Controller
     {
         if($req->hasFile('file_bukti')){
             $file = $req->file('file_bukti');
-            $filename =  $file->getClientOriginalName();
+            $filename =  $file->getClientOriginalName().Auth::id();
             $file->storeAs('files',$filename,'public');
 
             return $filename;

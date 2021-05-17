@@ -18,7 +18,7 @@ class CreateAduansTable extends Migration
             $table->foreignId('user_id');
             $table->integer('jenis_aduan')->unsigned();
             $table->foreign('jenis_aduan')->references('slug')->on('jenis_aduans');
-            $table->string('file_bukti');
+            $table->string('file_bukti')->nullable();
             $table->enum('status_verifikasi', [1, 0])->nullable();
             $table->string('catatan_verifikasi')->nullable();
             $table->string('file_verifikator')->nullable();

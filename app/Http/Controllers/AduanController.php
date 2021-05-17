@@ -12,6 +12,7 @@ use Response;
 use App\Exports\LaporanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\JenisAduan;
+use App\Models\Aduan;
 class aduanController extends AppBaseController
 {
     /** @var  aduanRepository */
@@ -157,8 +158,33 @@ class aduanController extends AppBaseController
 
         return redirect(route('aduans.index'));
     }
+
     public function export() 
     {
         return Excel::download(new LaporanExport, 'validated.xlsx');
+    }
+
+    public function download($id) 
+    {
+        $file = storage_path('app/public/files/'. Aduan::find($id)->value('file_bukti'));
+        return Response::download($file);
+    }
+
+    public function verif($id) 
+    {
+        $aduan = Aduan::findOrFail($id);
+        dump($aduan);
+        $hasil = $aduan->update(['status_verifikasi'=>1]);
+        // if (empty($aduan)) {
+        //     Flash::error('Aduan not found');
+
+        //     return redirect(route('aduans.index'));
+        // }
+
+        // $aduan = $this->aduanRepository->update(['status_verifikasi' => 1], $id);
+        dd($hasil);
+        Flash::success('Aduan telah di verifikasi.');
+
+        return redirect(route('aduans.index'));
     }
 }

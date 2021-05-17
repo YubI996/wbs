@@ -39,3 +39,5 @@ Route::resource('aduans', App\Http\Controllers\AduanController::class);
 Route::resource('roles', App\Http\Controllers\roleController::class);
 
 Route::get('ekspor', [App\Http\Controllers\AduanController::class,'export']);
+Route::get('aduans/file/{id}', [App\Http\Controllers\AduanController::class,'download'])->name('aduans.download');
+Route::get('aduans/verif/{id}', [App\Http\Controllers\AduanController::class,'verif'])->name('aduans.verif');
