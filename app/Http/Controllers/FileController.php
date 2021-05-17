@@ -17,4 +17,9 @@ class FileController extends Controller
         }
         return '';
     }
+
+    public function delete()
+    {
+        
+    }
 }
