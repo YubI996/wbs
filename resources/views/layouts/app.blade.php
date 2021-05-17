@@ -22,27 +22,23 @@
                 {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li> --}}
-                
-                @switch($role)
-                    @case('admin')
-                        @include('admin.menu-nav');
+                @switch(Auth::user()->role_id)
+                    @case(3)
+                        @include('admin.menu-nav')
                         @break
-                    @case('pengadu')
-                        @include('pengadu.menu-nav');
+                    @case(4)
+                        @include('pengadu.menu-nav')
                         
                         @break
-                    @case('verifikator')
-                        @include('verifikator.menu-nav');
-                        
+                    @case(2)
+                        @include('verifikator.menu-nav')
                         @break
-                    @case('inspektur')
-                        @include('inspektur.menu-nav');
-                        
+                    @case(1)
+                        @include('inspektur.menu-nav')
                         @break
                     @default
                         
                 @endswitch
-                @include('layouts.menu-nav')
             </ul>
 
 

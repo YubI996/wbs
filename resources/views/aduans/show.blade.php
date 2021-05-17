@@ -22,7 +22,22 @@
 
             <div class="card-body">
                 <div class="row">
-                    @include('aduans.show_fields')
+                    @switch(Auth::user()->role_id)
+                    @case(3)
+                        @include('admin.show_fields')
+                        @break
+                    @case(4)
+                        @include('pengadu.show_fields')
+                        @break
+                    @case(2)
+                        @include('verifikator.show_fields')
+                        @break
+                    @case(1)
+                        @include('inspektur.show_fields')
+                        @break
+                    @default
+                        
+                @endswitch
                 </div>
             </div>
 

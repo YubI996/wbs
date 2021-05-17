@@ -11,7 +11,7 @@ use App\Repositories\BaseRepository;
  * @version May 6, 2021, 3:04 am UTC
 */
 
-class aduanRepository extends BaseRepository
+class AduanRepository extends BaseRepository
 {
     /**
      * @var array
@@ -20,13 +20,6 @@ class aduanRepository extends BaseRepository
         'user_id',
         'jenis_aduan',
         'file_bukti',
-        'status_verifikasi',
-        'catatan_verifikasi',
-        'file_verifikator',
-        'status_validasi',
-        'catatan_validasi',
-        'file_inspektur',
-        'hasil_penyidikan',
         'nama_terlapor',
         'jabatan_terlapor',
         'pangkat_terlapor',

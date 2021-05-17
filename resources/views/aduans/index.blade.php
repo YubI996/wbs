@@ -25,7 +25,23 @@
 
         <div class="card">
             <div class="card-body p-0">
-                @include('aduans.table')
+                @switch(Auth::user()->role_id)
+                    @case(3)
+                        @include('admin.table')
+                        @break
+                    @case(4)
+                        @include('pengadu.table')
+                        
+                        @break
+                    @case(2)
+                        @include('verifikator.table')
+                        @break
+                    @case(1)
+                        @include('inspektur.table')
+                        @break
+                    @default
+                        
+                @endswitch
 
                 <div class="card-footer clearfix float-right">
                     <div class="float-right">

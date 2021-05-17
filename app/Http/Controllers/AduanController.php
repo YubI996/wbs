@@ -11,7 +11,7 @@ use Flash;
 use Response;
 use App\Exports\LaporanExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Models\JenisAduan;
 class aduanController extends AppBaseController
 {
     /** @var  aduanRepository */
@@ -44,7 +44,9 @@ class aduanController extends AppBaseController
      */
     public function create()
     {
-        return view('aduans.create');
+        $ja = JenisAduan::pluck('name','slug')->toArray();
+        return view('aduans.create')
+            ->with('ja', $ja);
     }
 
     /**
@@ -56,8 +58,8 @@ class aduanController extends AppBaseController
      */
     public function store(CreateaduanRequest $request)
     {
+        // dd($request);
         $input = $request->all();
-        dd($input['user_id']+9999);
         $aduan = $this->aduanRepository->create($input);
 
         Flash::success('Aduan saved successfully.');

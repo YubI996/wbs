@@ -1,17 +1,10 @@
-<!-- User Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('user_id', 'User Id:') !!}
-    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
-    @error('nip')
-        <span class="error1">{{ $message }}</span>
-    @enderror   
-</div>
+    {!! Form::hidden('user_id', null, ['class' => 'form-control','value' => '{{Auth::id()}}']) !!}
 
 <!-- Jenis Aduan Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('jenis_aduan', 'Jenis Aduan:') !!}
-    {!! Form::number('jenis_aduan', null, ['class' => 'form-control']) !!}
-    @error('nip')
+    {!! Form::select('jenis_aduan', $ja, ['class' => 'form-control']) !!}
+    @error('jenis_aduan')
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>
@@ -24,15 +17,16 @@
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>
-
-<!-- Status Verifikasi Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-    {!! Form::text('status_verifikasi', null, ['class' => 'form-control']) !!}
-    @error('status_verifikasi')
+@if (Auth::user()->role_id == 2)
+    
+    <!-- Status Verifikasi Field -->
+    <div class="form-group col-sm-6">
+        {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
+        {!! Form::text('status_verifikasi', null, ['class' => 'form-control']) !!}
+        @error('status_verifikasi')
         <span class="error1">{{ $message }}</span>
-    @enderror
-</div>
+        @enderror
+    </div>
 
 <!-- Catatan Verifikasi Field -->
 <div class="form-group col-sm-6">
@@ -51,6 +45,8 @@
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>
+@endif
+@if (Auth::user()->role_id == 1)
 
 <!-- Status Validasi Field -->
 <div class="form-group col-sm-6">
@@ -78,6 +74,8 @@
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>
+@endif
+@if (Auth::user()->role_id == 3)
 
 <!-- Hasil Penyidikan Field -->
 <div class="form-group col-sm-6">
@@ -87,6 +85,7 @@
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>
+@endif
 
 <!-- Nama Terlapor Field -->
 <div class="form-group col-sm-6">
