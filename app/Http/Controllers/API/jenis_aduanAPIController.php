@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\Createjenis_aduanAPIRequest;
 use App\Http\Requests\API\Updatejenis_aduanAPIRequest;
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 use App\Repositories\jenis_aduanRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;

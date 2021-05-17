@@ -17,6 +17,7 @@ class JenisAduanRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+        'slug', 
         'name'
     ];
 

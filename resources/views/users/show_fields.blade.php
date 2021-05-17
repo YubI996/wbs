@@ -1,7 +1,13 @@
 <!-- Nip Field -->
 <div class="col-sm-12">
-    {!! Form::label('nip', 'Nip:') !!}
+    {!! Form::label('nip', 'NIP:') !!}
     <p>{{ $user->nip }}</p>
+</div>
+
+<!-- Name Field -->
+<div class="col-sm-12">
+    {!! Form::label('username', 'Username:') !!}
+    <p>{{ $user->username }}</p>
 </div>
 
 <!-- Name Field -->
@@ -25,7 +31,7 @@
 <!-- Role Field -->
 <div class="col-sm-12">
     {!! Form::label('role', 'Role:') !!}
-    <p>{{ $user->role }}</p>
+    <p>{{ $user->level->nama }}</p>
 </div>
 
 <!-- Avatar Field -->
@@ -78,7 +84,7 @@
 
 <!-- Nohp Field -->
 <div class="col-sm-12">
-    {!! Form::label('nohp', 'Nohp:') !!}
+    {!! Form::label('nohp', 'Nomor HP:') !!}
     <p>{{ $user->nohp }}</p>
 </div>
 
@@ -90,19 +96,7 @@
 
 <!-- Nolain Field -->
 <div class="col-sm-12">
-    {!! Form::label('nolain', 'Nolain:') !!}
+    {!! Form::label('nolain', 'Nomor lain:') !!}
     <p>{{ $user->nolain }}</p>
-</div>
-
-<!-- Email Verified At Field -->
-<div class="col-sm-12">
-    {!! Form::label('email_verified_at', 'Email Verified At:') !!}
-    <p>{{ $user->email_verified_at }}</p>
-</div>
-
-<!-- Remember Token Field -->
-<div class="col-sm-12">
-    {!! Form::label('remember_token', 'Remember Token:') !!}
-    <p>{{ $user->remember_token }}</p>
 </div>
 

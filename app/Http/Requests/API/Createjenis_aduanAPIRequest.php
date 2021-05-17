@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 use InfyOm\Generator\Request\APIRequest;
 
 class Createjenis_aduanAPIRequest extends APIRequest

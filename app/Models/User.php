@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
@@ -21,6 +19,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
  * @version May 6, 2021, 3:03 am UTC
  *
  * @property string $nip
+ * @property string $username
  * @property string $name
  * @property string $email
  * @property string $password
@@ -57,6 +56,7 @@ class User extends Model implements
 
     public $fillable = [
         'nip',
+        'username',
         'name',
         'email',
         'password',
@@ -84,6 +84,7 @@ class User extends Model implements
     protected $casts = [
         'id' => 'integer',
         'nip' => 'string',
+        'username' => 'string',
         'name' => 'string',
         'email' => 'string',
         'password' => 'string',
@@ -110,6 +111,7 @@ class User extends Model implements
      */
     public static $rules = [
         'nip' => 'required|string|max:255',
+        'username' => 'required|string|max:255|unique:users',
         'name' => 'required|string|max:255',
         'email' => 'required|string|max:255',
         'password' => 'required|string|max:255',
@@ -135,9 +137,8 @@ class User extends Model implements
     {
         return $this->hasMany(Aduan::class);
     }
-
-    public function role()
+    public function level()
     {
-        return $this->belongsTo(role::class, 'role_id', 'slug');
+        return $this->belongsTo(Role::class,'role_id' , 'slug');
     }
 }

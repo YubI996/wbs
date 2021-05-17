@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\jenis_aduan;
+use App\Models\JenisAduan;
 use App\Repositories\BaseRepository;
 
 /**
