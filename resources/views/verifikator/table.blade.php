@@ -25,9 +25,11 @@
                 <td>{{ $aduan->unit_terlapor }}</td>
                 <td>{{ $aduan->kota_terlapor }}</td> --}}
                 <td>{{ $aduan->penjelasan }}</td>
-                <td><a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn btn-default btn-xs'>
+                <td>
+                    <button type="button" class="btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status_verifikasi==1?'disabled':''}}>{{$aduan->status_verifikasi==1?'Terverifikasi':'Verifikasi'}}</button>
+                    {{-- <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}} btn-xs'>
                             <i class="far fa-check-square"></i>
-                    </a>
+                    </a> --}}
                 </td>
                 <td width="120">
                     {!! Form::open(['route' => ['aduans.destroy', $aduan->id], 'method' => 'delete']) !!}

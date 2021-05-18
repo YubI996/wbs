@@ -20,6 +20,8 @@ class aduanController extends AppBaseController
 
     public function __construct(aduanRepository $aduanRepo)
     {
+        $this->middleware('auth');
+
         $this->aduanRepository = $aduanRepo;
     }
 
@@ -104,8 +106,9 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
+        $ja = JenisAduan::pluck('name','slug')->toArray();
 
-        return view('aduans.edit')->with('aduan', $aduan);
+        return view('aduans.edit')->with(['aduan'=> $aduan,'ja'=>$ja]);
     }
 
     /**
@@ -173,8 +176,9 @@ class aduanController extends AppBaseController
     public function verif($id) 
     {
         $aduan = Aduan::findOrFail($id);
-        dump($aduan);
-        $hasil = $aduan->update(['status_verifikasi'=>1]);
+        // dump($aduan);
+        $aduan->status_verifikasi = 1;
+        $hasil = $aduan->save();
         // if (empty($aduan)) {
         //     Flash::error('Aduan not found');
 
@@ -182,7 +186,7 @@ class aduanController extends AppBaseController
         // }
 
         // $aduan = $this->aduanRepository->update(['status_verifikasi' => 1], $id);
-        dd($hasil);
+        // dd($hasil);
         Flash::success('Aduan telah di verifikasi.');
 
         return redirect(route('aduans.index'));

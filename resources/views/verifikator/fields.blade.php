@@ -4,14 +4,10 @@
                     <div class="form-group col-sm-6">
                         {!! Form::label('jenis_aduan', 'Jenis Aduan:') !!}
                         {!! Form::select('jenis_aduan', $ja,null,['class' => 'form-control']) !!}
-                        @error('nip')
+                        @error('jenis_aduan')
                             <span class="error1">{{ $message }}</span>
                         @enderror
                     </div>
-                       
-                        
-
-
 
 
                     <!-- Nama Terlapor Field -->

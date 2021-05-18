@@ -137,7 +137,7 @@
     <!-- add before </body> filepond -->
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     @yield('scripts')
-
+    @yield('modals')
     @stack('page_scripts')
 </body>
 </html>

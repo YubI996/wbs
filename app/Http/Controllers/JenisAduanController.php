@@ -17,6 +17,8 @@ class JenisAduanController extends AppBaseController
 
     public function __construct(JenisAduanRepository $jenisAduanRepo)
     {
+        $this->middleware('auth');
+
         $this->jenisAduanRepository = $jenisAduanRepo;
     }
 
