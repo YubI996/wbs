@@ -7,7 +7,7 @@
                 <th>Nama Terlapor</th>
                 
                 <th>Penjelasan</th>
-                <th>Verifikasi</th>
+                {{-- <th>Verifikasi</th> --}}
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -15,9 +15,10 @@
         @foreach($aduans as $aduan)
             <tr class="{{$aduan->status_verifikasi==1?'table-success':'table-warning'}}">
                 <td>{{ $aduan->jenisAduan->name }}</td>
-                <td><a href="{{ route('aduans.download', [$aduan->id]) }}" class='btn btn-default btn-xs'>
+                <td><a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-file-alt"></i>
-                    </a></td>
+                    </a>
+                </td>
                 <td>{{ $aduan->nama_terlapor }}</td>
                 {{-- <td>{{ $aduan->jabatan_terlapor }}</td>
                 <td>{{ $aduan->pangkat_terlapor }}</td>
@@ -25,12 +26,12 @@
                 <td>{{ $aduan->unit_terlapor }}</td>
                 <td>{{ $aduan->kota_terlapor }}</td> --}}
                 <td>{{ $aduan->penjelasan }}</td>
-                <td>
+                {{-- <td>
                     <button type="button" class="btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status_verifikasi==1?'disabled':''}}>{{$aduan->status_verifikasi==1?'Terverifikasi':'Verifikasi'}}</button>
-                    {{-- <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}} btn-xs'>
+                    <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}} btn-xs'>
                             <i class="far fa-check-square"></i>
-                    </a> --}}
-                </td>
+                    </a>
+                </td> --}}
                 <td width="120">
                     {!! Form::open(['route' => ['aduans.destroy', $aduan->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

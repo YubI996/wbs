@@ -52,9 +52,7 @@ class Aduan extends Model
         'instansi_terlapor',
         'unit_terlapor',
         'kota_terlapor',
-        'penjelasan'
-    ];
-    protected $guarded = [
+        'penjelasan',
         'status_verifikasi',
         'catatan_verifikasi',
         'file_verifikator',
@@ -62,6 +60,9 @@ class Aduan extends Model
         'catatan_validasi',
         'file_inspektur',
         'hasil_penyidikan'
+    ];
+    protected $guarded = [
+        
     ];
     
 

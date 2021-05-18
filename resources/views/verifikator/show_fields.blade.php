@@ -1,8 +1,4 @@
-<!-- User Id Field -->
-<div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $aduan->user->name }}</p>
-</div>
+
 
 <!-- Jenis Aduan Field -->
 <div class="col-sm-12">
@@ -56,5 +52,29 @@
 <div class="col-sm-12">
     {!! Form::label('penjelasan', 'Penjelasan:') !!}
     <p>{{ $aduan->penjelasan }}</p>
+</div>
+<!-- Status Verifikasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
+    <p>{{ ($aduan->status_verifikasi==1?'Sudah diverifikasi':($aduan->status_verifikasi==0?'Ditolak':'Belum diverifikasi')) }}</p>
+</div>
+
+<!-- Catatan Verifikasi Field -->
+<div class="col-sm-12">
+    {!! Form::label('catatan_verifikasi', 'Catatan Verifikasi:') !!}
+    <p>{{ $aduan->catatan_verifikasi }}</p>
+</div>
+
+<!-- File Verifikator Field -->
+<div class="col-sm-12">
+    {!! Form::label('file_verifikator', 'File Verifikator:') !!}
+    <p>
+        @if (! empty($aduan->file_verifikator))
+            <a href="{{ route('aduans.download', ['name'=>'verif','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
+                <i class="far fa-file-alt"></i>
+            </a>
+        @endif
+        
+    </p>
 </div>
 

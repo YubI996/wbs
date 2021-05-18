@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateaduanRequest;
 use App\Http\Requests\UpdateaduanRequest;
+use App\Http\Requests\UpdateaduanVerifRequest;
+use App\Http\Requests\UpdateaduanAdminRequest;
+use App\Http\Requests\UpdateaduanInspekRequest;
 use App\Repositories\aduanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -167,25 +170,97 @@ class aduanController extends AppBaseController
         return Excel::download(new LaporanExport, 'validated.xlsx');
     }
 
-    public function download($id) 
+    public function download($name,$id) 
     {
-        $file = storage_path('app/public/files/'. Aduan::find($id)->value('file_bukti'));
+        $a = Aduan::findOrFail($id);
+        if(!empty($a)){
+            switch ($name) {
+                case 'bukti':
+                    $file = storage_path('app/public/files/'. $a->value('file_bukti'));
+                    break;
+                
+                case 'verif':
+                    $file = storage_path('app/public/files/'. $a->value('file_verifikator'));
+                    break;
+                
+                case 'inspek':
+                    # code...
+                    break;
+                
+                default:
+                    Flash::warning('Not Found.');
+                    return redirect(route('aduans.index'));
+
+            }
+        }
+        if(file_exists($file)){
+            return back();
+            Flash::warning('Not Found.');
+        }
+        // $file = storage_path('app/public/files/'. $a->value('file_bukti'));
         return Response::download($file);
     }
+  
+    
 
-    public function verif($id) 
+    public function verif($id, UpdateaduanVerifRequest $request) 
     {
+        // dd($request->dirty());
         $aduan = Aduan::findOrFail($id);
         // dump($aduan);
-        $aduan->status_verifikasi = 1;
-        $hasil = $aduan->save();
-        // if (empty($aduan)) {
-        //     Flash::error('Aduan not found');
+        // $aduan->status_verifikasi = 1;
+        // $hasil = $aduan->save();
+        if (empty($aduan)) {
+            Flash::error('Aduan not found');
 
-        //     return redirect(route('aduans.index'));
-        // }
+            return redirect(route('aduans.index'));
+        }
+        $aduan->status_verifikasi = $request->status_verifikasi;
+        $aduan->catatan_verifikasi = $request->catatan_verifikasi;
+        $aduan->file_verifikator = $request->file_verifikator;
+        $aduan->save();
+        // dd($hasil);
+        Flash::success('Aduan telah di verifikasi.');
 
-        // $aduan = $this->aduanRepository->update(['status_verifikasi' => 1], $id);
+        return redirect(route('aduans.index'));
+    }
+    public function inspek($id, UpdateaduanInspekRequest $request) 
+    {
+        // dd($request->dirty());
+        $aduan = Aduan::findOrFail($id);
+        // dump($aduan);
+        // $aduan->status_verifikasi = 1;
+        // $hasil = $aduan->save();
+        if (empty($aduan)) {
+            Flash::error('Aduan not found');
+
+            return redirect(route('aduans.index'));
+        }
+        $aduan->status_verifikasi = $request->status_verifikasi;
+        $aduan->catatan_verifikasi = $request->catatan_verifikasi;
+        $aduan->file_verifikator = $request->file_verifikator;
+        $aduan->save();
+        // dd($hasil);
+        Flash::success('Aduan telah di verifikasi.');
+
+        return redirect(route('aduans.index'));
+    }
+    public function admin($id, UpdateaduanAdminfRequest $request) 
+    {
+        // dd($request->dirty());
+        $aduan = Aduan::findOrFail($id);
+        // dump($aduan);
+        // $aduan->status_verifikasi = 1;
+        // $hasil = $aduan->save();
+        if (empty($aduan)) {
+            Flash::error('Aduan not found');
+
+            return redirect(route('aduans.index'));
+        }
+        $aduan->status_verifikasi = $request->status_verifikasi;
+        $aduan->catatan_verifikasi = $request->catatan_verifikasi;
+        $aduan->file_verifikator = $request->file_verifikator;
+        $aduan->save();
         // dd($hasil);
         Flash::success('Aduan telah di verifikasi.');
 

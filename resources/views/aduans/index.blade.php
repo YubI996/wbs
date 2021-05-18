@@ -56,7 +56,7 @@
 @endsection
 @section('modals')
     {{-- modal verifikator --}}
-    <div class="modal fade form-verifikator" tabindex="-1" role="dialog" aria-labelledby="form-verifikator" aria-hidden="true">
+    {{-- <div class="modal fade form-verifikator" tabindex="-1" role="dialog" aria-labelledby="form-verifikator" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -67,6 +67,7 @@
                 </div>
                 <div class="modal-body">
                     {!! Form::open(['route' => {{ route('aduans.verif', [$aduan->id]) }},'method' => 'POST']) !!}
+                    <form action="{{ route('aduans.verif', [$aduan->id]) }}" method="post">
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Recipient:</label>
                             <input type="text" class="form-control" id="recipient-name">
@@ -75,6 +76,7 @@
                             <label for="message-text" class="col-form-label">Message:</label>
                             <textarea class="form-control" id="message-text"></textarea>
                         </div>
+                    </form>
                     {!! Form::close() !!}
 
                 </div>
@@ -84,7 +86,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     
 
 @endsection
