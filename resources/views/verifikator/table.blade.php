@@ -6,7 +6,7 @@
                 <th>File Bukti</th>
                 <th>Nama Terlapor</th>
                 
-                <th>Penjelasan</th>
+                <th>Status</th>
                 {{-- <th>Verifikasi</th> --}}
                 <th colspan="3">Action</th>
             </tr>
@@ -25,7 +25,7 @@
                 <td>{{ $aduan->instansi_terlapor }}</td>
                 <td>{{ $aduan->unit_terlapor }}</td>
                 <td>{{ $aduan->kota_terlapor }}</td> --}}
-                <td>{{ $aduan->penjelasan }}</td>
+                <td>{{ $aduan->status_verifikasi==1?'Disetujui':($aduan->status_verifikasi==0?'Ditolak':'Belum di verifikasi') }}</td>
                 {{-- <td>
                     <button type="button" class="btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status_verifikasi==1?'disabled':''}}>{{$aduan->status_verifikasi==1?'Terverifikasi':'Verifikasi'}}</button>
                     <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}} btn-xs'>

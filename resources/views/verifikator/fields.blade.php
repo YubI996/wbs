@@ -35,7 +35,7 @@
                             const pond = FilePond.create( inputElement );
                             FilePond.setOptions({
                                 server: {
-                                    url: '/files',
+                                    url: '/files/verif',
                                     headers: {
                                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                                     }
@@ -43,3 +43,4 @@
                             });
                         </script>
                     @endsection
+     

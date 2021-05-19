@@ -205,7 +205,7 @@ class aduanController extends AppBaseController
 
     public function verif($id, UpdateaduanVerifRequest $request) 
     {
-        // dd($request->dirty());
+        // dd($request);
         $aduan = Aduan::findOrFail($id);
         // dump($aduan);
         // $aduan->status_verifikasi = 1;
@@ -215,10 +215,18 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
+        // $request->filter();
+        // dd($request);
         $aduan->status_verifikasi = $request->status_verifikasi;
         $aduan->catatan_verifikasi = $request->catatan_verifikasi;
-        $aduan->file_verifikator = $request->file_verifikator;
-        $aduan->save();
+        if ((! empty($aduan->file_verifikator))){
+            $aduan->file_verifikator = $request->file_verifikator;
+        }
+        else{
+            $request->except(['file_verifikator']);
+        }
+        // $aduan
+        // $aduan->save();
         // dd($hasil);
         Flash::success('Aduan telah di verifikasi.');
 

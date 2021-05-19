@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
         $Role = [4=>"Pengadu",3=>"Admin",2=>"Verifikator", 1=>"Inspektur"];
         foreach($Role as $key => $data){
             DB::table('roles')->insert([
-                'nama' => $data,
+                'name' => $data,
                 'slug' => $key,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

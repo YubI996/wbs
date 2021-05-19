@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class FileController extends Controller
 {
@@ -10,14 +11,25 @@ class FileController extends Controller
     {
         if($req->hasFile('file_bukti')){
             $file = $req->file('file_bukti');
-            $filename =  str_replace(' ', '_', $file->getClientOriginalName()).Auth::id();
-            $file->storeAs('files',$filename,'public');
+            $filename =  Auth::id().str_replace(' ', '_', $file->getClientOriginalName());
+            $file->storeAs('files/bukti',$filename,'public');
 
             return $filename;
         }
         return '';
     }
+    
+    public function store_verif(Request $req)
+    {
+        if($req->hasFile('file_verifikator')){
+            $file = $req->file('file_verifikator');
+            $filename =  Auth::id().str_replace(' ', '_', $file->getClientOriginalName());
+            $file->storeAs('files/verifikator',$filename,'public');
 
+            return $filename;
+        }
+        return '';
+    }
     public function delete()
     {
         
