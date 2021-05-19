@@ -215,16 +215,11 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
-        // $request->filter();
+        // $request->except(['file_verifikator']);
         // dd($request);
         $aduan->status_verifikasi = $request->status_verifikasi;
         $aduan->catatan_verifikasi = $request->catatan_verifikasi;
-        if ((! empty($aduan->file_verifikator))){
-            $aduan->file_verifikator = $request->file_verifikator;
-        }
-        else{
-            $request->except(['file_verifikator']);
-        }
+        $aduan->file_verifikator = $request->file_verifikator;
         // $aduan
         // $aduan->save();
         // dd($hasil);

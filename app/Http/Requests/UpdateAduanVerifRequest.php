@@ -27,8 +27,8 @@ class UpdateaduanVerifRequest extends FormRequest
     {
         $rules = [
             'status_verifikasi' => 'required',
-            'catatan_verifikasi' => 'nullable',
-            'file_verifikator' => 'nullable',
+            'catatan_verifikasi' => 'required',
+            'file_verifikator' => 'required',
         ];
         
         return $rules;
