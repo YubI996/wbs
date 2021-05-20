@@ -31,7 +31,7 @@
 <!-- Role Field -->
 <div class="col-sm-12">
     {!! Form::label('role', 'Role:') !!}
-    <p>{{ $user->level->nama }}</p>
+    <p>{{ $user->level->name }}</p>
 </div>
 
 <!-- Avatar Field -->

@@ -18,7 +18,7 @@
         <div class="card">
             @switch(Auth::user()->role_id)
                     @case(3)
-                        {!! Form::model($aduan, ['route' => ['aduans.update', $aduan->id], 'method' => 'patch']) !!}
+                        {!! Form::model($aduan, ['route' => ['aduans.hasil', $aduan->id], 'method' => 'patch']) !!}
 
                             <div class="card-body">
                                 <div class="row">
@@ -67,7 +67,7 @@
                         {!! Form::close() !!}
                         @break
                     @case(1)
-                        {!! Form::model($aduan, ['route' => ['aduans.update', $aduan->id], 'method' => 'patch']) !!}
+                        {!! Form::model($aduan, ['route' => ['aduans.inspek', $aduan->id], 'method' => 'patch']) !!}
 
                             <div class="card-body">
                                 <div class="row">

@@ -3,32 +3,37 @@
         <thead>
             <tr>
                 <th>Jenis Aduan</th>
-                <th>File Bukti</th>
                 <th>Nama Terlapor</th>
+                <th>File Bukti</th>
+                <th>File Verifikator</th>
                 
                 <th>Status</th>
-                {{-- <th>Verifikasi</th> --}}
+                {{-- <th>validasi</th> --}}
                 <th colspan="3">Action</th>
             </tr>
         </thead>
         <tbody>
         @foreach($aduans as $aduan)
-            <tr class="{{$aduan->status_verifikasi==1?'table-success':'table-warning'}}">
+            <tr class="{{$aduan->status_validasi==1?'table-success':'table-warning'}}">
                 <td>{{ $aduan->jenisAduan->name }}</td>
+                <td>{{ $aduan->nama_terlapor }}</td>
                 <td><a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-file-alt"></i>
                     </a>
                 </td>
-                <td>{{ $aduan->nama_terlapor }}</td>
+                <td><a href="{{ route('aduans.download', ['name'=>'verif','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
+                            <i class="far fa-file-alt"></i>
+                    </a>
+                </td>
                 {{-- <td>{{ $aduan->jabatan_terlapor }}</td>
                 <td>{{ $aduan->pangkat_terlapor }}</td>
                 <td>{{ $aduan->instansi_terlapor }}</td>
                 <td>{{ $aduan->unit_terlapor }}</td>
                 <td>{{ $aduan->kota_terlapor }}</td> --}}
-                <td>{{ $aduan->status_verifikasi==1?'Disetujui':($aduan->status_verifikasi==2?'Ditolak':'Belum di verifikasi') }}</td>
+                <td>{{ $aduan->status_validasi==1?'Disetujui':($aduan->status_validasi==2?'Ditolak':'Belum di validasi') }}</td>
                 {{-- <td>
-                    <button type="button" class="btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status_verifikasi==1?'disabled':''}}>{{$aduan->status_verifikasi==1?'Terverifikasi':'Verifikasi'}}</button>
-                    <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_verifikasi==1?'btn-success':'btn-warning'}} btn-xs'>
+                    <button type="button" class="btn {{$aduan->status_validasi==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status_validasi==1?'disabled':''}}>{{$aduan->status_validasi==1?'Tervalidasi':'validasi'}}</button>
+                    <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status_validasi==1?'btn-success':'btn-warning'}} btn-xs'>
                             <i class="far fa-check-square"></i>
                     </a>
                 </td> --}}

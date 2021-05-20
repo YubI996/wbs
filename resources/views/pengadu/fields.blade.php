@@ -3,7 +3,7 @@
                     <!-- Jenis Aduan Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('jenis_aduan', 'Jenis Aduan:') !!}
-                        {!! Form::select('jenis_aduan', $ja,null,['class' => 'form-control']) !!}
+                        {!! Form::select('jenis_aduan', $ja,null,['placeholder' => 'Masukkan jenis aduan','class' => 'form-control']) !!}
                         @error('jenis_aduan')
                             <span class="error1">{{ $message }}</span>
                         @enderror

@@ -21,8 +21,12 @@
             <tr>
                 <td>{{ $aduan->user->name }}</td>
             <td>{{ $aduan->jenisAduan->name }}</td>
-            <td>{{ $aduan->file_bukti }}</td>
-            <td>Input hasil penyidikan</td>
+            <td>
+                <a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
+                    <i class="far fa-file-alt"></i>
+                </a>
+            </td>
+            <td>{{ $aduan->hasil_penyidikan.' : '.$aduan->hasil_penyidikan==1?'Terbukti':($aduan->hasil_penyidikan==2?'Tidak terbukti':($aduan->hasil_penyidikan==3?'Selesai':'Proses Pemeriksaan')) }}</td>
             <td>{{ $aduan->nama_terlapor }}</td>
             {{-- <td>{{ $aduan->jabatan_terlapor }}</td>
             <td>{{ $aduan->pangkat_terlapor }}</td>

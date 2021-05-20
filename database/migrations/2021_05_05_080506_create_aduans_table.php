@@ -19,13 +19,13 @@ class CreateAduansTable extends Migration
             $table->integer('jenis_aduan')->unsigned();
             $table->foreign('jenis_aduan')->references('slug')->on('jenis_aduans');
             $table->string('file_bukti')->nullable();
-            $table->enum('status_verifikasi', [1, 0])->nullable();
+            $table->enum('status_verifikasi', [1, 2])->nullable();
             $table->string('catatan_verifikasi')->nullable();
             $table->string('file_verifikator')->nullable();
-            $table->enum('status_validasi', [1, 0])->nullable();
+            $table->enum('status_validasi', [1, 2])->nullable();
             $table->string('catatan_validasi')->nullable();
             $table->string('file_inspektur')->nullable();
-            $table->enum('hasil_penyidikan', [1, 0])->nullable();
+            $table->enum('hasil_penyidikan', [1,2,3])->nullable();
             $table->string('nama_terlapor');
             $table->string('jabatan_terlapor');
             $table->string('pangkat_terlapor');

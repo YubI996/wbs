@@ -25,7 +25,11 @@ class UpdateaduanInspekRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = aduan::$rules;
+        $rules = [
+            'status_validasi' => 'required',
+            'catatan_validasi' => 'required',
+            'file_inspektur' => 'required'
+        ];
         
         return $rules;
     }

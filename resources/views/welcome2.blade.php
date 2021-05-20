@@ -34,7 +34,7 @@
                         <img src="{{asset('/img/logo-bontang.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
                     </div>
                     <div class="col-8">
-                        <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM KOTA BONTANG</h1>
+                        <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM <br/>KOTA BONTANG</h1>
                         <p class="lead">Whistleblowing System adalah Aplikasi penyampaian / pengaduan dugaan
                              tindak pidana yang telah terjadi, sedang terjadi, atau akan terjadi
                               yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan

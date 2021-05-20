@@ -25,7 +25,9 @@ class UpdateaduanAdminRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = aduan::$rules;
+        $rules = [
+            'hasil_penyidikan' =>'required'
+        ];
         
         return $rules;
     }

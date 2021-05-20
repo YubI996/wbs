@@ -38,9 +38,12 @@ class aduanController extends AppBaseController
     public function index(Request $request)
     {
         $aduans = $this->aduanRepository->all();
-
+        
         return view('aduans.index')
-            ->with('aduans', $aduans);
+            ->with([
+                'aduans' => $aduans
+            
+            ]);
     }
 
     /**
@@ -173,18 +176,19 @@ class aduanController extends AppBaseController
     public function download($name,$id) 
     {
         $a = Aduan::findOrFail($id);
+        // dd($a);
         if(!empty($a)){
             switch ($name) {
                 case 'bukti':
-                    $file = storage_path('app/public/files/'. $a->value('file_bukti'));
+                    $file = storage_path('app/public/files/bukti/'. $a->file_bukti);
                     break;
                 
                 case 'verif':
-                    $file = storage_path('app/public/files/'. $a->value('file_verifikator'));
+                    $file = storage_path('app/public/files/verifikator/'. $a->file_verifikator);
                     break;
                 
                 case 'inspek':
-                    # code...
+                    $file = storage_path('app/public/files/inspektur/'. $a->file_inspektur);
                     break;
                 
                 default:
@@ -193,7 +197,8 @@ class aduanController extends AppBaseController
 
             }
         }
-        if(file_exists($file)){
+
+        if(!file_exists($file)){
             return back();
             Flash::warning('Not Found.');
         }
@@ -221,7 +226,7 @@ class aduanController extends AppBaseController
         $aduan->catatan_verifikasi = $request->catatan_verifikasi;
         $aduan->file_verifikator = $request->file_verifikator;
         // $aduan
-        // $aduan->save();
+        $aduan->save();
         // dd($hasil);
         Flash::success('Aduan telah di verifikasi.');
 
@@ -239,16 +244,23 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
-        $aduan->status_verifikasi = $request->status_verifikasi;
-        $aduan->catatan_verifikasi = $request->catatan_verifikasi;
-        $aduan->file_verifikator = $request->file_verifikator;
-        $aduan->save();
+        $aduan->status_validasi = $request->status_validasi;
+        $aduan->catatan_validasi = $request->catatan_validasi;
+        $aduan->file_inspektur = $request->file_inspektur;
+        $hasil = $aduan->save();
         // dd($hasil);
-        Flash::success('Aduan telah di verifikasi.');
+        if ($hasil) {
+            Flash::success('Aduan telah di Validasi.');
+            
+        }
+        else{
+            
+            Flash::warning('Gagal memvalidasi.');
+        }
 
         return redirect(route('aduans.index'));
     }
-    public function admin($id, UpdateaduanAdminfRequest $request) 
+    public function admin($id, UpdateaduanAdminRequest $request) 
     {
         // dd($request->dirty());
         $aduan = Aduan::findOrFail($id);
@@ -260,12 +272,17 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
-        $aduan->status_verifikasi = $request->status_verifikasi;
-        $aduan->catatan_verifikasi = $request->catatan_verifikasi;
-        $aduan->file_verifikator = $request->file_verifikator;
-        $aduan->save();
+        $aduan->hasil_penyidikan = $request->hasil_penyidikan;
+        $hasil = $aduan->save();
         // dd($hasil);
-        Flash::success('Aduan telah di verifikasi.');
+        if ($hasil) {
+            Flash::success('Status telah di-update.');
+            
+        }
+        else{
+            
+            Flash::warning('Gagal meng-update.');
+        }
 
         return redirect(route('aduans.index'));
     }

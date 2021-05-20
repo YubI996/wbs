@@ -17,7 +17,7 @@
             <td>{{ $user->username }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->level->nama }}</td>
+            <td>{{ $user->level->name }}</td>
             {{-- <td>{{ $user->avatar }}</td>
             <td>{{ $user->tempat }}</td>
             <td>{{ $user->tanggal }}</td>

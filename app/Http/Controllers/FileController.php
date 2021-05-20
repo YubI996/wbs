@@ -30,6 +30,19 @@ class FileController extends Controller
         }
         return '';
     }
+
+    public function store_inspek(Request $req)
+    {
+        if($req->hasFile('file_inspektur')){
+            $file = $req->file('file_inspektur');
+            $filename =  Auth::id().str_replace(' ', '_', $file->getClientOriginalName());
+            $file->storeAs('files/inspektur',$filename,'public');
+
+            return $filename;
+        }
+        return '';
+    }
+
     public function delete()
     {
         

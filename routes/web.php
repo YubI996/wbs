@@ -30,6 +30,7 @@ route::get('/statistik', function () {
 
 route::post( '/files',[App\Http\Controllers\FileController::class, 'store']);
 route::post( '/files/verif',[App\Http\Controllers\FileController::class, 'store_verif']);
+route::post( '/files/inspektur',[App\Http\Controllers\FileController::class, 'store_inspek']);
 
 Route::resource('users', App\Http\Controllers\userController::class);
 
@@ -43,3 +44,5 @@ Route::get('ekspor', [App\Http\Controllers\AduanController::class,'export']);
 Route::get('aduans/file/{name}/{id}', [App\Http\Controllers\AduanController::class,'download'])->name('aduans.download');
 // Route::get('aduans/file/verif/\{id}', [App\Http\Controllers\AduanController::class,'download_verif'])->name('aduans.download.verif');
 Route::patch('aduans/verif/{id}', [App\Http\Controllers\AduanController::class,'verif'])->name('aduans.verif');
+Route::patch('aduans/inspek/{id}', [App\Http\Controllers\AduanController::class,'inspek'])->name('aduans.inspek');
+Route::patch('aduans/hasil/{id}', [App\Http\Controllers\AduanController::class,'admin'])->name('aduans.hasil');
