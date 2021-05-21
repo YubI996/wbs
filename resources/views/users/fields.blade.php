@@ -1,7 +1,7 @@
 <!-- Nip Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nip', 'Nip:') !!}
-    {!! Form::text('nip', old('nip'), ['class' => 'form-control','maxlength' => 255]) !!}
+    {!! Form::number('nip', old('nip'), ['class' => 'form-control','maxlength' => 255]) !!}
     @error('nip')
         <span class="error1">{{ $message }}</span>
     @enderror
@@ -37,7 +37,7 @@
 <!-- Password Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('password', 'Password:') !!}
-    {!! Form::text('password', old('email'), ['class' => 'form-control','maxlength' => 255]) !!}
+    {!! Form::password('password', ['class' => 'form-control','maxlength' => 255]) !!}
     @error('password')
         <span class="error1">{{ $message }}</span>
     @enderror
@@ -52,14 +52,6 @@
     @enderror
 </div>
 
-<!-- Avatar Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('avatar', 'Avatar:') !!}
-    {!! Form::text('avatar', old('avatar'), ['class' => 'form-control','maxlength' => 255]) !!}
-    @error('avatar')
-        <span class="error1">{{ $message }}</span>
-    @enderror
-</div>
 
 <!-- Tempat Field -->
 <div class="form-group col-sm-6">

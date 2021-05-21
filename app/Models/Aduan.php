@@ -92,7 +92,7 @@ class Aduan extends Model
     public static $rules = [
         'user_id' => 'required',
         'jenis_aduan' => 'required|integer',
-        'file_bukti' => 'string|max:255',
+        'file_bukti' => 'required|string|max:255',
         'penjelasan' => 'required|string|max:255',
         'nama_terlapor' => 'required|string|max:255',
         'jabatan_terlapor' => 'required|string|max:255',

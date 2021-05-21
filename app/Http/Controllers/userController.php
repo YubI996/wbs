@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateuserRequest;
 use App\Repositories\userRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Flash;
@@ -61,7 +62,8 @@ class userController extends AppBaseController
         $input = $request->all();
 
         $user = $this->userRepository->create($input);
-
+        $user->password = Hash::make($request->password);
+        $user->save();
         Flash::success('User saved successfully.');
 
         return redirect(route('users.index'));

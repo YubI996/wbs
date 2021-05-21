@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 
 abstract class BaseRepository
@@ -83,7 +84,7 @@ abstract class BaseRepository
      * @param int|null $limit
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function allQuery($search = [], $skip = null, $limit = null)
+    public function allQuery($search = [], $skip = null, $limit = null )
     {
         $query = $this->model->newQuery();
 
@@ -119,6 +120,45 @@ abstract class BaseRepository
     public function all($search = [], $skip = null, $limit = null, $columns = ['*'])
     {
         $query = $this->allQuery($search, $skip, $limit);
+
+        return $query->get($columns);
+    }
+
+    /**
+     * Retrieve all records with given filter criteria
+     *
+     * @param array $search
+     * @param int|null $skip
+     * @param int|null $limit
+     * @param array $columns
+     *
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function selectByOwn($search = [], $skip = null, $limit = null, $columns = ['*'])
+    {
+        $query = $this->model->newQuery();
+        $userId = Auth::id();
+        $userRole = Auth::user()->role_id;
+        switch ($userRole) {
+            case 1:
+                $query = $query->where('status_verifikasi', 1);
+                break;      
+            case 2:
+                $query = $this->allQuery($search, $skip, $limit);
+                break;
+            
+            case 3:
+                $query = $query->where('status_validasi', 1);
+                break;
+            
+            case 4:
+                $query = $query->where('user_id', $userId);
+                break;
+            
+            default:
+                $query = $this->allQuery($search, $skip, $limit);
+                break;
+        }
 
         return $query->get($columns);
     }

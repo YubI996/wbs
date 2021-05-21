@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-
+    {{-- {{Auth::id(). ' : '. $test}} --}}
     <div class="content px-3">
 
         @include('flash::message')
@@ -90,8 +90,8 @@
     
 
 @endsection
-@section('scripts')
+{{-- @section('scripts')
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
-@endsection
+@endsection --}}

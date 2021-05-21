@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateaduanInspekRequest;
 use App\Repositories\aduanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Flash;
 use Response;
 use App\Exports\LaporanExport;
@@ -37,12 +38,20 @@ class aduanController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $aduans = $this->aduanRepository->all();
-        
+        // $aduans = $this->aduanRepository->all();
+        // switch (Auth::user()->Role_id) {
+        //     case 'value':
+        //         # code...
+        //         break;
+            
+        //     default:
+        //         # code...
+        //         break;
+        // }
+        $aduans = $this->aduanRepository->selectByOwn();
         return view('aduans.index')
             ->with([
                 'aduans' => $aduans
-            
             ]);
     }
 

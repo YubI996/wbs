@@ -80,7 +80,7 @@
                     <!-- File Bukti Field -->
                     <div class="form-group col-sm-6">
                         {!! Form::label('file_bukti', 'File Bukti:') !!}
-                        {!! Form::file('file_bukti', null, ['class' => 'form-control']) !!}
+                        {!! Form::file('file_bukti', null, ['class' => 'form-control', 'required']) !!}
                         @error('file_bukti')
                             <span class="error1">{{ $message }}</span>
                         @enderror

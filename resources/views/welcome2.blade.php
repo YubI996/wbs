@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Tolong jangan di hack-->
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -10,6 +11,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         @include('layouts.css')
         {{-- custom css --}}
+        
       <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
     </head>
     <body id="page-top">
