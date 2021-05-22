@@ -24,9 +24,7 @@ Auth::routes();
 Route::get('/home', [
     HomeController::class, 'index'
 ])->name('home');
-route::get('/statistik', function () {
-    return view('statistik');
-});
+route::get('/statistik',[App\Http\Controllers\StatistikController::class, 'data']);
 
 route::post( '/files',[App\Http\Controllers\FileController::class, 'store']);
 route::post( '/files/verif',[App\Http\Controllers\FileController::class, 'store_verif']);

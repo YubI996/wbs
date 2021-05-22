@@ -9,7 +9,60 @@
 @endsection
 @section('content')
     <div class="container">
-        <canvas id="myChart">
+        <div class="row">
+            <div class="col mt-5">
+                <div class="card">
+                    <div class="card-header"><i class="fa fa-download" aria-hidden="true"></i>  Total Laporan Masuk</div>
+                    <div class="card-body justify-content-start"> {{$totalLaporan}} </div>
+                </div>
+            </div>
+            <div class="col mt-5">
+                <div class="card">
+                    <div class="card-header"><i class="fa fa-clock" aria-hidden="true"></i>  Rata-rata Durasi</div>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-calendar" aria-hidden="true"></i>  Laporan Masuk {{date('F Y')}}
+            </div>
+            <div class="card-body">
+                {{-- <blockquote class="blockquote mb-0"> --}}
+                <div style="width:75%;">
+                    {!! $lineChart->render() !!}
+                </div>
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
+                {{-- </blockquote> --}}
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Quote
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                <div style="width:75%;">
+                    {!! $pieChart->render() !!}
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Quote
+            </div>
+            <div class="card-body">
+                <div style="width:75%;">
+                    {!! $barChart->render() !!}
+                </div>
+            </div>
+        </div>
+        
+        {{-- <canvas id="myChart">
             
         </canvas>
     </div>
@@ -47,5 +100,5 @@
                 }
             }
         });
-    </script>
+    </script> --}}
 @endsection
