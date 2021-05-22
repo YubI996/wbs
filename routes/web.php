@@ -44,3 +44,4 @@ Route::get('aduans/file/{name}/{id}', [App\Http\Controllers\AduanController::cla
 Route::patch('aduans/verif/{id}', [App\Http\Controllers\AduanController::class,'verif'])->name('aduans.verif');
 Route::patch('aduans/inspek/{id}', [App\Http\Controllers\AduanController::class,'inspek'])->name('aduans.inspek');
 Route::patch('aduans/hasil/{id}', [App\Http\Controllers\AduanController::class,'admin'])->name('aduans.hasil');
+Route::get('aduans/selesai/{id}', [App\Http\Controllers\AduanController::class,'selesai'])->name('aduans.selesai');

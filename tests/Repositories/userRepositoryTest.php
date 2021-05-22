@@ -1,6 +1,6 @@
 <?php namespace Tests\Repositories;
 
-use App\Models\user;
+use App\Models\User;
 use App\Repositories\userRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -26,14 +26,14 @@ class userRepositoryTest extends TestCase
      */
     public function test_create_user()
     {
-        $user = user::factory()->make()->toArray();
+        $user = User::factory()->make()->toArray();
 
         $createduser = $this->userRepo->create($user);
 
         $createduser = $createduser->toArray();
         $this->assertArrayHasKey('id', $createduser);
         $this->assertNotNull($createduser['id'], 'Created user must have id specified');
-        $this->assertNotNull(user::find($createduser['id']), 'user with given id must be in DB');
+        $this->assertNotNull(User::find($createduser['id']), 'user with given id must be in DB');
         $this->assertModelData($user, $createduser);
     }
 
@@ -42,7 +42,7 @@ class userRepositoryTest extends TestCase
      */
     public function test_read_user()
     {
-        $user = user::factory()->create();
+        $user = User::factory()->create();
 
         $dbuser = $this->userRepo->find($user->id);
 
@@ -55,8 +55,8 @@ class userRepositoryTest extends TestCase
      */
     public function test_update_user()
     {
-        $user = user::factory()->create();
-        $fakeuser = user::factory()->make()->toArray();
+        $user = User::factory()->create();
+        $fakeuser = User::factory()->make()->toArray();
 
         $updateduser = $this->userRepo->update($fakeuser, $user->id);
 
@@ -70,11 +70,11 @@ class userRepositoryTest extends TestCase
      */
     public function test_delete_user()
     {
-        $user = user::factory()->create();
+        $user = User::factory()->create();
 
         $resp = $this->userRepo->delete($user->id);
 
         $this->assertTrue($resp);
-        $this->assertNull(user::find($user->id), 'user should not exist in DB');
+        $this->assertNull(User::find($user->id), 'user should not exist in DB');
     }
 }

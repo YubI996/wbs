@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateaduanAPIRequest;
 use App\Http\Requests\API\UpdateaduanAPIRequest;
-use App\Models\aduan;
+use App\Models\Aduan;
 use App\Repositories\aduanRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;

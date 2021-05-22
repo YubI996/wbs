@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Tests\ApiTestTrait;
-use App\Models\user;
+use App\Models\User;
 
 class userApiTest extends TestCase
 {
@@ -15,7 +15,7 @@ class userApiTest extends TestCase
      */
     public function test_create_user()
     {
-        $user = user::factory()->make()->toArray();
+        $user = User::factory()->make()->toArray();
 
         $this->response = $this->json(
             'POST',
@@ -30,7 +30,7 @@ class userApiTest extends TestCase
      */
     public function test_read_user()
     {
-        $user = user::factory()->create();
+        $user = User::factory()->create();
 
         $this->response = $this->json(
             'GET',
@@ -45,8 +45,8 @@ class userApiTest extends TestCase
      */
     public function test_update_user()
     {
-        $user = user::factory()->create();
-        $editeduser = user::factory()->make()->toArray();
+        $user = User::factory()->create();
+        $editeduser = User::factory()->make()->toArray();
 
         $this->response = $this->json(
             'PUT',
@@ -62,7 +62,7 @@ class userApiTest extends TestCase
      */
     public function test_delete_user()
     {
-        $user = user::factory()->create();
+        $user = User::factory()->create();
 
         $this->response = $this->json(
             'DELETE',

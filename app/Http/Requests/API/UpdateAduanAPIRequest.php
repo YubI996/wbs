@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\aduan;
+use App\Models\Aduan;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdateaduanAPIRequest extends APIRequest

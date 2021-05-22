@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\user;
+use App\Models\User;
 use InfyOm\Generator\Request\APIRequest;
 
 class UpdateuserAPIRequest extends APIRequest
@@ -24,7 +24,7 @@ class UpdateuserAPIRequest extends APIRequest
      */
     public function rules()
     {
-        $rules = user::$rules;
+        $rules = User::$rules;
         
         return $rules;
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\aduan;
+use App\Models\Aduan;
 
 class UpdateaduanVerifRequest extends FormRequest
 {

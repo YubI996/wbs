@@ -25,7 +25,7 @@ class CreateAduansTable extends Migration
             $table->enum('status_validasi', [1, 2])->nullable();
             $table->string('catatan_validasi')->nullable();
             $table->string('file_inspektur')->nullable();
-            $table->enum('hasil_penyidikan', [1,2,3])->nullable();
+            $table->enum('hasil_penyidikan', [1,2])->nullable();
             $table->string('nama_terlapor');
             $table->string('jabatan_terlapor');
             $table->string('pangkat_terlapor');
@@ -33,7 +33,7 @@ class CreateAduansTable extends Migration
             $table->string('unit_terlapor');
             $table->string('kota_terlapor');
             $table->string('penjelasan');
-            $table->date('tgl_selesai');
+            $table->date('tgl_selesai')->nullable();
             $table->timestamps();
         });
     }

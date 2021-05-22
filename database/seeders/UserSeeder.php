@@ -48,5 +48,13 @@ class UserSeeder extends Seeder
             'nip' => '1234567890123459',
             'role_id' => 4,
         ]);
+        DB::table('users')->insert([
+            'name' => 'Pengadu2',
+            'username' => 'pengadu2',
+            'email' => 'pengadu2@gmail.com',
+            'password' => Hash::make('password'),
+            'nip' => '1234567890123460',
+            'role_id' => 4,
+        ]);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateuserAPIRequest;
 use App\Http\Requests\API\UpdateuserAPIRequest;
-use App\Models\user;
+use App\Models\User;
 use App\Repositories\userRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;

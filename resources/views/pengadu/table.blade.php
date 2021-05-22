@@ -6,7 +6,8 @@
                 <th>File Bukti</th>
                 <th>Nama Terlapor</th>
                 <th>Penjelasan</th>
-                <th>Status Laporan</th>
+                <th>Hasil Pemeriksaan</th>
+                {{-- <th>Status Laporan</th> --}}
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -25,7 +26,7 @@
                     $status='Proses verifikasi';
                     $ver=$aduan->status_verifikasi;
                     $val=$aduan->status_validasi;
-                    $hasil=$aduan->status_penyidikan;
+                    $hasil=$aduan->hasil_penyidikan;
                     if($hasil===null){
                         if ($val===null) {
                             if($ver==2){
@@ -42,14 +43,15 @@
                     elseif($hasil==2){
                             $status='Tidak terbukti';
                     }
-                    elseif($hasil==3){
-                        $status='Selesai';
-                    }
                     elseif($hasil==1){
                         $status='Terbukti';
                     }
+                    if(! $aduan->tgl_selesai == null){
+                        $status = 'Selesai : '.$status;
+                    }
                 @endphp
                 <td>{{ $status }}</td>
+                {{-- <td>{{ $aduan->tgl_selesai == null ? 'Selesai': }}</td> --}}
                 <td width="120">
                     {!! Form::open(['route' => ['aduans.destroy', $aduan->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

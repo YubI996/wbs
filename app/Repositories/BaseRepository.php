@@ -141,22 +141,22 @@ abstract class BaseRepository
         $userRole = Auth::user()->role_id;
         switch ($userRole) {
             case 1:
-                $query = $query->where('status_verifikasi', 1);
+                $query = $query->where('status_verifikasi', 1)->orderByDesc('created_at');
                 break;      
             case 2:
-                $query = $this->allQuery($search, $skip, $limit);
+                $query = $this->allQuery($search, $skip, $limit)->orderByDesc('created_at');
                 break;
             
             case 3:
-                $query = $query->where('status_validasi', 1);
+                $query = $query->where('status_validasi', 1)->orderByDesc('created_at');
                 break;
             
             case 4:
-                $query = $query->where('user_id', $userId);
+                $query = $query->where('user_id', $userId)->orderByDesc('created_at');
                 break;
             
             default:
-                $query = $this->allQuery($search, $skip, $limit);
+                $query = $this->allQuery($search, $skip, $limit)->orderByDesc('created_at');
                 break;
         }
 

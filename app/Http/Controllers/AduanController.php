@@ -298,4 +298,12 @@ class aduanController extends AppBaseController
 
         return redirect(route('aduans.index'));
     }
+    public function selesai($id)
+    {
+        $a = Aduan::findOrFail($id);
+        $a->tgl_selesai = date('Y-m-d H:i:s');
+        $a->save();
+        Flash::success('Aduan telah ditandai sebagai telah selesai');
+        return redirect(route('aduans.index'));
+    }
 }
