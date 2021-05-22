@@ -81,7 +81,8 @@ class Aduan extends Model
         'instansi_terlapor' => 'string',
         'unit_terlapor' => 'string',
         'kota_terlapor' => 'string',
-        'penjelasan' => 'string'
+        'penjelasan' => 'string',
+        'tgl_selesai' => 'date'
     ];
 
     /**
@@ -94,6 +95,7 @@ class Aduan extends Model
         'jenis_aduan' => 'required|integer',
         'file_bukti' => 'required|string|max:255',
         'penjelasan' => 'required|string|max:255',
+        'tgl_selesai' => 'nullable',
         'nama_terlapor' => 'required|string|max:255',
         'jabatan_terlapor' => 'required|string|max:255',
         'pangkat_terlapor' => 'required|string|max:255',

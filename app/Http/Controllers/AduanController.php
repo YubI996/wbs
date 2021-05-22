@@ -282,6 +282,9 @@ class aduanController extends AppBaseController
             return redirect(route('aduans.index'));
         }
         $aduan->hasil_penyidikan = $request->hasil_penyidikan;
+        if ($aduan->hasil_penyidikan=='selesai'){
+            $aduan->tgl_selesai = date('Y-m-d H:i:s');
+        }
         $hasil = $aduan->save();
         // dd($hasil);
         if ($hasil) {

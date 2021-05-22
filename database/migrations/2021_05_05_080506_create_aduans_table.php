@@ -33,6 +33,7 @@ class CreateAduansTable extends Migration
             $table->string('unit_terlapor');
             $table->string('kota_terlapor');
             $table->string('penjelasan');
+            $table->date('tgl_selesai');
             $table->timestamps();
         });
     }
