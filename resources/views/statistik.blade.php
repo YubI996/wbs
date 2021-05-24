@@ -18,50 +18,55 @@
             </div>
             <div class="col mt-5">
                 <div class="card">
-                    <div class="card-header"><i class="fa fa-clock" aria-hidden="true"></i>  Rata-rata Durasi</div>
-                    <div class="card-body"></div>
+                    <div class="card-header"><i class="fa fa-clock" aria-hidden="true"></i>  Rata-rata Durasi Penyelesaian</div>
+                    <div class="card-body">{{$avgDone}}</div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                <i class="fa fa-calendar" aria-hidden="true"></i>  Laporan Masuk {{date('F Y')}}
-            </div>
-            <div class="card-body">
-                {{-- <blockquote class="blockquote mb-0"> --}}
-                <div style="width:75%;">
-                    {!! $lineChart->render() !!}
-                </div>
-                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
-                {{-- </blockquote> --}}
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                Quote
-            </div>
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                <div style="width:75%;">
-                    {!! $pieChart->render() !!}
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                Quote
-            </div>
-            <div class="card-body">
-                <div style="width:75%;">
-                    {!! $barChart->render() !!}
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>  Laporan Perminggu dari Bulan {{date('F Y')}}
+                    </div>
+                    <div class="card-body">
+                        {{-- <blockquote class="blockquote mb-0"> --}}
+                        <div style="width:100%;">
+                            {!! $lineChart->render() !!}
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
-        
+        <div class="row">
+            <div class="col my-6">
+                
+                <div class="card">
+                    <div class="card-header">
+                        Laporan Berdasarkan Jenis Pelanggaran
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            {!! $barChart->render() !!}
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="col my-6">
+                <div class="card">
+                    <div class="card-header">
+                        Laporan Berdasarkan Status
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            {!! $pieChart->render() !!}
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+            
         {{-- <canvas id="myChart">
             
         </canvas>
