@@ -88,13 +88,16 @@ class StatistikController extends Controller
         $weeks = $a->groupBy(function($date) 
                             {
                                 return $this->weekOfMonth($date->created_at);
-                            });
+                            })->toArray();
+        ksort($weeks);
+
+                            // dd($weeks);
         $index = 0;
         $weekly=[];
         foreach ($weeks as $key => $value) {
             $weekly['Minggu #'.$key]=count($value);
         }
-        
+        // dd($weekly);
         //Data untuk grafik pie
         $stats = [];
         foreach ($a as $key => $value) {

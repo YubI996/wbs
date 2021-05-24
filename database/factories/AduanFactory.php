@@ -6,6 +6,7 @@ use App\Models\Aduan;
 use App\Models\User;
 use App\Models\JenisAduan as ja;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 class aduanFactory extends Factory
 {
@@ -43,7 +44,7 @@ class aduanFactory extends Factory
             'kota_terlapor' => $this->faker->word(),
             'penjelasan' => $this->faker->word(),
             'tgl_selesai' => null,
-            'created_at' => date('Y-m-d H:i:s'),
+            'created_at' => Carbon::now()->subWeeks(2),
             'updated_at' => null
         ];
     }
