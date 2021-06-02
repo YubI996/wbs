@@ -179,7 +179,7 @@ class aduanController extends AppBaseController
 
     public function export() 
     {
-        return Excel::download(new LaporanExport, 'validated.xlsx');
+        return Excel::download(new LaporanExport, 'Laporan.xlsx');
     }
 
     public function download($name,$id) 
