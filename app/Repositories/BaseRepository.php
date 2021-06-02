@@ -148,6 +148,7 @@ abstract class BaseRepository
                 break;
             
             case 3:
+                // $query = $this->allQuery($search, $skip, $limit)->orderByDesc('created_at')->orderByDesc('created_at');
                 $query = $query->where('status_validasi', 1)->orderByDesc('created_at');
                 break;
             

@@ -1,9 +1,3 @@
-<!-- User Id Field -->
-<div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $aduan->user->name }}</p>
-</div>
-
 <!-- Jenis Aduan Field -->
 <div class="col-sm-12">
     {!! Form::label('jenis_aduan', 'Jenis Aduan:') !!}

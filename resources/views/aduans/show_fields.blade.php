@@ -1,6 +1,6 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
+    {!! Form::label('user_id', 'Pelapor:') !!}
     <p>{{ $aduan->user_id }}</p>
 </div>
 

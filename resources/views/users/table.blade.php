@@ -12,37 +12,39 @@
         </thead>
         <tbody>
         @foreach($users as $user)
-            <tr>
-                <td>{{ $user->nip }}</td>
-            <td>{{ $user->username }}</td>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->level->name }}</td>
-            {{-- <td>{{ $user->avatar }}</td>
-            <td>{{ $user->tempat }}</td>
-            <td>{{ $user->tanggal }}</td>
-            <td>{{ $user->jabatan }}</td>
-            <td>{{ $user->pangkat }}</td>
-            <td>{{ $user->instansi }}</td>
-            <td>{{ $user->unit }}</td>
-            <td>{{ $user->kota }}</td>
-            <td>{{ $user->nohp }}</td>
-            <td>{{ $user->alamat }}</td>
-            <td>{{ $user->nolain }}</td> --}}
-                <td width="120">
-                    {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('users.show', [$user->id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="{{ route('users.edit', [$user->id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-            </tr>
+            @if (Auth::user()->role_id == 3 || Auth::id() == $user->id)
+                <tr>
+                    <td>{{ $user->nip }}</td>
+                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->level->name }}</td>
+                    {{-- <td>{{ $user->avatar }}</td>
+                    <td>{{ $user->tempat }}</td>
+                    <td>{{ $user->tanggal }}</td>
+                    <td>{{ $user->jabatan }}</td>
+                    <td>{{ $user->pangkat }}</td>
+                    <td>{{ $user->instansi }}</td>
+                    <td>{{ $user->unit }}</td>
+                    <td>{{ $user->kota }}</td>
+                    <td>{{ $user->nohp }}</td>
+                    <td>{{ $user->alamat }}</td>
+                    <td>{{ $user->nolain }}</td> --}}
+                    <td width="120">
+                        {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('users.show', [$user->id]) }}" class='btn btn-default btn-xs'>
+                                <i class="far fa-eye"></i>
+                            </a>
+                            <a href="{{ route('users.edit', [$user->id]) }}" class='btn btn-default btn-xs'>
+                                <i class="far fa-edit"></i>
+                            </a>
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
+            @endif
         @endforeach
         </tbody>
     </table>

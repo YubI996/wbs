@@ -5,6 +5,7 @@
                 <th>Pelapor</th>
                 <th>Jenis Aduan</th>
                 <th>File Bukti</th>
+                <th>Status Laporan</th>
                 <th>Hasil Penyidikan</th>
                 <th>Nama Terlapor</th>
                 {{-- <th>Jabatan Terlapor</th>
@@ -27,6 +28,35 @@
                     <i class="far fa-file-alt"></i>
                 </a>
             </td>
+            @php
+                    $status='Proses verifikasi';
+                    $ver=$aduan->status_verifikasi;
+                    $val=$aduan->status_validasi;
+                    $hasil=$aduan->hasil_penyidikan;
+                    if($hasil===null){
+                        if ($val===null) {
+                            if($ver==2){
+                                $status='Tidak ditindaklanjuti';
+                            }
+                        }
+                        elseif($val==2){
+                                $status='Tidak ditindaklanjuti';
+                        }
+                        elseif($val==1){
+                            $status='Proses Pemeriksaan';
+                        }
+                    }
+                    elseif($hasil==2){
+                            $status='Tidak terbukti';
+                    }
+                    elseif($hasil==1){
+                        $status='Terbukti';
+                    }
+                    if(! $aduan->tgl_selesai == null){
+                        $status = 'Selesai : '.$status;
+                    }
+                @endphp
+                <td>{{ $status }}</td>
             <td>{{ $aduan->hasil_penyidikan.' : '.$aduan->hasil_penyidikan==1?'Terbukti':($aduan->hasil_penyidikan==2?'Tidak terbukti':'Proses Pemeriksaan') }}</td>
             <td>{{ $aduan->nama_terlapor }}</td>
             {{-- <td>{{ $aduan->jabatan_terlapor }}</td>

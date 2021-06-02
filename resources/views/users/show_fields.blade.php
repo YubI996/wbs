@@ -22,34 +22,16 @@
     <p>{{ $user->email }}</p>
 </div>
 
-<!-- Password Field -->
-<div class="col-sm-12">
-    {!! Form::label('password', 'Password:') !!}
-    <p>{{ $user->password }}</p>
-</div>
-
 <!-- Role Field -->
 <div class="col-sm-12">
     {!! Form::label('role', 'Role:') !!}
     <p>{{ $user->level->name }}</p>
 </div>
 
-<!-- Avatar Field -->
-<div class="col-sm-12">
-    {!! Form::label('avatar', 'Avatar:') !!}
-    <p>{{ $user->avatar }}</p>
-</div>
-
 <!-- Tempat Field -->
 <div class="col-sm-12">
-    {!! Form::label('tempat', 'Tempat:') !!}
-    <p>{{ $user->tempat }}</p>
-</div>
-
-<!-- Tanggal Field -->
-<div class="col-sm-12">
-    {!! Form::label('tanggal', 'Tanggal:') !!}
-    <p>{{ $user->tanggal }}</p>
+    {!! Form::label('tempat', 'Tempat, Tanggal Lahir:') !!}
+    <p>{{ $user->tempat.', '. $user->tanggal}}</p>
 </div>
 
 <!-- Jabatan Field -->
