@@ -80,6 +80,26 @@
 
                 </div>
 
+                <div class="form-group mb-3">
+                        <div class=" d-flex justify-content-center" >
+                            <div id = "ref" class="p-1 border border-primary rounded">{!!captcha_img('math')!!}
+                            </div>
+                            <button  tooltip="test" align = "center" type="button" tabindex = 100 class="btn btn-primary btn-user1 btn-block" id="refresh" width=1>
+                                <span id="refresh" class="glyphicon glyphicon-repeat" aria-setsize="50"></span>
+                                {{-- <i class="fa fa-refresh">Reload Captcha</i> --}}
+                            </button>
+                        </div>
+                        <small  align = "center"  class="form-text text-muted">Masukkan hasil penjumlahan di atas.</small>
+                        <div class=" m-2">
+                        </div>
+                        <input type="captcha" name="captcha" class="form-control form-control-user @error('captcha') is-invalid @enderror" id="captcha" placeholder="Captcha">
+                        @error('captcha')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>Captcha doesn't match</strong>
+                            </span>
+                        @enderror
+                    </div>
+
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
@@ -95,11 +115,11 @@
                 </div>
             </form>
 
-            <p class="mb-1">
+            {{-- <p class="mb-1">
                 <a href="{{ route('password.request') }}">I forgot my password</a>
-            </p>
+            </p> --}}
             <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
+                <a href="{{ route('register') }}" class="text-center">Mendaftar</a>
             </p>
         </div>
         <!-- /.login-card-body -->
@@ -112,6 +132,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var base_url = window.location.origin+'/refreshcaptcha';
 
+    $("#refresh").click(function(){
+        $.ajax({
+        type:'GET',
+        url:'refreshcaptcha',
+        success:function(data){
+            $(".captcha span").html(data.captcha);
+            var container = document.getElementById("ref");
+        var refreshContent = data;
+        container.innerHTML = refreshContent;
+        }
+        });
+    });
+    </script>
 </body>
 </html>
