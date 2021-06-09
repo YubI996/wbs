@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class LaporanExport implements FromCollection, ShouldAutoSize,   WithMapping, WithHeadings, WithHeadingRow
+class LaporanExport_all implements FromCollection, ShouldAutoSize,   WithMapping, WithHeadings, WithHeadingRow
 {
     private $row = 0;
     use RemembersRowNumber;
@@ -50,7 +50,7 @@ class LaporanExport implements FromCollection, ShouldAutoSize,   WithMapping, Wi
     }
     public function collection()
     {
-        $aduan = aduan::where('status_validasi',1)->where('tgl_selesai',null)->orderByDesc('created_at')->get();
+        $aduan = aduan::orderByDesc('created_at')->get();
         return $aduan;
     }
 }

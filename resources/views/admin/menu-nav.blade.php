@@ -17,6 +17,7 @@
                 <a class="dropdown-item" href="{{ route('users.index') }}">User</a>
                 <a class="dropdown-item" href="{{ route('jenisAduans.index') }}">Jenis Aduan</a>
                 <a class="dropdown-item" href="{{ route('ekspor') }}">Laporan</a>
+                <a class="dropdown-item" href="{{ route('ekspor-all') }}">Ekspor</a>
             </div>
         </div>
     </li>

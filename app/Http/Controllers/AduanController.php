@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Flash;
 use Response;
 use App\Exports\LaporanExport;
+use App\Exports\LaporanExport_all;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\JenisAduan;
 use App\Models\Aduan;
@@ -180,6 +181,10 @@ class aduanController extends AppBaseController
     public function export() 
     {
         return Excel::download(new LaporanExport, 'Laporan.xlsx');
+    }
+    public function export_all() 
+    {
+        return Excel::download(new LaporanExport_all, 'Export.xlsx');
     }
 
     public function download($name,$id) 
