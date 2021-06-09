@@ -35,6 +35,7 @@ class user extends Authenticatable
 {
 
     use HasFactory;
+    use Notifiable;
 
     //  use Authenticatable, Authorizable, CanResetPassword;
     public $table = 'users';

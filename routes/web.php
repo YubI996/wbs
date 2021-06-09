@@ -18,6 +18,11 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome2');
 });
+Route::get('/form-captcha',[App\Http\Controllers\CaptchaController::class,'index']);
+Route::post('/form-captcha',[App\Http\Controllers\CaptchaController::class,'submit']);
+Route::get('createcaptcha', [App\Http\Controllers\CaptchaController::class,'create']);
+Route::post('captcha', [App\Http\Controllers\CaptchaController::class,'captchaValidate']);
+Route::get('refreshcaptcha', [App\Http\Controllers\CaptchaController::class,'refreshCaptcha']);
 
 Auth::routes();
 
@@ -46,3 +51,4 @@ Route::patch('aduans/verif/{id}', [App\Http\Controllers\AduanController::class,'
 Route::patch('aduans/inspek/{id}', [App\Http\Controllers\AduanController::class,'inspek'])->name('aduans.inspek');
 Route::patch('aduans/hasil/{id}', [App\Http\Controllers\AduanController::class,'admin'])->name('aduans.hasil');
 Route::get('aduans/selesai/{id}', [App\Http\Controllers\AduanController::class,'selesai'])->name('aduans.selesai');
+

@@ -32,7 +32,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<script src="https://kit.fontawesome.com/47b0246c5d.js" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -85,11 +85,11 @@
                             <div id = "ref" class="p-1 border border-primary rounded">{!!captcha_img('math')!!}
                             </div>
                             <button  tooltip="test" align = "center" type="button" tabindex = 100 class="btn btn-primary btn-user1 btn-block" id="refresh" width=1>
-                                <span id="refresh" class="glyphicon glyphicon-repeat" aria-setsize="50"></span>
+                                <span id="refresh" class="fas fa-redo-alt" aria-setsize="50"></span>
                                 {{-- <i class="fa fa-refresh">Reload Captcha</i> --}}
                             </button>
                         </div>
-                        <small  align = "center"  class="form-text text-muted">Masukkan hasil penjumlahan di atas.</small>
+                        <small  align = "center"  class="form-text text-muted">Masukkan angka di atas.</small>
                         <div class=" m-2">
                         </div>
                         <input type="captcha" name="captcha" class="form-control form-control-user @error('captcha') is-invalid @enderror" id="captcha" placeholder="Captcha">
@@ -115,9 +115,9 @@
                 </div>
             </form>
 
-            {{-- <p class="mb-1">
-                <a href="{{ route('password.request') }}">I forgot my password</a>
-            </p> --}}
+            <p class="mb-1">
+                <a href="{{ route('password.request') }}">Reset Password</a>
+            </p>
             <p class="mb-0">
                 <a href="{{ route('register') }}" class="text-center">Mendaftar</a>
             </p>
@@ -132,6 +132,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script type="text/javascript">
     var base_url = window.location.origin+'/refreshcaptcha';
 
