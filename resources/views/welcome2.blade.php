@@ -80,6 +80,55 @@
                 </div>
             </div>
         </section>
+
+        <section id="penjelasan"> 
+            <div class="container">
+                <ol>
+                    <li>Klik tombol "Login", lalu isikan Username dan password Anda.</li>
+                    <li>Jika Anda belum terdaftar, klik tombol "Register" dan
+                        isikan data diri Anda lalu klik tombol "Register,<br />
+                        maka Anda akan otomatis login ke Aplikasi.<br />
+                        <ul>
+                            <li>Buat <span style="font-weight: bold;">Nama
+                                Samaran (Username) </span>dan <span
+                                style="font-weight: bold;">Kata Sandi (password) </span>yang
+                                Anda ketahui sendiri.</li>
+                            <li style="font-weight: bold;">Gunakan nama yang
+                                unik dan tidak menggambarkan
+                                identitas Anda</li>
+                        </ul>
+                    </li>
+                    <li>Klik Menu "Pengaduan" untuk menambahkan pengaduan baru.</li>
+                    <li>Klik Tombol "Tambah" untuk merekam pengaduan baru.</li>
+                    <li>Isi form "Tambah Pengaduan" sesuai informasi yang Anda
+                        ketahui, jangan lupa untuk menyertakan file bukti(dapat berbentuk foto
+                        atau dokumen lain), lalu klik tombol "Submit"</li>
+                    <li>Perhatikan baik-baik beberapa hal di bawah ini:
+                        <ul style="font-weight: bold;">
+                            <li>Pastikan informasi yang diberikan sedapat mungkin
+                                memenuhi unsur&nbsp;5W
+                                + 1H.</li>
+                            </ul>
+                    </li>
+                    <li>Setelah itu Anda akan dibawa kembali ke halaman "Aduan"
+                        dimana Anda dapat melihat aduan yang sudah anda buat.</li>
+                    <li><span style="font-weight: bold;">Setiap aduan
+                        yang telah
+                        terdaftar memiliki nomor registrasi, Anda dapat menggunakan nomor
+                        registrasi ini untuk memonitor status/tindak lanjut pengaduan yang Anda
+                        sampaikan.</span></li>
+                    <li><span style="font-weight: bold;">Apabila
+                        pengaduan yang Anda sampaikan
+                        belum memenuhi kriteria untuk ditindaklanjuti</span><span
+                        style="font-weight: bold;">, Inspektorat
+                        Kota Bontang akan menghubungi Anda melalui nomor HP yang telah Anda
+                        cantumkan dalam Form Pendaftaran.</span></li>
+                </ol>
+            </div>
+            
+                
+
+        </section>
         {{-- Modals --}}
         {{-- kriteria --}}
         <div class="modal fade" id="kriteria" tabindex="-1" role="dialog" aria-labelledby="kriteriaLabel" aria-hidden="true">

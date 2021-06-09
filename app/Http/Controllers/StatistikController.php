@@ -87,6 +87,7 @@ class StatistikController extends Controller
         // data untuk grafik garis
         $weeks = $a->groupBy(function($date) 
                             {
+                                // $i = 
                                 return $this->weekOfMonth($date->created_at);
                             })->toArray();
         ksort($weeks);
