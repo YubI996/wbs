@@ -89,7 +89,7 @@
                                 {{-- <i class="fa fa-refresh">Reload Captcha</i> --}}
                             </button>
                         </div>
-                        <small  align = "center"  class="form-text text-muted">Masukkan angka di atas.</small>
+                        <small  align = "center"  class="form-text text-muted">Masukkan hasil penjumlahan di atas.</small>
                         <div class=" m-2">
                         </div>
                         <input type="captcha" name="captcha" class="form-control form-control-user @error('captcha') is-invalid @enderror" id="captcha" placeholder="Captcha">
