@@ -38,9 +38,9 @@
                     <div class="col-8">
                         <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM <br/>KOTA BONTANG</h1>
                         <p class="lead">Whistleblowing System adalah Aplikasi penyampaian / pengaduan dugaan
-                             tindak pidana yang telah terjadi, sedang terjadi, atau akan terjadi
-                              yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan
-                               dengan dugaan tindak pidana yang dilakukan di lingkungan Pemerintah
+                            tindak pidana yang telah terjadi, sedang terjadi, atau akan terjadi
+                            yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan
+                            dengan dugaan tindak pidana yang dilakukan di lingkungan Pemerintah
                                 Kota Bontang</p>
                     </div>
                 </div>
@@ -81,8 +81,10 @@
             </div>
         </section>
 
-        <section id="penjelasan"> 
+        <section  id="penjelasan" class="bg-primary text-white"> 
             <div class="container">
+                <div style="align-content: center">
+                <h2>Kirim Pengaduan</h2></div>
                 <ol>
                     <li>Klik tombol "Login", lalu isikan Username dan password Anda.</li>
                     <li>Jika Anda belum terdaftar, klik tombol "Register" dan

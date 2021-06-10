@@ -40,7 +40,7 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+            <p class="login-box-msg">Masukkan email Anda yang terdaftar, kami akan mengirim kode reset password ke email Anda.</p>
 
             @if (session('status'))
                 <div class="alert alert-success">
