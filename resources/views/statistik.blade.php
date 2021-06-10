@@ -27,7 +27,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>  Laporan Perminggu dari Bulan {{date('F Y')}}
+                        <i class="fa fa-calendar" aria-hidden="true"></i>  Jumlah Laporan PerBulan Tahun {{date('   Y')}}
                     </div>
                     <div class="card-body">
                         {{-- <blockquote class="blockquote mb-0"> --}}

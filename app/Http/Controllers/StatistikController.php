@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aduan;
 use Carbon\Carbon;
+use DB;
 
 class StatistikController extends Controller
 {
@@ -85,18 +86,31 @@ class StatistikController extends Controller
         $totalLaporan = $a->Count();
 
         // data untuk grafik garis
-        $weeks = $a->groupBy(function($date) 
-                            {
-                                // $i = 
-                                return $this->weekOfMonth($date->created_at);
-                            })->toArray();
-        ksort($weeks);
+        // $weeks = $a->groupBy(function($date) 
+        //                     {
+        //                         // $i = 
+        //                         return $this->weekOfMonth($date->created_at);
+        //                     })->toArray();
+        //select(DB::raw('count(id) as `data`'), DB::raw("DATE_FORMAT(created_at, '%m-%Y') new_date"),  DB::raw('YEAR(created_at) year, MONTH(created_at) month'))
+            // groupby(DB::raw('MONTH(created_at)'),function($date) 
+            //                 {
+            //                     // $i = 
+            //                     return $this->weekOfMonth($date->created_at);
+            //                 })
+        $weeks = DB::table('aduans')
+                    // ->WhereMonth('created_at',6)
+                    ->get()
+                    ->groupBy(function($date) {
+                                    return Carbon::parse($date->created_at)->format('F');
+                                })
+                    ->toArray();
+                    // dd($weeks);
+        // ksort($weeks);
 
-                            // dd($weeks);
         $index = 0;
         $weekly=[];
         foreach ($weeks as $key => $value) {
-            $weekly['Minggu #'.$key]=count($value);
+            $weekly['Bulan '.$key]=count($value);
         }
         // dd($weekly);
         //Data untuk grafik pie
@@ -115,7 +129,7 @@ class StatistikController extends Controller
         $index = 0;
         $weekly=[];
         foreach ($weeks as $key => $value) {
-            $weekly['Minggu #'.$key]=count($value);
+            $weekly[$key]=count($value);
         }
         // dd($j);
         $lineChart = app()->chartjs
@@ -125,7 +139,7 @@ class StatistikController extends Controller
             // ->labels(['Minggu #1', 'Minggu #2', 'Minggu #3', 'Minggu #4', 'Minggu #5'])
             ->datasets([
                 [
-                    "label" => "Laporan masuk ".date('M Y'),
+                    "label" => "Laporan masuk ".date('Y'),
                     'backgroundColor' => "rgba(38, 185, 154, 0.31)",
                     'borderColor' => "rgba(38, 185, 154, 0.7)",
                     "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
@@ -133,10 +147,17 @@ class StatistikController extends Controller
                     "pointHoverBackgroundColor" => "#fff",
                     "pointHoverBorderColor" => "rgba(220,220,220,1)",
                     'data' => $weekly,
+                    
                 ]
                 
             ])
-            ->options([]);
+            ->options([
+                'scales' => [
+                    'yAxes' => [
+                        'beginAtZero' => true
+                    ]
+                ]
+            ]);
             
             // pie chart
         $pieChart = app()->chartjs
