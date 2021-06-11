@@ -7,12 +7,15 @@
                 <div class="col-sm-6">
                     <h1>Aduans</h1>
                 </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('aduans.create') }}">
-                        Tambah
-                    </a>
-                </div>
+                @if (Auth::user()->role_id==4)
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary float-right"
+                        href="{{ route('aduans.create') }}">
+                            Tambah
+                        </a>
+                    </div>      
+                @endif
+            
             </div>
         </div>
     </section>

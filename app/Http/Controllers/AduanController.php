@@ -311,4 +311,35 @@ class aduanController extends AppBaseController
         Flash::success('Aduan telah ditandai sebagai telah selesai');
         return redirect(route('aduans.index'));
     }
+    public function fetch($id)
+    {
+        $aduan = Aduan::findOrFail($id);
+        $status='Proses Verifikasi';
+        $ver=$aduan->status_verifikasi;
+        $val=$aduan->status_validasi;
+        $hasil=$aduan->hasil_penyidikan;
+        if($hasil===null){
+            if ($val===null) {
+                if($ver==2){
+                    $status='Tidak Ditindaklanjuti';
+                }
+            }
+            elseif($val==2){
+                    $status='Tidak Ditindaklanjuti';
+            }
+            elseif($val==1){
+                $status='Proses Pemeriksaan';
+            }
+        }
+        elseif($hasil==2){
+                $status='Tidak Terbukti';
+        }
+        elseif($hasil==1){
+            $status='Terbukti';
+        }
+        if(! $aduan->tgl_selesai == null){
+            $status = 'Selesai';
+        }
+        return $status;
+    }
 }

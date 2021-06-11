@@ -2,6 +2,7 @@
     <table class="table" id="aduans-table">
         <thead>
             <tr>
+                <th>Nomor Registrasi Aduan</th>
                 <th>Jenis Aduan</th>
                 <th>File Bukti</th>
                 <th>Nama Terlapor</th>
@@ -14,6 +15,7 @@
         <tbody>
         @foreach($aduans as $aduan)
             <tr>
+                <td>{{ $aduan->id }}</td>
                 <td>{{ $aduan->jenisAduan->name }}</td>
                 <td>
                     <a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>

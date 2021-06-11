@@ -11,7 +11,31 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         @include('layouts.css')
         {{-- custom css --}}
-        
+        <style>
+            .myButton {
+                box-shadow: 0px 10px 14px -7px #9fb4f2;
+                background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+                background-color:#7892c2;
+                border-radius:8px;
+                display:inline-block;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:20px;
+                font-weight:bold;
+                padding:0px 35px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #283966;
+            }
+            .myButton:hover {
+                background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+                background-color:#476e9e;
+            }
+            .myButton:active {
+                position:relative;
+                top:1px;
+            }
+        </style>
       <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
     </head>
     <body id="page-top">
@@ -62,7 +86,7 @@
                         <div class="card bayang2" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title">Kirim <strong class="hijau">Pengaduan</strong></h5><br>
-                                <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik maupun non-elektronik.</p>
+                                <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik.</p>
                                  <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
                                 
                             </div>
@@ -85,47 +109,55 @@
             <div class="container">
                 <div style="align-content: center">
                 <h2>Kirim Pengaduan</h2></div>
-                <ol>
-                    <li>Klik tombol "Login", lalu isikan Username dan password Anda.</li>
-                    <li>Jika Anda belum terdaftar, klik tombol "Register" dan
-                        isikan data diri Anda lalu klik tombol "Register,<br />
-                        maka Anda akan otomatis login ke Aplikasi.<br />
-                        <ul>
-                            <li>Buat <span style="font-weight: bold;">Nama
-                                Samaran (Username) </span>dan <span
-                                style="font-weight: bold;">Kata Sandi (password) </span>yang
-                                Anda ketahui sendiri.</li>
-                            <li style="font-weight: bold;">Gunakan nama yang
-                                unik dan tidak menggambarkan
-                                identitas Anda</li>
-                        </ul>
-                    </li>
-                    <li>Klik Menu "Pengaduan" untuk menambahkan pengaduan baru.</li>
-                    <li>Klik Tombol "Tambah" untuk merekam pengaduan baru.</li>
-                    <li>Isi form "Tambah Pengaduan" sesuai informasi yang Anda
-                        ketahui, jangan lupa untuk menyertakan file bukti(dapat berbentuk foto
-                        atau dokumen lain), lalu klik tombol "Submit"</li>
-                    <li>Perhatikan baik-baik beberapa hal di bawah ini:
-                        <ul style="font-weight: bold;">
-                            <li>Pastikan informasi yang diberikan sedapat mungkin
-                                memenuhi unsur&nbsp;5W
-                                + 1H.</li>
+                <div>
+                    <ol>
+                        <li>Klik tombol "Login", lalu isikan Username dan password Anda.</li>
+                        <li>Jika Anda belum terdaftar, klik tombol "Register" dan
+                            isikan data diri Anda lalu klik tombol "Register,<br />
+                            maka Anda akan otomatis login ke Aplikasi.<br />
+                            <ul>
+                                <li>Buat <span style="font-weight: bold;">Nama
+                                    Samaran (Username) </span>dan <span
+                                    style="font-weight: bold;">Kata Sandi (password) </span>yang
+                                    Anda ketahui sendiri.</li>
+                                <li style="font-weight: bold;">Gunakan nama yang
+                                    unik dan tidak menggambarkan
+                                    identitas Anda</li>
                             </ul>
-                    </li>
-                    <li>Setelah itu Anda akan dibawa kembali ke halaman "Aduan"
-                        dimana Anda dapat melihat aduan yang sudah anda buat.</li>
-                    <li><span style="font-weight: bold;">Setiap aduan
-                        yang telah
-                        terdaftar memiliki nomor registrasi, Anda dapat menggunakan nomor
-                        registrasi ini untuk memonitor status/tindak lanjut pengaduan yang Anda
-                        sampaikan.</span></li>
-                    <li><span style="font-weight: bold;">Apabila
-                        pengaduan yang Anda sampaikan
-                        belum memenuhi kriteria untuk ditindaklanjuti</span><span
-                        style="font-weight: bold;">, Inspektorat
-                        Kota Bontang akan menghubungi Anda melalui nomor HP yang telah Anda
-                        cantumkan dalam Form Pendaftaran.</span></li>
-                </ol>
+                        </li>
+                        <li>Klik Menu "Pengaduan" untuk menambahkan pengaduan baru.</li>
+                        <li>Klik Tombol "Tambah" untuk merekam pengaduan baru.</li>
+                        <li>Isi form "Tambah Pengaduan" sesuai informasi yang Anda
+                            ketahui, jangan lupa untuk menyertakan file bukti(dapat berbentuk foto
+                            atau dokumen lain), lalu klik tombol "Submit"</li>
+                        <li>Perhatikan baik-baik beberapa hal di bawah ini:
+                            <ul style="font-weight: bold;">
+                                <li>Pastikan informasi yang diberikan sedapat mungkin
+                                    memenuhi unsur&nbsp;5W
+                                    + 1H.</li>
+                                </ul>
+                        </li>
+                        <li>Setelah itu Anda akan dibawa kembali ke halaman "Aduan"
+                            dimana Anda dapat melihat aduan yang sudah anda buat.</li>
+                        <li><span style="font-weight: bold;">Setiap aduan
+                            yang telah
+                            terdaftar memiliki nomor registrasi, Anda dapat menggunakan nomor
+                            registrasi ini untuk memonitor status/tindak lanjut pengaduan yang Anda
+                            sampaikan.</span></li>
+                        <li><span style="font-weight: bold;">Apabila
+                            pengaduan yang Anda sampaikan
+                            belum memenuhi kriteria untuk ditindaklanjuti</span><span
+                            style="font-weight: bold;">, Inspektorat
+                            Kota Bontang akan menghubungi Anda melalui nomor HP yang telah Anda
+                            cantumkan dalam Form Pendaftaran.</span></li>
+                    </ol>
+                </div>
+                <form class="submit">
+                    <label for="nomor">Nomor Aduan:</label><br>
+                    <input type="text" id="nomor" name="nomor">
+                    <input type="submit" value="Submit" class="myButton" id="button">
+
+                </form>
             </div>
             
                 
@@ -208,6 +240,20 @@
         $('#myModal').on('shown.bs.modal', function () {
           $('#myInput').trigger('focus')
         })
+        $(".submit").click(function(){
+            event.preventDefault();
+            var nomor = $('#nomor').val();
+            console.log(nomor);
+            "ajax": {  
+                    "url": "/cek/"+val(nomor),  
+                    "type": "GET",  
+                    "datatype": "string"  
+                }
+            "data" : {
+                status
+            }
+            console.log(status);
+        });
         </script>
     </body>
 </html>
