@@ -12,6 +12,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Flash;
+use Mail;
 use Response;
 use App\Exports\LaporanExport;
 use App\Exports\LaporanExport_all;
@@ -308,7 +309,23 @@ class aduanController extends AppBaseController
         $a = Aduan::findOrFail($id);
         $a->tgl_selesai = date('Y-m-d H:i:s');
         $a->save();
-        Flash::success('Aduan telah ditandai sebagai telah selesai');
+        
+        try{
+            // Mail::send('mail.email', ['nama' => $tuj->penerima, 'pesan' => $tuj->file], function ($message) use ($tuj)
+            Mail::send('mail.email', ['nomor' => $a->id], function ($message) use ($a)
+            {
+                $message->subject("Pemberitahuan Atas Status Laporan");
+                $message->from('Inspektorat@bontangkota.go.id', 'Inspektorat Kota Bontang');
+                $message->to($a->user->email);
+                // $message->attach(public_path('storage\\storage\\'.$tujuan['file']));
+            });
+            Flash::success('Aduan telah ditandai sebagai telah selesai, dan email berhasil dikirim.');
+            // return back()->with('alert-success','Berhasil Kirim Email');
+        }
+        catch (Exception $e){
+            return response (['status' => false,'errors' => $e->getMessage()]);
+        }
+
         return redirect(route('aduans.index'));
     }
     public function fetch($id)
