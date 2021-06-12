@@ -305,7 +305,7 @@
                                                                     <center><p>Proses pemeriksaan atas laporan Anda dengan nomor registrasi {{$nomor}},
                                                                         telah selesai. <br />
                                                                         Untuk informasi lebih lanjut Anda dapat meninjau kembali laporan Anda. <br />
-                                                                        Terima kasih atas pertisipasi Anda. <br>
+                                                                        Terima kasih atas partisipasi Anda. <br>
                                                                         <a href="wbs.bontangkota.go.id">Whitle Blowing System Kota Bontang</a>
                                                                         </p>
                                                                     </center>
