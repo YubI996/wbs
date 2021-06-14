@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{{ config('app.name') }} | Selamat Datang</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        {{-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> --}}
         <!-- Core theme CSS (includes Bootstrap)-->
         @include('layouts.css')
         {{-- custom css --}}
@@ -87,7 +87,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Kirim <strong class="hijau">Pengaduan</strong></h5><br>
                                 <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik.</p>
-                                 <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
+                                <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
                                 
                             </div>
                         </div>
@@ -152,12 +152,52 @@
                             cantumkan dalam Form Pendaftaran.</span></li>
                     </ol>
                 </div>
-                <form class="submit">
-                    <label for="nomor">Nomor Aduan:</label><br>
-                    <input type="text" id="nomor" name="nomor">
-                    <input type="submit" value="Submit" class="myButton" id="button">
+                <center>
+                    
+                        <label for="nomor">Nomor Aduan:</label><br>
+                        <input type="text" id="nomor" name="nomor">
+                        <input type="submit" value="Submit" class="myButton" id="button">
+                        {{-- <h5>{{$arr}}</h5> --}}
+                    
+                    <div class="hasil">
+                        <h4></h4>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery CDN -->
+                    <script>
+                        $(document).ready(function(){
+                            $('#button').click(function(){
+                                var userid = Number($('#nomor').val().trim());
+                                    if(userid > 0){
+                                    fetchRecords(userid);
+                                }
+                            });
+                        });
+                            function fetchRecords(id){
+                            $.ajax({
+                                url: 'cek/'+id,
+                                headers: {
+                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                },
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response['status']);
+                                    $('#hasil h4').empty(); // Empty <h4>
+                                    if(response['status'] != null){
+                                        var str = "Status laporan tersebut adalah : "+response['status'];
+                                        $("#userTable tbody").append(tr_str);
+                                    }
+                                    else if(response['status'] == null){
+                                        var str = "Laporan yang Anda cari tidak ditemukan.";
+                                        $("#userTable tbody").append(tr_str);
+                                    }
+                                }
+                            });
+                            }
+                        
+                    </script>
+                </center>
 
-                </form>
             </div>
             
                 
@@ -240,20 +280,20 @@
         $('#myModal').on('shown.bs.modal', function () {
           $('#myInput').trigger('focus')
         })
-        $(".submit").click(function(){
-            event.preventDefault();
-            var nomor = $('#nomor').val();
-            console.log(nomor);
-            "ajax": {  
-                    "url": "/cek/"+val(nomor),  
-                    "type": "GET",  
-                    "datatype": "string"  
-                }
-            "data" : {
-                status
-            }
-            console.log(status);
-        });
+        // $(".submit").click(function(){
+        //     event.preventDefault();
+        //     var nomor = $('#nomor').val();
+        //     console.log(nomor);
+        //     "ajax": {  
+        //             "url": "/cek/"+val(nomor),  
+        //             "type": "GET",  
+        //             "datatype": "string"  
+        //         }
+        //     "data" : {
+        //         status
+        //     }
+        //     console.log(status);
+        // });
         </script>
     </body>
 </html>

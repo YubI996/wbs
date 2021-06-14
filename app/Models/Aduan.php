@@ -14,10 +14,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $user_id
  * @property integer $jenis_aduan
  * @property string $file_bukti
- * @property string $status_verifikasi
+ * @property string $status
  * @property string $catatan_verifikasi
  * @property string $file_verifikator
- * @property string $status_validasi
+ * @property string $status
  * @property string $catatan_validasi
  * @property string $file_inspektur
  * @property string $hasil_penyidikan
@@ -56,13 +56,11 @@ class Aduan extends Model
         
     ];
     protected $guarded = [
-        'status_verifikasi',
+        'status',
         'catatan_verifikasi',
         'file_verifikator',
-        'status_validasi',
         'catatan_validasi',
         'file_inspektur',
-        'hasil_penyidikan'
     ];
     
 

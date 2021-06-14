@@ -228,7 +228,7 @@ class aduanController extends AppBaseController
         // dd($request);
         $aduan = Aduan::findOrFail($id);
         // dump($aduan);
-        // $aduan->status_verifikasi = 1;
+        // $aduan->status = 1;
         // $hasil = $aduan->save();
         if (empty($aduan)) {
             Flash::error('Aduan not found');
@@ -237,7 +237,7 @@ class aduanController extends AppBaseController
         }
         // $request->except(['file_verifikator']);
         // dd($request);
-        $aduan->status_verifikasi = $request->status_verifikasi;
+        $aduan->status = $request->status;
         $aduan->catatan_verifikasi = $request->catatan_verifikasi;
         $aduan->file_verifikator = $request->file_verifikator;
         // $aduan
@@ -252,14 +252,14 @@ class aduanController extends AppBaseController
         // dd($request->dirty());
         $aduan = Aduan::findOrFail($id);
         // dump($aduan);
-        // $aduan->status_verifikasi = 1;
+        // $aduan->status = 1;
         // $hasil = $aduan->save();
         if (empty($aduan)) {
             Flash::error('Aduan not found');
 
             return redirect(route('aduans.index'));
         }
-        $aduan->status_validasi = $request->status_validasi;
+        $aduan->status = $request->status;
         $aduan->catatan_validasi = $request->catatan_validasi;
         $aduan->file_inspektur = $request->file_inspektur;
         $hasil = $aduan->save();
@@ -280,7 +280,7 @@ class aduanController extends AppBaseController
         // dd($request->dirty());
         $aduan = Aduan::findOrFail($id);
         // dump($aduan);
-        // $aduan->status_verifikasi = 1;
+        // $aduan->status = 1;
         // $hasil = $aduan->save();
         if (empty($aduan)) {
             Flash::error('Aduan not found');
@@ -332,31 +332,40 @@ class aduanController extends AppBaseController
     {
         $aduan = Aduan::findOrFail($id);
         $status='Proses Verifikasi';
-        $ver=$aduan->status_verifikasi;
-        $val=$aduan->status_validasi;
-        $hasil=$aduan->hasil_penyidikan;
-        if($hasil===null){
-            if ($val===null) {
-                if($ver==2){
-                    $status='Tidak Ditindaklanjuti';
-                }
-            }
-            elseif($val==2){
-                    $status='Tidak Ditindaklanjuti';
-            }
-            elseif($val==1){
-                $status='Proses Pemeriksaan';
-            }
+        $statusSwitch = $aduan->status;
+        switch ($statusSwitch) {
+            case 1:
+                $status="Proses Verifikasi";
+                break;
+            
+            case 2||4:
+                $status="Tidak Ditindaklanjuti";
+                break;
+            
+            case 3:
+                $status="Proses Pemeriksaan";
+                break;
+
+            case 5:
+                $status="Terbukti";
+                break;
+            
+            case 6:
+                $status="Tidak Terbukti";
+                break;
+            
+            case 7:
+                $status="Selesai";
+                break;
+
+            default:
+                $status='Proses Verifikasi';
+                break;
         }
-        elseif($hasil==2){
-                $status='Tidak Terbukti';
-        }
-        elseif($hasil==1){
-            $status='Terbukti';
-        }
-        if(! $aduan->tgl_selesai == null){
-            $status = 'Selesai';
-        }
-        return $status;
+        
+        echo \json_encode($status);
+        // $a = \json_encode($status);
+        // dd($a);
+        exit;
     }
 }

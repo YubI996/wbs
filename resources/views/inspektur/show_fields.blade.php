@@ -55,8 +55,8 @@
 </div>
 <!-- Status Verifikasi Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-    <p>{{ ($aduan->status_verifikasi==1?'Sudah diverifikasi':($aduan->status_verifikasi==0?'Ditolak':'Belum diverifikasi')) }}</p>
+    {!! Form::label('status', 'Status Verifikasi:') !!}
+    <p>{{ ($aduan->status==1?'Sudah diverifikasi':($aduan->status==2?'Tidak Ditindaklanjuti':'Belum diverifikasi')) }}</p>
 </div>
 
 <!-- Catatan Verifikasi Field -->
@@ -81,8 +81,8 @@
 
 <!-- Status Validasi Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_validasi', 'Status Validasi:') !!}
-    <p>{{ ($aduan->status_validasi==1?'Sudah divalidasi':($aduan->status_validasi==0?'Ditolak':'Belum divalidasi')) }}</p>
+    {!! Form::label('status', 'Status Validasi:') !!}
+    <p>{{ ($aduan->status==1?'Sudah divalidasi':($aduan->status==0?'Ditolak':'Belum divalidasi')) }}</p>
 </div>
 
 <!-- Catatan Validasi Field -->

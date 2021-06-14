@@ -26,7 +26,7 @@ class UpdateaduanInspekRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'status_validasi' => 'required',
+            'status' => 'required',
             'catatan_validasi' => 'required',
             'file_inspektur' => 'required'
         ];

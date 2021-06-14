@@ -18,8 +18,8 @@
 
 <!-- Status Verifikasi Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-    <p>{{ $aduan->status_verifikasi }}</p>
+    {!! Form::label('status', 'Status Verifikasi:') !!}
+    <p>{{ $aduan->status}}</p>
 </div>
 
 <!-- Catatan Verifikasi Field -->
@@ -36,8 +36,8 @@
 
 <!-- Status Validasi Field -->
 <div class="col-sm-12">
-    {!! Form::label('status_validasi', 'Status Validasi:') !!}
-    <p>{{ $aduan->status_validasi }}</p>
+    {!! Form::label('status', 'Status Validasi:') !!}
+    <p>{{ $aduan->status }}</p>
 </div>
 
 <!-- Catatan Validasi Field -->

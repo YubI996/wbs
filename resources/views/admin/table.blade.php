@@ -30,8 +30,8 @@
             </td>
             @php
                     $status='Proses verifikasi';
-                    $ver=$aduan->status_verifikasi;
-                    $val=$aduan->status_validasi;
+                    $ver=$aduan->status;
+                    $val=$aduan->status;
                     $hasil=$aduan->hasil_penyidikan;
                     if($hasil===null){
                         if ($val===null) {

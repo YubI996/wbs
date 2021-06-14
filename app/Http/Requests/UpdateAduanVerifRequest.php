@@ -26,7 +26,7 @@ class UpdateaduanVerifRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'status_verifikasi' => 'required',
+            'status' => 'required',
             'catatan_verifikasi' => 'required',
             'file_verifikator' => 'required',
         ];

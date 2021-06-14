@@ -3,9 +3,9 @@
                         <div class="col-sm-6">
                             <!-- Status Verifikasi Field -->
                             <div class="form-group">
-                                {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-                                {!! Form::select('status_verifikasi',[1=>'Verifikasi',2=>'Tolak'], null, [ 'placeholder' => 'Pilih Status Verifikasi','class' => 'form-control']) !!}
-                                @error('status_verifikasi')
+                                {!! Form::label('status', 'Status Verifikasi:') !!}
+                                {!! Form::select('status',[1=>'Verifikasi',2=>'Tolak'], null, [ 'placeholder' => 'Pilih Status Verifikasi','class' => 'form-control']) !!}
+                                @error('status')
                                 <span class="error1">{{ $message }}</span>
                                 @enderror
                             </div>

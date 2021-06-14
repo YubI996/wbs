@@ -15,9 +15,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome2');
-});
+Route::get('/',[App\Http\Controllers\WelcomeController::class,'index'])->name('welcome');
 Route::get('/form-captcha',[App\Http\Controllers\CaptchaController::class,'index']);
 Route::post('/form-captcha',[App\Http\Controllers\CaptchaController::class,'submit']);
 Route::get('createcaptcha', [App\Http\Controllers\CaptchaController::class,'create']);

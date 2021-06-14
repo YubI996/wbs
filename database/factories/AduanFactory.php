@@ -25,17 +25,20 @@ class aduanFactory extends Factory
     public function definition()
     {
         $users = User::where('role_id',4)->get('id')->toArray();
+        $arr = [1,2,4];
+        $k = \array_rand($arr);
         return [
             'user_id' => $users[array_rand($users)]["id"],
             'jenis_aduan' => ja::get()->random()->id,
             'file_bukti' => '2cttn_fismat_inun.docx',
-            'status_verifikasi' => null,
+            'status' => $arr[$k],
+            // 'status' => null,
             'catatan_verifikasi' => null,
             'file_verifikator' => null,
-            'status_validasi' => null,
+            // 'status' => null,
             'catatan_validasi' => null,
             'file_inspektur' => null,
-            'hasil_penyidikan' => null,
+            // 'hasil_penyidikan' => null,
             'nama_terlapor' => $this->faker->word(),
             'jabatan_terlapor' => $this->faker->word(),
             'pangkat_terlapor' => $this->faker->word(),

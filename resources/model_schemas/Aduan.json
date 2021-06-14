@@ -48,7 +48,7 @@
         "inView": true
     },
     {
-        "name": "status_verifikasi",
+        "name": "status",
         "dbType": "string:nullable",
         "htmlType": "text",
         "validations": "nullable|string|nullable|string|nullable|string",
@@ -84,7 +84,7 @@
         "inView": true
     },
     {
-        "name": "status_validasi",
+        "name": "status",
         "dbType": "string:nullable",
         "htmlType": "text",
         "validations": "nullable|string|nullable|string|nullable|string",

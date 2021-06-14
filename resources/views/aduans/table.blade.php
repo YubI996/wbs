@@ -28,10 +28,10 @@
                 <td>{{ $aduan->user_id }}</td>
             <td>{{ $aduan->jenis_aduan }}</td>
             <td>{{ $aduan->file_bukti }}</td>
-            <td>{{ $aduan->status_verifikasi }}</td>
+            <td>{{ $aduan->status }}</td>
             <td>{{ $aduan->catatan_verifikasi }}</td>
             <td>{{ $aduan->file_verifikator }}</td>
-            <td>{{ $aduan->status_validasi }}</td>
+            <td>{{ $aduan->status }}</td>
             <td>{{ $aduan->catatan_validasi }}</td>
             <td>{{ $aduan->file_inspektur }}</td>
             <td>{{ $aduan->hasil_penyidikan }}</td>

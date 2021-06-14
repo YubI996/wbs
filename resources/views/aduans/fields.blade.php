@@ -21,9 +21,9 @@
     
     <!-- Status Verifikasi Field -->
     <div class="form-group col-sm-6">
-        {!! Form::label('status_verifikasi', 'Status Verifikasi:') !!}
-        {!! Form::text('status_verifikasi', null, ['class' => 'form-control']) !!}
-        @error('status_verifikasi')
+        {!! Form::label('status', 'Status Verifikasi:') !!}
+        {!! Form::text('status', null, ['class' => 'form-control']) !!}
+        @error('status')
         <span class="error1">{{ $message }}</span>
         @enderror
     </div>
@@ -50,9 +50,9 @@
 
 <!-- Status Validasi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('status_validasi', 'Status Validasi:') !!}
-    {!! Form::text('status_validasi', null, ['class' => 'form-control']) !!}
-    @error('status_validasi')
+    {!! Form::label('status', 'Status Validasi:') !!}
+    {!! Form::text('status', null, ['class' => 'form-control']) !!}
+    @error('status')
         <span class="error1">{{ $message }}</span>
     @enderror
 </div>

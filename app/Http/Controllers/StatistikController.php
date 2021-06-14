@@ -37,31 +37,37 @@ class StatistikController extends Controller
     function getStatus(Aduan $aduan) : String
     {
         $status='Proses Verifikasi';
-        $ver=$aduan->status_verifikasi;
-        $val=$aduan->status_validasi;
-        $hasil=$aduan->hasil_penyidikan;
-        if($hasil===null){
-            if ($val===null) {
-                if($ver==2){
-                    $status='Tidak Ditindaklanjuti';
-                }
-            }
-            elseif($val==2){
-                    $status='Tidak Ditindaklanjuti';
-            }
-            elseif($val==1){
-                $status='Proses Pemeriksaan';
-            }
+        $statusSwitch = $aduan->status;
+        switch ($statusSwitch) {
+            case 1:
+                $status="Proses Verifikasi";
+                break;
+            
+            case 2||4:
+                $status="Tidak Ditindaklanjuti";
+                break;
+            
+            case 3:
+                $status="Proses Pemeriksaan";
+                break;
+
+            case 5:
+                $status="Terbukti";
+                break;
+            
+            case 6:
+                $status="Tidak Terbukti";
+                break;
+            
+            case 7:
+                $status="Selesai";
+                break;
+
+            default:
+                $status='Proses Verifikasi';
+                break;
         }
-        elseif($hasil==2){
-                $status='Tidak Terbukti';
-        }
-        elseif($hasil==1){
-            $status='Terbukti';
-        }
-        if(! $aduan->tgl_selesai == null){
-            $status = 'Selesai';
-        }
+        
         return $status;
     }
     
@@ -74,7 +80,12 @@ class StatistikController extends Controller
                 array_push($m,strtotime($val->tgl_selesai) - strtotime($val->created_at));
             }
         }
-        $avg = (array_sum($m)/count($m));
+        
+        try {
+            $avg = (array_sum($m)/count($m));
+        } catch (\Throwable $th) {
+            $avg=0;
+        }
         $bulan = round($avg/2419200);
         $avg = $avg%2419200;
         $hari = round($avg/86400);
@@ -168,7 +179,7 @@ class StatistikController extends Controller
                 ->datasets([
                     [
                         'backgroundColor' => ['rgba(0, 255, 255,0.5)', 'rgba(0,0,0,0.5)','rgba(242, 41, 10,0.5)','rgba(10, 242, 33,0.5)','rgba(238, 242, 10,0.5)','rgba(215, 10, 242,0.5)'],
-                        'hoverBackgroundColor' => ['rgba(0, 255, 255)', 'rgba(0,0,0)','rgba(242, 41, 10)','rgba(10, 242, 33)','rgba(238, 242, 10)','rgba(215, 10, 242)'],
+                        'hoverBackgroundColor' => ['rgba(0, 0, 255)', 'rgba(0,0,0)','rgba(242, 41, 10)','rgba(10, 242, 33)','rgba(238, 242, 10)','rgba(215, 10, 242)'],
                         'data' => [$result["Proses Verifikasi"], $result["Proses Pemeriksaan"], $result["Tidak Ditindaklanjuti"],$result["Terbukti"],$result["Tidak Terbukti"], $result["Selesai"]]
                     ]
                 ])
