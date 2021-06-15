@@ -18,7 +18,7 @@ class WelcomeController extends Controller
         $arr= [];
         foreach($aduans as $a){
             $status='Proses Verifikasi';
-        $statusSwitch = $aduan->status;
+        $statusSwitch = $a->status;
         switch ($statusSwitch) {
             case 1:
                 $status="Proses Verifikasi";
@@ -49,10 +49,10 @@ class WelcomeController extends Controller
                 break;
         }
         
-            $arr[$a->id] = $status;
+        $datas[$a->id] = $status;
         }
-        // dd($arr);
-        return view('welcome2');
+        // dd($datas);
+        return view('welcome2', \compact('datas'));
         // return view('welcome2')
         //     ->with([
         //         'arr' => $arr

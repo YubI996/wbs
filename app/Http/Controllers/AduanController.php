@@ -328,9 +328,14 @@ class aduanController extends AppBaseController
 
         return redirect(route('aduans.index'));
     }
-    public function fetch($id)
+    public function fetch(Request $request)
     {
-        $aduan = Aduan::findOrFail($id);
+        $aduan = Aduan::select('*');
+
+        if ($request->input('q')) {
+            $aduan->find($request->nomor);
+        }
+        
         $status='Proses Verifikasi';
         $statusSwitch = $aduan->status;
         switch ($statusSwitch) {
@@ -362,8 +367,8 @@ class aduanController extends AppBaseController
                 $status='Proses Verifikasi';
                 break;
         }
-        
-        echo \json_encode($status);
+        return \compact('status');
+        // echo \json_encode($status);
         // $a = \json_encode($status);
         // dd($a);
         exit;

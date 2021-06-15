@@ -21,7 +21,7 @@ Route::post('/form-captcha',[App\Http\Controllers\CaptchaController::class,'subm
 Route::get('createcaptcha', [App\Http\Controllers\CaptchaController::class,'create']);
 Route::post('captcha', [App\Http\Controllers\CaptchaController::class,'captchaValidate']);
 Route::get('refreshcaptcha', [App\Http\Controllers\CaptchaController::class,'refreshCaptcha']);
-Route::get('cek/{id}', [App\Http\Controllers\AduanController::class,'fetch']);
+Route::get('cek', [App\Http\Controllers\AduanController::class,'fetch']);
 
 Auth::routes();
 

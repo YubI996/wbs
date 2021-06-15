@@ -37,6 +37,7 @@
             }
         </style>
       <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
+        
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -102,6 +103,36 @@
                         </div>
                     </div>
                 </div>
+                <div class="row-1">
+                    <center>
+                    <form id="search">
+                        <label for="nomor">Nomor Aduan:</label><br>
+                        <input type="text" id="n" name="n" value="{{old('n')}}">
+                        <input type="submit" value="Submit" class="myButton" id="button"><br>
+                        {{-- <h5 id="hasil" class="hasil"></h5> --}}
+                    </form>
+                    @phpx
+                        if (isset($_GET["n"])){
+                        $nomor =  htmlspecialchars($_GET["n"]);
+                        }
+                        else{$nomor=null;}
+                    @endphp
+                    
+                    <div class="hasil" style="text-align: center;">
+                        
+                        @if (isset($nomor) && isset($datas[$nomor]))
+                            <h5>Aduan dengan nomor registrasi: {{ $nomor}}, saat ini berstatus: {{$datas[$nomor]}}</h5>
+                        @else
+                            @if (! isset($nomor)) 
+                                {{""}}
+                            @else
+                                <h5> Nomor registrasi {{$nomor}} tidak ditemukan</h5>
+                            @endif
+                        @endif
+                        
+                    </div>
+                </center>
+                </div>
             </div>
         </section>
 
@@ -152,51 +183,7 @@
                             cantumkan dalam Form Pendaftaran.</span></li>
                     </ol>
                 </div>
-                <center>
-                    
-                        <label for="nomor">Nomor Aduan:</label><br>
-                        <input type="text" id="nomor" name="nomor">
-                        <input type="submit" value="Submit" class="myButton" id="button">
-                        {{-- <h5>{{$arr}}</h5> --}}
-                    
-                    <div class="hasil">
-                        <h4></h4>
-                    </div>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery CDN -->
-                    <script>
-                        $(document).ready(function(){
-                            $('#button').click(function(){
-                                var userid = Number($('#nomor').val().trim());
-                                    if(userid > 0){
-                                    fetchRecords(userid);
-                                }
-                            });
-                        });
-                            function fetchRecords(id){
-                            $.ajax({
-                                url: 'cek/'+id,
-                                headers: {
-                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                },
-                                type: 'GET',
-                                dataType: 'json',
-                                success: function(response){
-                                    console.log(response['status']);
-                                    $('#hasil h4').empty(); // Empty <h4>
-                                    if(response['status'] != null){
-                                        var str = "Status laporan tersebut adalah : "+response['status'];
-                                        $("#userTable tbody").append(tr_str);
-                                    }
-                                    else if(response['status'] == null){
-                                        var str = "Laporan yang Anda cari tidak ditemukan.";
-                                        $("#userTable tbody").append(tr_str);
-                                    }
-                                }
-                            });
-                            }
-                        
-                    </script>
-                </center>
+                
 
             </div>
             
@@ -280,20 +267,8 @@
         $('#myModal').on('shown.bs.modal', function () {
           $('#myInput').trigger('focus')
         })
-        // $(".submit").click(function(){
-        //     event.preventDefault();
-        //     var nomor = $('#nomor').val();
-        //     console.log(nomor);
-        //     "ajax": {  
-        //             "url": "/cek/"+val(nomor),  
-        //             "type": "GET",  
-        //             "datatype": "string"  
-        //         }
-        //     "data" : {
-        //         status
-        //     }
-        //     console.log(status);
-        // });
+        
         </script>
+        
     </body>
 </html>
