@@ -67,10 +67,11 @@
             </div>
         </div>
             
-        {{-- <canvas id="myChart">
+        
+    </div>
+    {{-- <canvas id="myChart">
             
         </canvas>
-    </div>
     <script>
         
         let myChart = document.getElementById('myChart').getContext('2d');

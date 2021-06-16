@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aduan;
+use App\Http\Controllers\StatistikController;
 
-class WelcomeController extends Controller
+class WelcomeController extends StatistikController
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
+        // dd(app('App\Http\Controllers\StatistikController')->weekOfMonth(now()));
+        
         $aduans = Aduan::all();
         $arr= [];
         foreach($aduans as $a){
@@ -51,8 +54,13 @@ class WelcomeController extends Controller
         
         $datas[$a->id] = $status;
         }
-        // dd($datas);
-        return view('welcome2', \compact('datas'));
+        $data = $this->data();
+        $lineChart=$data['lineChart'];
+        $pieChart=$data['pieChart'];
+        $barChart=$data['barChart'];
+        $totalLaporan=$data['totalLaporan'];
+        $avgDone=$data['avgDone'];
+        return view('welcome2', compact('datas','lineChart','pieChart','barChart','totalLaporan','avgDone'));
         // return view('welcome2')
         //     ->with([
         //         'arr' => $arr

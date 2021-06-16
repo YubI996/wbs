@@ -15,6 +15,11 @@ class StatistikController extends Controller
      * @param string $date
      * @return int
      */
+    function index()
+    {
+        // dd($this->data());
+        return view('statistik', with($this->data()));
+    }
     function weekOfMonth($date) {
         // estract date parts
         list($y, $m, $d) = explode('-', date('Y-m-d', strtotime($date)));
@@ -234,13 +239,13 @@ class StatistikController extends Controller
                 ]
             ])
             ->options([]);
-    return view('statistik', compact([
+    return compact([
         'lineChart',
         'pieChart',
         'barChart',
         'totalLaporan',
         'avgDone'
-    ]));
+    ]);
 
     }
 }

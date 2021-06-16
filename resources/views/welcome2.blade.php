@@ -37,7 +37,12 @@
             }
         </style>
       <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
+        integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -111,7 +116,7 @@
                         <input type="submit" value="Submit" class="myButton" id="button"><br>
                         {{-- <h5 id="hasil" class="hasil"></h5> --}}
                     </form>
-                    @phpx
+                    @php
                         if (isset($_GET["n"])){
                         $nomor =  htmlspecialchars($_GET["n"]);
                         }
@@ -124,7 +129,7 @@
                             <h5>Aduan dengan nomor registrasi: {{ $nomor}}, saat ini berstatus: {{$datas[$nomor]}}</h5>
                         @else
                             @if (! isset($nomor)) 
-                                {{""}}
+                                {{"bug"}}
                             @else
                                 <h5> Nomor registrasi {{$nomor}} tidak ditemukan</h5>
                             @endif
@@ -188,6 +193,70 @@
             </div>
             
                 
+
+        </section>
+            <div class="container">
+        <div class="row">
+            <div class="col mt-5">
+                <div class="card">
+                    <div class="card-header"><i class="fa fa-download" aria-hidden="true"></i>  Total Laporan Masuk</div>
+                    <div class="card-body justify-content-start"> {{$totalLaporan}} </div>
+                </div>
+            </div>
+            <div class="col mt-5">
+                <div class="card">
+                    <div class="card-header"><i class="fa fa-clock" aria-hidden="true"></i>  Rata-rata Durasi Penyelesaian</div>
+                    <div class="card-body">{{$avgDone}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>  Jumlah Laporan PerBulan Tahun {{date('   Y')}}
+                    </div>
+                    <div class="card-body">
+                        {{-- <blockquote class="blockquote mb-0"> --}}
+                        <div style="width:100%;">
+                            {!! $lineChart->render() !!}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col my-6">
+                
+                <div class="card">
+                    <div class="card-header">
+                        Laporan Berdasarkan Jenis Pelanggaran
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            {!! $barChart->render() !!}
+                        </div>
+                    </div>
+                </div>   
+            </div>
+            <div class="col my-6">
+                <div class="card">
+                    <div class="card-header">
+                        Laporan Berdasarkan Status
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            {!! $pieChart->render() !!}
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+            
+        
+    </div
+        <section>
 
         </section>
         {{-- Modals --}}
