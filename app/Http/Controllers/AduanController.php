@@ -308,6 +308,7 @@ class aduanController extends AppBaseController
     {
         $a = Aduan::findOrFail($id);
         $a->tgl_selesai = date('Y-m-d H:i:s');
+        $a->status = 7;
         $a->save();
         
         try{

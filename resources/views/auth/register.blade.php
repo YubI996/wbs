@@ -45,12 +45,13 @@
                 <div class="row">
                     <div class="col-6">
 
-                <div class="input-group mb-3">
+                <div>
                     <input type="hidden"
                            name="role"
                            value={{4}}>
                 </div>
                 
+                <span class="badge">NIP</span>
                         <div class="input-group mb-3">
                             <input required type="number"
                                 name="nip"
@@ -65,6 +66,7 @@
                             @enderror
                         </div>
 
+                        <span class="badge">Username</span>
                         <div class="input-group mb-3">
                             <input required type="text"
                                 name="username"
@@ -79,6 +81,7 @@
                             @enderror
                         </div>
 
+                        <span class="badge">Nama</span>
                         <div class="input-group mb-3">
                             <input required type="text"
                                 name="name"
@@ -93,6 +96,7 @@
                             @enderror
                         </div>
                         
+                        <span class="badge">Tempat Lahir</span>
                         <div class="input-group mb-3">
                             <input required type="text"
                                 name="tempat"
@@ -107,6 +111,7 @@
                             @enderror
                         </div> 
 
+                        <span class="badge">Tanggal Lahir</span>
                         <div class="input-group mb-3">
                             <input required type="date"
                                 name="tanggal"
@@ -121,6 +126,7 @@
                             @enderror
                         </div>
 
+                        <span class="badge">Email</span>
                         <div class="input-group mb-3">
                             <input required type="email"
                                 name="email"
@@ -135,6 +141,7 @@
                             @enderror
                         </div>
 
+                        <span class="badge">Password</span>
                         <div class="input-group mb-3">
                             <input required type="password"
                                 name="password"
@@ -148,6 +155,7 @@
                             @enderror
                         </div>
 
+                        <span class="badge">Konfirmasi Password</span>
                         <div class="input-group mb-3">
                             <input required type="password"
                                 name="password_confirmation"
@@ -161,6 +169,7 @@
                     <div class="col-6">
 
                         {{-- jabatan --}}
+                        <span class="badge">Jabatan</span>
                         <div class="input-group mb-3">
                             <input required type="string"
                                 name="jabatan"
@@ -168,13 +177,14 @@
                                 value="{{ old('jabatan') }}"
                                 placeholder="Jabatan">
                             <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
                             </div>
                             @error('jabatan')
                             <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 
+                        <span class="badge">Pangkat</span>
                         <div class="input-group mb-3">
                             <input required type="string"
                                 name="pangkat"
@@ -182,13 +192,14 @@
                                 value="{{ old('pangkat') }}"
                                 placeholder="Pangkat">
                             <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
                             </div>
                             @error('pangkat')
                             <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 
+                        <span class="badge">Instansi</span>
                         <div class="input-group mb-3">
                             <input required type="string"
                                 name="instansi"
@@ -196,13 +207,14 @@
                                 value="{{ old('instansi') }}"
                                 placeholder="Instansi">
                             <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
                             </div>
                             @error('instansi')
                             <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 
+                        <span class="badge">Unit</span>
                         <div class="input-group mb-3">
                             <input required type="string"
                                 name="unit"
@@ -210,41 +222,45 @@
                                 value="{{ old('unit') }}"
                                 placeholder="Unit kerja">
                             <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
                             </div>
                             @error('unit')
                             <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 
+                        <span class="badge">Kota</span>
                         <div class="input-group mb-3">
                             <input required type="string"
                                 name="kota"
                                 class="form-control @error('kota') is-invalid @enderror"
                                 value="{{ old('kota') }}"
-                                placeholder="Kota">
+                                placeholder="Kota"
+                                value="Bontang">
                             <div class="input-group-append">
-                                <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                                <div class="input-group-text"><span class="fas fa-user"></span></div>
                             </div>
                             @error('kota')
                             <span class="error invalid-feedback">{{ $message }}</span>
                             @enderror
                         </div>
 
-                <div class="input-group mb-3">
+                <span class="badge">Alamat</span>
+                        <div class="input-group mb-3">
                     <input type="string"
                            name="alamat"
                            class="form-control @error('alamat') is-invalid @enderror"
                            value="{{ old('alamat') }}"
                            placeholder="Alamat">
                     <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        <div class="input-group-text"><span class="fas fa-user"></span></div>
                     </div>
                     @error('alamat')
                     <span class="error invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
+                <span class="badge">Nomor Hp</span>
                 <div class="input-group mb-3">
                     <input type="string"
                            name="nohp"
@@ -252,13 +268,14 @@
                            value="{{ old('nohp') }}"
                            placeholder="Nomor HP">
                     <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        <div class="input-group-text"><span class="fas fa-user"></span></div>
                     </div>
                     @error('nohp')
                     <span class="error invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
+                <span class="badge">Nomor Lain yang Bisa Dihubungi</span>
                 <div class="input-group mb-3">
                     <input type="string"
                            name="nolain"
@@ -266,7 +283,7 @@
                            value="{{ old('nolain') }}"
                            placeholder="Nomor lain">
                     <div class="input-group-append">
-                        <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                        <div class="input-group-text"><span class="fas fa-user"></span></div>
                     </div>
                     @error('nolain')
                     <span class="error invalid-feedback">{{ $message }}</span>

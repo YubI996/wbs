@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Flash;
 use App\Http\Controllers\HomeController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +27,26 @@ Route::get('refreshcaptcha', [App\Http\Controllers\CaptchaController::class,'ref
 Route::get('cek', [App\Http\Controllers\AduanController::class,'fetch']);
 
 Auth::routes();
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.notice');
+Auth::routes(['verify' => true]);
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    Flash::success('Link verifikasi telah dikirim.');
+    return back();
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 Route::get('/home', [
     HomeController::class, 'index'
-])->name('home');
+])->middleware('verified')->name('home')->middleware('verified');
 route::get('/statistik',[App\Http\Controllers\StatistikController::class, 'index']);
 
 route::post( '/files',[App\Http\Controllers\FileController::class, 'store']);

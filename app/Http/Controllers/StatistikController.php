@@ -170,7 +170,8 @@ class StatistikController extends Controller
             ->options([
                 'scales' => [
                     'yAxes' => [
-                        'beginAtZero' => true
+                        'beginAtZero' => true,
+                        'grace' => "50%"
                     ]
                 ]
             ]);

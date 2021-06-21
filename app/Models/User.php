@@ -31,7 +31,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string|\Carbon\Carbon $email_verified_at
  * @property string $remember_token
  */
-class user extends Authenticatable
+class user extends Authenticatable implements MustVerifyEmail
 {
 
     use HasFactory;

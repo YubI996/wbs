@@ -35,8 +35,11 @@
                 position:relative;
                 top:1px;
             }
+            .download {
+                margin: 5%;
+            }
         </style>
-      <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
         integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
         crossorigin="anonymous"></script>
@@ -129,12 +132,17 @@
                             <h5>Aduan dengan nomor registrasi: {{ $nomor}}, saat ini berstatus: {{$datas[$nomor]}}</h5>
                         @else
                             @if (! isset($nomor)) 
-                                {{"bug"}}
+                                {{""}}
                             @else
                                 <h5> Nomor registrasi {{$nomor}} tidak ditemukan</h5>
                             @endif
                         @endif
                         
+                    </div>
+                    <div class="download">
+                        <a href="{{asset('/docs/manual book wbs-pengadu.pdf')}}" download>
+                            <button class="myButton"><i class="fa fa-download"></i> Manual Book</button>
+                        </a>
                     </div>
                 </center>
                 </div>

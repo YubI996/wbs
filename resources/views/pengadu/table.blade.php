@@ -8,6 +8,7 @@
                 <th>Nama Terlapor</th>
                 <th>Penjelasan</th>
                 <th>Hasil Pemeriksaan</th>
+                <th>Catatan verifikator</th>
                 {{-- <th>Status Laporan</th> --}}
                 <th colspan="3">Action</th>
             </tr>
@@ -25,34 +26,48 @@
                 <td>{{ $aduan->nama_terlapor }}</td>
                 <td>{{ $aduan->penjelasan }}</td>
                 @php
-                    $status='Proses verifikasi';
-                    $ver=$aduan->status;
-                    $val=$aduan->status;
-                    $hasil=$aduan->hasil_penyidikan;
-                    if($hasil===null){
-                        if ($val===null) {
-                            if($ver==2){
-                                $status='Tidak ditindaklanjuti';
-                            }
-                        }
-                        elseif($val==2){
-                                $status='Tidak ditindaklanjuti';
-                        }
-                        elseif($val==1){
-                            $status='Proses Pemeriksaan';
-                        }
-                    }
-                    elseif($hasil==2){
-                            $status='Tidak terbukti';
-                    }
-                    elseif($hasil==1){
-                        $status='Terbukti';
+                    $status='Proses Verifikasi';
+                    $statusSwitch = $aduan->status;
+                    switch ($statusSwitch) {
+                        case 1:
+                            $status="Proses Verifikasi";
+                            break;
+                        
+                        
+                        case 3:
+                            $status="Proses Pemeriksaan";
+                            break;
+
+                        case 5:
+                            $status="Terbukti";
+                            break;
+                        
+                        case 6:
+                            $status="Tidak Terbukti";
+                            break;
+                        
+                        case 7:
+                            $status="Selesai";
+                            break;
+                        
+                        case 2||4:
+                            $status="Tidak Ditindaklanjuti";
+                            break;
+
+                        default:
+                            $status='Proses Verifikasi';
+                            break;
                     }
                     if(! $aduan->tgl_selesai == null){
                         $status = 'Selesai : '.$status;
                     }
                 @endphp
                 <td>{{ $status }}</td>
+                @if ($aduan->status == 2)
+                    <td>{{ $aduan->catatan_verifikasi }}</td>
+                @else
+                    <td>{{ "-" }}</td>
+                @endif
                 {{-- <td>{{ $aduan->tgl_selesai == null ? 'Selesai': }}</td> --}}
                 <td width="120">
                     {!! Form::open(['route' => ['aduans.destroy', $aduan->id], 'method' => 'delete']) !!}

@@ -47,7 +47,8 @@ class aduanFactory extends Factory
             'kota_terlapor' => $this->faker->word(),
             'penjelasan' => $this->faker->word(),
             'tgl_selesai' => null,
-            'created_at' => Carbon::now()->subWeeks(2),
+            'created_at' => Carbon::now(),
+            // 'created_at' => Carbon::now()->subWeeks(2),
             'updated_at' => null
         ];
     }

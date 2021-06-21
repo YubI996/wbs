@@ -26,12 +26,6 @@
     {{-- custom css --}}
     <link rel="stylesheet" type="text/css" href="{{ url('/css/style.css') }}" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 <script src="https://kit.fontawesome.com/47b0246c5d.js" crossorigin="anonymous"></script>
 </head>
 <body class="hold-transition login-page">
@@ -52,10 +46,10 @@
 
                 <div class="input-group mb-3">
                     <input type="username"
-                           name="username"
-                           value="{{ old('username') }}"
-                           placeholder="Username"
-                           class="form-control @error('username') is-invalid @enderror">
+                            name="username"
+                            value="{{ old('username') }}"
+                            placeholder="Username"
+                            class="form-control @error('username') is-invalid @enderror">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                     </div>
@@ -66,9 +60,9 @@
 
                 <div class="input-group mb-3">
                     <input type="password"
-                           name="password"
-                           placeholder="Password"
-                           class="form-control @error('password') is-invalid @enderror">
+                            name="password"
+                            placeholder="Password"
+                            class="form-control @error('password') is-invalid @enderror">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
