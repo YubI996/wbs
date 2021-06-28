@@ -13,7 +13,7 @@
         </thead>
         <tbody>
         @foreach($aduans as $aduan)
-            <tr class="{{$aduan->status==1?'table-success':'table-warning'}}">
+            <tr class={{($aduan->status==1)? 'table-success' : (($aduan->status==2)? 'table-warning' : 'table-danger')}}>
                 <td>{{ $aduan->jenisAduan->name }}</td>
                 <td><a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-file-alt"></i>

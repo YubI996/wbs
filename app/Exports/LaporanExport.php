@@ -50,7 +50,7 @@ class LaporanExport implements FromCollection, ShouldAutoSize,   WithMapping, Wi
     }
     public function collection()
     {
-        $aduan = aduan::where('status',1)->where('tgl_selesai',null)->orderByDesc('created_at')->get();
+        $aduan = aduan::where('status',3)->where('tgl_selesai',null)->orderByDesc('created_at')->get();
         return $aduan;
     }
 }

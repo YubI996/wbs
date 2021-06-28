@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class roleController extends AppBaseController
+class RoleController extends AppBaseController
 {
     /** @var  roleRepository */
     private $roleRepository;

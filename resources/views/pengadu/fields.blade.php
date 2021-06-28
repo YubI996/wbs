@@ -1,4 +1,5 @@
-                    {!! Form::hidden('user_id', Auth::id(), ['class' => 'form-control']) !!}
+                    {!! Form::hidden('user_id', Auth::id()) !!}
+                    {!! Form::hidden('status', 1) !!}
                     
                     <!-- Jenis Aduan Field -->
                     <div class="form-group col-sm-6">

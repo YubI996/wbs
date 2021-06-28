@@ -66,7 +66,7 @@
             <td>{{ $aduan->kota_terlapor }}</td> --}}
             <td>{{ $aduan->penjelasan }}</td>
             <td>
-                <a href="{{ route('aduans.selesai', [$aduan->id]) }}" class="btn btn-xs {{$aduan->hasil_penyidikan === null ? ' btn-secondary disabled':($aduan->tgl_selesai == null?' btn-warning ':' btn-success disabled')}}">
+                <a href="{{ route('aduans.selesai', [$aduan->id]) }}" class="{{($aduan->status == 3) ? 'btn btn-xs btn-secondary disabled':(($aduan->tgl_selesai == null)?'btn btn-xs btn-success ':'btn btn-xs btn-secondary disabled')}}">
                     Selesai
                 </a>
             </td>
@@ -88,4 +88,3 @@
         </tbody>
     </table>
 </div>
-/

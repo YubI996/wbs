@@ -19,48 +19,56 @@ class WelcomeController extends StatistikController
         
         $aduans = Aduan::all();
         $arr= [];
-        foreach($aduans as $a){
+        if ($aduans->count() > 0) {
+            foreach($aduans as $a){
             $status='Proses Verifikasi';
-        $statusSwitch = $a->status;
-        switch ($statusSwitch) {
-            case 1:
-                $status="Proses Verifikasi";
-                break;
-            
-            case 2||4:
+            $statusSwitch = $a->status;
+            switch ($statusSwitch) {
+                case 1:
+                    $status="Proses Verifikasi";
+                    break;
+                
+                
+                case 3:
+                    $status="Proses Pemeriksaan";
+                    break;
+
+                case 5:
+                    $status="Terbukti";
+                    break;
+                
+                case 6:
+                    $status="Tidak Terbukti";
+                    break;
+                
+                case 7:
+                    $status="Selesai";
+                    break;
+
+                case 2||4:
                 $status="Tidak Ditindaklanjuti";
                 break;
+                
+                default:
+                    $status='Proses Verifikasi';
+                    break;
+            }
             
-            case 3:
-                $status="Proses Pemeriksaan";
-                break;
-
-            case 5:
-                $status="Terbukti";
-                break;
-            
-            case 6:
-                $status="Tidak Terbukti";
-                break;
-            
-            case 7:
-                $status="Selesai";
-                break;
-
-            default:
-                $status='Proses Verifikasi';
-                break;
+            $datas[$a->id] = $status;
+            }
+            $result = array_count_values($datas);
+        }
+        else{
+            $result = 0;
         }
         
-        $datas[$a->id] = $status;
-        }
         $data = $this->data();
         $lineChart=$data['lineChart'];
         $pieChart=$data['pieChart'];
         $barChart=$data['barChart'];
         $totalLaporan=$data['totalLaporan'];
         $avgDone=$data['avgDone'];
-        return view('welcome2', compact('datas','lineChart','pieChart','barChart','totalLaporan','avgDone'));
+        return view('welcome2', compact('result','lineChart','pieChart','barChart','totalLaporan','avgDone'));
         // return view('welcome2')
         //     ->with([
         //         'arr' => $arr

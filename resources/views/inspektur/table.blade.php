@@ -14,7 +14,7 @@
         </thead>
         <tbody>
         @foreach($aduans as $aduan)
-            <tr class="{{$aduan->status==1?'table-success':'table-warning'}}">
+            <tr class={{($aduan->status==3)?'table-success':(($aduan->status==4)?'table-warning':'table-danger')}}>
                 <td>{{ $aduan->jenisAduan->name }}</td>
                 <td>{{ $aduan->nama_terlapor }}</td>
                 <td><a href="{{ route('aduans.download', ['name'=>'bukti','id'=>$aduan->id]) }}" class='btn btn-default btn-xs'>
@@ -30,7 +30,7 @@
                 <td>{{ $aduan->instansi_terlapor }}</td>
                 <td>{{ $aduan->unit_terlapor }}</td>
                 <td>{{ $aduan->kota_terlapor }}</td> --}}
-                <td>{{ $aduan->status==1?'Disetujui':($aduan->status==2?'Ditolak':'Belum di validasi') }}</td>
+                <td>{{ $aduan->status==3?'Disetujui':($aduan->status==4?'Ditolak':'Belum di validasi') }}</td>
                 {{-- <td>
                     <button type="button" class="btn {{$aduan->status==1?'btn-success':'btn-warning'}}" data-toggle="modal" data-target=".form-verifikator" {{$aduan->status==1?'disabled':''}}>{{$aduan->status==1?'Tervalidasi':'validasi'}}</button>
                     <a href="{{ route('aduans.verif', [$aduan->id]) }}" class='btn {{$aduan->status==1?'btn-success':'btn-warning'}} btn-xs'>

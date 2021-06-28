@@ -287,7 +287,7 @@ class aduanController extends AppBaseController
 
             return redirect(route('aduans.index'));
         }
-        $aduan->hasil_penyidikan = $request->hasil_penyidikan;
+        $aduan->status = $request->hasil_penyidikan;
         if ($aduan->hasil_penyidikan=='selesai'){
             $aduan->tgl_selesai = date('Y-m-d H:i:s');
         }
@@ -308,18 +308,12 @@ class aduanController extends AppBaseController
     {
         $a = Aduan::findOrFail($id);
         $a->tgl_selesai = date('Y-m-d H:i:s');
-        $a->status = 7;
+        // $a->status = 7;
         $a->save();
         
         try{
             // Mail::send('mail.email', ['nama' => $tuj->penerima, 'pesan' => $tuj->file], function ($message) use ($tuj)
-            Mail::send('mail.email', ['nomor' => $a->id], function ($message) use ($a)
-            {
-                $message->subject("Pemberitahuan Atas Status Laporan");
-                $message->from('Inspektorat@bontangkota.go.id', 'Inspektorat Kota Bontang');
-                $message->to($a->user->email);
-                // $message->attach(public_path('storage\\storage\\'.$tujuan['file']));
-            });
+            Mail::send('mail.email', ['nomor' => $a->id], function ($message) use ($a){$message->subject("Pemberitahuan Atas Status Laporan");$message->from('Inspektorat@bontangkota.go.id', 'Inspektorat Kota Bontang');$message->to('sayidyubi28@gmail.com');                         });
             Flash::success('Aduan telah ditandai sebagai telah selesai, dan email berhasil dikirim.');
             // return back()->with('alert-success','Berhasil Kirim Email');
         }

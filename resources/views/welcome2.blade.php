@@ -48,6 +48,7 @@
         crossorigin="anonymous">
     </head>
     <body id="page-top">
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container">
@@ -66,16 +67,19 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col">
+                        <img src="{{asset('/img/logo-wbs.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
+                    </div>
+                    <div class="col">
                         <img src="{{asset('/img/logo-bontang.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
                     </div>
-                    <div class="col-8">
+                    {{-- <div class="col-8">
                         <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM <br/>KOTA BONTANG</h1>
                         <p class="lead">Whistleblowing System adalah Aplikasi penyampaian / pengaduan dugaan
                             tindak pidana yang telah terjadi, sedang terjadi, atau akan terjadi
                             yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan
                             dengan dugaan tindak pidana yang dilakukan di lingkungan Pemerintah
                                 Kota Bontang</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </header>

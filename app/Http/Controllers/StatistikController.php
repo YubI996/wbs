@@ -48,10 +48,6 @@ class StatistikController extends Controller
                 $status="Proses Verifikasi";
                 break;
             
-            case 2||4:
-                $status="Tidak Ditindaklanjuti";
-                break;
-            
             case 3:
                 $status="Proses Pemeriksaan";
                 break;
@@ -67,7 +63,11 @@ class StatistikController extends Controller
             case 7:
                 $status="Selesai";
                 break;
-
+                
+            case 2||4:
+                $status="Tidak Ditindaklanjuti";
+                break;
+                
             default:
                 $status='Proses Verifikasi';
                 break;
