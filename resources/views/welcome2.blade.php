@@ -3,11 +3,11 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{{ config('app.name') }} | Selamat Datang</title>
-        {{-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> --}}
+        <link rel="icon" type="image/x-icon" href={{asset('wbs-favico.png')}} />
         <!-- Core theme CSS (includes Bootstrap)-->
         @include('layouts.css')
         {{-- custom css --}}
@@ -38,8 +38,36 @@
             .download {
                 margin: 5%;
             }
+            img{
+                width: 50%;
+                height: auto;
+            }
+            
+
+            @media screen and (min-width: 601px) {//601px and more 
+                h5.title{
+                    width: auto;
+                    font-size:40px;
+                }
+                p.card-text{
+                    width: auto;
+                    font-size:20px;
+                }
+            }
+            @media screen and (max-width: 600px) {//600px and less 
+                h5 .title{
+                    width: auto;
+                    font-size:2.5vw;
+                }
+                p.card-text{
+                    width: auto;
+                    font-size:2.5vw;
+                }
+            }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
+        {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" --}}
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"
         integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg=="
         crossorigin="anonymous"></script>
@@ -64,13 +92,13 @@
             </div>
         </nav>
         <header class="bg-primary text-white">
-            <div class="container text-center">
-                <div class="row">
+            <div class="container text-center container-fluid">
+                <div class= "row">
                     <div class="col">
-                        <img src="{{asset('/img/logo-wbs.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
+                        <img src="{{asset('/img/logo-wbs.png')}}" alt="Logo-Kota-Bontang" srcset="">
                     </div>
                     <div class="col">
-                        <img src="{{asset('/img/logo-bontang.png')}}" width="250px" height="300px" alt="Logo-Kota-Bontang" srcset="">
+                        <img src="{{asset('/img/logo-bontang.png')}}" alt="Logo-Kota-Bontang" srcset="">
                     </div>
                     {{-- <div class="col-8">
                         <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM <br/>KOTA BONTANG</h1>
@@ -87,29 +115,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <div class="card bayang1" style="width: 18rem;">
+                        <div class="card bayang1" height="100%">
                             <div class="card-body">
-                                <h5 class="card-title">Kriteria <strong class="biru">Pengaduan</strong></h5><br>
-                                <p class="card-text">Pangaduan Anda akan mudah ditindaklanjuti apabila memenuhi unsur sebagai<a href="#" class="card-link" data-toggle="modal" data-target="#kriteria"> berikut :</a></p>
+                                <p class="card-title"><h5 class="title">Kriteria <strong class="biru">Pengaduan</strong></h5></p><br>
+                                <p class="card-text"   >Pengaduan Anda akan mudah ditindaklanjuti apabila memenuhi unsur sebagai<a href="#" class="card-link" data-toggle="modal" data-target="#kriteria"> berikut :</a></p>
                                 <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#kriteria"><i class="fas fa-arrow-right"></i></a>
                                 </div>
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="card bayang2" style="width: 18rem;">
+                        <div class="card bayang2" height="100%">
                             <div class="card-body">
-                                <h5 class="card-title">Kirim <strong class="hijau">Pengaduan</strong></h5><br>
-                                <p class="card-text">Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik.</p>
+                                <p class="card-title"><h5 class="title">Kirim <strong class="hijau">Pengaduan</strong></h5></p><br>
+                                <p class="card-text"   >Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik.</p>
                                 <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
                                 
                             </div>
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="card bayang3" style="width: 18rem;">
+                        <div class="card bayang3" height="100%">
                             <div class="card-body">
-                                <h5 class="card-title">Kerahasiaan <strong class="kuning">Pelapor</strong></h5><br>
-                                <p class="card-text">Inspektorat merahasiakan identitas pribadi Anda sebagai pelapor(Whistleblower).</p>
+                                <p class="card-title"><h5 class="title">Kerahasiaan <strong class="kuning">Pelapor</strong></h5></p><br>
+                                <p class="card-text"   >Inspektorat merahasiakan identitas pribadi Anda sebagai pelapor(Whistleblower).</p>
                                 <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#rahasia"><i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>

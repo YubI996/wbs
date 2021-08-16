@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Aduans</h1>
+                    <h1>Aduan</h1>
                 </div>
                 @if (Auth::user()->role_id==4)
                     <div class="col-sm-6">

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use Flash;
+// use Flash;
 use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -40,7 +40,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
-    Flash::success('Link verifikasi telah dikirim.');
+    // Flash::success('Link verifikasi telah dikirim.');
     return back();
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
