@@ -12,58 +12,7 @@
         @include('layouts.css')
         {{-- custom css --}}
         <style>
-            .myButton {
-                box-shadow: 0px 10px 14px -7px #9fb4f2;
-                background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-                background-color:#7892c2;
-                border-radius:8px;
-                display:inline-block;
-                cursor:pointer;
-                color:#ffffff;
-                font-family:Arial;
-                font-size:20px;
-                font-weight:bold;
-                padding:0px 35px;
-                text-decoration:none;
-                text-shadow:0px 1px 0px #283966;
-            }
-            .myButton:hover {
-                background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-                background-color:#476e9e;
-            }
-            .myButton:active {
-                position:relative;
-                top:1px;
-            }
-            .download {
-                margin: 5%;
-            }
-            img{
-                width: 50%;
-                height: auto;
-            }
-            
 
-            @media screen and (min-width: 601px) {//601px and more 
-                h5.title{
-                    width: auto;
-                    font-size:40px;
-                }
-                p.card-text{
-                    width: auto;
-                    font-size:20px;
-                }
-            }
-            @media screen and (max-width: 600px) {//600px and less 
-                h5 .title{
-                    width: auto;
-                    font-size:2.5vw;
-                }
-                p.card-text{
-                    width: auto;
-                    font-size:2.5vw;
-                }
-            }
         </style>
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles2.css') }}" />
         {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" --}}
@@ -76,14 +25,33 @@
         crossorigin="anonymous">
     </head>
     <body id="page-top">
-        
+
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <nav class="navbar navbar-expand-lg bg-grad fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Whistle Blowing System</a>
+                <div class="row">
+                    <div class="col">
+
+                        <img src="{{asset('/img/kutim.png')}}" height="40rem" width="40rem" alt="logo_Kutim">
+                    </div>
+                    <div class="col">
+
+                        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <strong> Inspektorat Daerah Kabupaten Kutai Timur</strong></a>
+                    </div>
+                </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
+                        <div class="btn-group">
+                            <li class="nav-item">
+                                <a href="" class="nav-link js-scroll-trigger  dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profiles</a>
+                                <div class="dropdown-menu">
+                                    <a href="{{url('/profil_itda')}}" class="nav-link js-scroll-trigger dropdown-item">Inspektorat</a>
+                                    <a href="{{url('/profil_inspektur')}}" class="nav-link js-scroll-trigger dropdown-item">Inspektur</a>
+                                </div>
+                            </li>
+                        </div>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/login')}}">Login</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{url('/register')}}">Register</a></li>
                         {{-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li> --}}
@@ -91,15 +59,19 @@
                 </div>
             </div>
         </nav>
-        <header class="bg-primary text-white">
+        <header class="bg-kutim text-white">
             <div class="container text-center container-fluid">
-                <div class= "row">
+                <div class= "row justify-content-between">
                     <div class="col">
-                        <img src="{{asset('/img/logo-wbs.png')}}" alt="Logo-Kota-Bontang" srcset="">
+                        <img class="" height="80%" width="80%" src="{{asset('/img/kutim.png')}}" alt="Logo-Kutim" srcset="">
                     </div>
                     <div class="col">
-                        <img src="{{asset('/img/logo-bontang.png')}}" alt="Logo-Kota-Bontang" srcset="">
+                        <img class="" height="85%" width="120%" src="{{asset('/img/bupati.png')}}" alt="foto-bupati" srcset="">
                     </div>
+                    <div class="col">
+                        <img class="mx-4" height="77%" width="80%" src="{{asset('/img/yasrin.png')}}" alt="foto-ysrn" srcset="">
+                    </div>
+
                     {{-- <div class="col-8">
                         <h1>SELAMAT DATANG DI  WHISTLEBLOWING SYSTEM <br/>KOTA BONTANG</h1>
                         <p class="lead">Whistleblowing System adalah Aplikasi penyampaian / pengaduan dugaan
@@ -107,262 +79,56 @@
                             yang melibatkan Aparatur Sipil Negara dan/atau Pejabat Lain yang berkaitan
                             dengan dugaan tindak pidana yang dilakukan di lingkungan Pemerintah
                                 Kota Bontang</p>
+                    </div> --}
+                </di> --}}
+            </div>
+        </header>
+        <section id="front" class="bg-green text-black-50">
+            <div class="container">
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-primary">Berita</strong>
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="{{url('/berita')}}">Sosialisasi Peraturan KPK</a>
+                                </h3>
+                                <div class="mb-1 text-muted">Sept 2020</div>
+                                <p class="card-text mb-auto">Menindaklanjuti telah terbitnya Peraturan Komisi Pemberantasan Korupsi, Direktorat Pendaftaran dan Pemeriksaan LHKPN mengadakan sosialisasi melalui media daring.</p>
+                                <a href="{{url('/berita')}}">Lanjutkan Membaca</a>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                                alt="Thumbnail [200x250]"
+                                src="{{asset('/img/biruD34.jpg')}}"
+                                style="max-height: 100%; object-fit: contain"
+                                {{-- src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17b9ebcad72%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17b9ebcad72%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" --}}
+                                data-holder-rendered="true">
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-6">
+                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <strong class="d-inline-block mb-2 text-success">Design</strong>
+                                <h3 class="mb-0">
+                                    <a class="text-dark" href="https://getbootstrap.com/docs/4.0/examples/blog/#">Post title</a>
+                                </h3>
+                                <div class="mb-1 text-muted">Nov 11</div>
+                                <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content.</p>
+                                <a href="https://getbootstrap.com/docs/4.0/examples/blog/#">Continue reading</a>
+                            </div>
+                            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                                alt="Thumbnail [200x250]"
+                                src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17b9ebcad75%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17b9ebcad75%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.1953125%22%20y%3D%22131%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                                data-holder-rendered="true" style="width: 200px; height: 250px;">
+                        </div>
                     </div> --}}
                 </div>
             </div>
-        </header>
-        <section id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="card bayang1" height="100%">
-                            <div class="card-body">
-                                <p class="card-title"><h5 class="title">Kriteria <strong class="biru">Pengaduan</strong></h5></p><br>
-                                <p class="card-text"   >Pengaduan Anda akan mudah ditindaklanjuti apabila memenuhi unsur sebagai<a href="#" class="card-link" data-toggle="modal" data-target="#kriteria"> berikut :</a></p>
-                                <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#kriteria"><i class="fas fa-arrow-right"></i></a>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card bayang2" height="100%">
-                            <div class="card-body">
-                                <p class="card-title"><h5 class="title">Kirim <strong class="hijau">Pengaduan</strong></h5></p><br>
-                                <p class="card-text"   >Melaporkan penerimaan gratifikasi secara tertulis melalui sarana elektronik.</p>
-                                <a href="{{url('/register')}}" class="card-link float-right"><i class="fas fa-arrow-right"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card bayang3" height="100%">
-                            <div class="card-body">
-                                <p class="card-title"><h5 class="title">Kerahasiaan <strong class="kuning">Pelapor</strong></h5></p><br>
-                                <p class="card-text"   >Inspektorat merahasiakan identitas pribadi Anda sebagai pelapor(Whistleblower).</p>
-                                <a href="#" class="card-link float-right"  data-toggle="modal" data-target="#rahasia"><i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row-1">
-                    <center>
-                    <form id="search">
-                        <label for="nomor">Nomor Aduan:</label><br>
-                        <input type="text" id="n" name="n" value="{{old('n')}}">
-                        <input type="submit" value="Submit" class="myButton" id="button"><br>
-                        {{-- <h5 id="hasil" class="hasil"></h5> --}}
-                    </form>
-                    @php
-                        if (isset($_GET["n"])){
-                        $nomor =  htmlspecialchars($_GET["n"]);
-                        }
-                        else{$nomor=null;}
-                    @endphp
-                    
-                    <div class="hasil" style="text-align: center;">
-                        
-                        @if (isset($nomor) && isset($datas[$nomor]))
-                            <h5>Aduan dengan nomor registrasi: {{ $nomor}}, saat ini berstatus: {{$datas[$nomor]}}</h5>
-                        @else
-                            @if (! isset($nomor)) 
-                                {{""}}
-                            @else
-                                <h5> Nomor registrasi {{$nomor}} tidak ditemukan</h5>
-                            @endif
-                        @endif
-                        
-                    </div>
-                    <div class="download">
-                        <a href="{{asset('/docs/manual book wbs-pengadu.pdf')}}" download>
-                            <button class="myButton"><i class="fa fa-download"></i> Manual Book</button>
-                        </a>
-                    </div>
-                </center>
-                </div>
-            </div>
         </section>
-
-        <section  id="penjelasan" class="bg-primary text-white"> 
-            <div class="container">
-                <div style="align-content: center">
-                <h2>Kirim Pengaduan</h2></div>
-                <div>
-                    <ol>
-                        <li>Klik tombol "Login", lalu isikan Username dan password Anda.</li>
-                        <li>Jika Anda belum terdaftar, klik tombol "Register" dan
-                            isikan data diri Anda lalu klik tombol "Register,<br />
-                            maka Anda akan otomatis login ke Aplikasi.<br />
-                            <ul>
-                                <li>Buat <span style="font-weight: bold;">Nama
-                                    Samaran (Username) </span>dan <span
-                                    style="font-weight: bold;">Kata Sandi (password) </span>yang
-                                    Anda ketahui sendiri.</li>
-                                <li style="font-weight: bold;">Gunakan nama yang
-                                    unik dan tidak menggambarkan
-                                    identitas Anda</li>
-                            </ul>
-                        </li>
-                        <li>Klik Menu "Pengaduan" untuk menambahkan pengaduan baru.</li>
-                        <li>Klik Tombol "Tambah" untuk merekam pengaduan baru.</li>
-                        <li>Isi form "Tambah Pengaduan" sesuai informasi yang Anda
-                            ketahui, jangan lupa untuk menyertakan file bukti(dapat berbentuk foto
-                            atau dokumen lain), lalu klik tombol "Submit"</li>
-                        <li>Perhatikan baik-baik beberapa hal di bawah ini:
-                            <ul style="font-weight: bold;">
-                                <li>Pastikan informasi yang diberikan sedapat mungkin
-                                    memenuhi unsur&nbsp;5W
-                                    + 1H.</li>
-                                </ul>
-                        </li>
-                        <li>Setelah itu Anda akan dibawa kembali ke halaman "Aduan"
-                            dimana Anda dapat melihat aduan yang sudah anda buat.</li>
-                        <li><span style="font-weight: bold;">Setiap aduan
-                            yang telah
-                            terdaftar memiliki nomor registrasi, Anda dapat menggunakan nomor
-                            registrasi ini untuk memonitor status/tindak lanjut pengaduan yang Anda
-                            sampaikan.</span></li>
-                        <li><span style="font-weight: bold;">Apabila
-                            pengaduan yang Anda sampaikan
-                            belum memenuhi kriteria untuk ditindaklanjuti</span><span
-                            style="font-weight: bold;">, Inspektorat
-                            Kota Bontang akan menghubungi Anda melalui nomor HP yang telah Anda
-                            cantumkan dalam Form Pendaftaran.</span></li>
-                    </ol>
-                </div>
-                
-
-            </div>
-            
-                
-
-        </section>
-            <div class="container">
-        <div class="row">
-            <div class="col mt-5">
-                <div class="card">
-                    <div class="card-header"><i class="fa fa-download" aria-hidden="true"></i>  Total Laporan Masuk</div>
-                    <div class="card-body justify-content-start"> {{$totalLaporan}} </div>
-                </div>
-            </div>
-            <div class="col mt-5">
-                <div class="card">
-                    <div class="card-header"><i class="fa fa-clock" aria-hidden="true"></i>  Rata-rata Durasi Penyelesaian</div>
-                    <div class="card-body">{{$avgDone}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>  Jumlah Laporan PerBulan Tahun {{date('   Y')}}
-                    </div>
-                    <div class="card-body">
-                        {{-- <blockquote class="blockquote mb-0"> --}}
-                        <div style="width:100%;">
-                            {!! $lineChart->render() !!}
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col my-6">
-                
-                <div class="card">
-                    <div class="card-header">
-                        Laporan Berdasarkan Jenis Pelanggaran
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            {!! $barChart->render() !!}
-                        </div>
-                    </div>
-                </div>   
-            </div>
-            <div class="col my-6">
-                <div class="card">
-                    <div class="card-header">
-                        Laporan Berdasarkan Status
-                    </div>
-                    <div class="card-body">
-                        <div>
-                            {!! $pieChart->render() !!}
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-            
-        
-    </div
-        <section>
-
-        </section>
-        {{-- Modals --}}
-        {{-- kriteria --}}
-        <div class="modal fade" id="kriteria" tabindex="-1" role="dialog" aria-labelledby="kriteriaLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="kriteriaLabel">Kriteria <strong class="biru">Pengaduan</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                    <p>Pengaduan Anda akan mudah ditindak lanjuti apabila memenuhi unsur sebagai berikut :</p> 
-                    <ol>
-                        <li>
-                            What        : Apa masalah yang diadukan.
-                        </li>
-                        <li>
-                            Who     : Siapa pihak yang bertanggung jawab.
-                        </li>
-                        <li>
-                            Where       : Di mana lokasi kejadian.
-                        </li>
-                        <li>
-                            When        : Kapan waktu kejadian.
-                        </li>
-                        <li>
-                            Why     : Mengapa penyimpangan terjadi.
-                        </li>
-                        <li>
-                            How     : Bagaimana modus penyimpangan.
-                        </li>
-                    </ol>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="rahasia" tabindex="-1" role="dialog" aria-labelledby="rahasiaLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="rahasiaLabel">Kerahasiaan <strong class="kuning">Pelapor</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                </div>
-                <div class="modal-body">
-                    <h4> <p>Pemerintah Kota Bontang akan merahasiaskan identitas pribadi anda sebagai Whistleblower karena hanya fokus pada informasi yang Anda laporkan.</p></h4> 
-                    <h4> <p> Whistleblower dalam menyampaikan pengaduan berhak mendapakan perlindungan dan penghargaan.</p></h4> 
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>
-                </div>
-                </div>
-            </div>
-        </div>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Pemkot Bontang 2021</p></div>
+        <footer class="footer bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PemKab Kutai Timur 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -376,8 +142,8 @@
         $('#myModal').on('shown.bs.modal', function () {
           $('#myInput').trigger('focus')
         })
-        
+
         </script>
-        
+
     </body>
 </html>
