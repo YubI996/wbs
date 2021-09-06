@@ -36,7 +36,7 @@
                     </div>
                     <div class="col">
 
-                        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <strong> Inspektorat Daerah Kabupaten Kutai Timur</strong></a>
+                        <a class="navbar-brand js-scroll-trigger" href="/"> <strong> Inspektorat Daerah Kabupaten Kutai Timur</strong></a>
                     </div>
                 </div>
 
@@ -67,28 +67,23 @@
         <section id="front" class="bg-green text-black-50">
             <main role="main" class="container bg-white">
         <div class="row">
-            <div class="col-md-8 blog-main">
+            <div class="col-md-12 blog-main">
                 <h3 class="pb-3 mb-4 font-italic border-bottom">
-                    From the Firehose
+                    Berita
                 </h3>
 
                 <div class="blog-post">
-                    <h2 class="blog-post-title">Sample blog post</h2>
-                    <p class="blog-post-meta">January 1, 2014 by <a
-                            href="https://getbootstrap.com/docs/4.0/examples/blog/#">Mark</a></p>
-
-                    <p>This blog post shows a few different types of content that's supported and styled with Bootstrap.
-                        Basic typography, images, and code are all supported.</p>
+                    <h2 class="blog-post-title">Sosialisasi Peraturan KPK Nomor 02 Tahun 2020 Wilayah Kalimantan Timur</h2>
+                    <p class="blog-post-meta">14 September 2020
                     <hr>
-                    <p>Cum sociis natoque penatibus et magnis <a
-                            href="https://getbootstrap.com/docs/4.0/examples/blog/#">dis parturient montes</a>, nascetur
-                        ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                        Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                    <blockquote>
+                    <p>Menindaklanjuti telah terbitnya Peraturan Komisi Pemberantasan Korupsi Nomor 02 Tahun 2020 tentang Perubahan Atas  Peraturan Komisi Pemberantasan Korupsi Nomor 07 Tahun 2016 tentang Tata Cara Pendaftaran, Pengumuman dan Pemeriksanaan Harta Kekayaan Penyelenggara Negara, Direktorat Pendaftaran dan Pemeriksaan LHKPN mengadakan sosialisasi peraturan tersebut melalui media daring pada hari Senin, tanggal 14 September 2020 pukul 09.30 s.d 11.30 Wita yang diikuti oleh seluruh Koordinator Pengelola LHKPN Kabupaten / Kota se Kalimantan Timur.</p>
+                    <embed src="{{asset('/docs/MATERI1.pdf')}}" type="application/pdf" width="100%" height="825em" />
+
+                    {{-- <blockquote>
                         <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong>
                             ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </blockquote>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
+                    </blockquote> --}}
+                    {{-- <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
                         fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                     <h2>Heading</h2>
                     <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non
@@ -157,18 +152,18 @@
                         fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                     <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
                     </p>
-                </div><!-- /.blog-post -->
+                </div><!-- /.blog-post --> --}}
 
-                <nav class="blog-pagination">
+                {{-- <nav class="blog-pagination">
                     <a class="btn btn-outline-primary"
                         href="https://getbootstrap.com/docs/4.0/examples/blog/#">Older</a>
                     <a class="btn btn-outline-secondary disabled"
                         href="https://getbootstrap.com/docs/4.0/examples/blog/#">Newer</a>
-                </nav>
+                </nav> --}}
 
             </div><!-- /.blog-main -->
 
-            <aside class="col-md-4 blog-sidebar">
+            {{-- <aside class="col-md-4 blog-sidebar">
                 <div class="p-3 mb-3 bg-light rounded">
                     <h4 class="font-italic">About</h4>
                     <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur
@@ -201,14 +196,14 @@
                         <li><a href="https://getbootstrap.com/docs/4.0/examples/blog/#">Facebook</a></li>
                     </ol>
                 </div>
-            </aside><!-- /.blog-sidebar -->
+            </aside><!-- /.blog-sidebar --> --}}
 
         </div><!-- /.row -->
 
     </main><!-- /.container -->
         </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="footer bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PemKab Kutai Timur 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
